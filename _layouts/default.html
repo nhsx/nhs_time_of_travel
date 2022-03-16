@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+
+    <title>Number of Patients Registered at GP Practices in London</title>
+
+    <link
+      type="font/woff2"
+      href="{{ "/assets/fonts/FrutigerLTW01-55Roman.woff2" | relative_url }}"
+      rel="preload"
+      as="font"
+      crossorigin
+    />
+    <link
+      type="font/woff2"
+      href="{{ "/assets/fonts/FrutigerLTW01-65Bold.woff2" | relative_url }}"
+      rel="preload"
+      as="font"
+      crossorigin
+    />
+
+    <link href="{{ "/assets/nhsuk.css" | relative_url }}" rel="stylesheet" />
+
+    <script src="{{  "/assets/nhsuk.js" | relative_url }}" defer></script>
+
+    <link
+      rel="shortcut icon"
+      href="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <link
+      rel="mask-icon"
+      href="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+      color="#005eb8"
+    />
+    <link
+      rel="icon"
+      sizes="192x192"
+      href="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <meta name="msapplication-TileColor" content="#005eb8" />
+    <meta
+      name="msapplication-square70x70logo"
+      content="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <meta
+      name="msapplication-square150x150logo"
+      content="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <meta
+      name="msapplication-wide310x150logo"
+      content="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <meta
+      name="msapplication-square310x310logo"
+      content="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+
+    <meta property="og:url" content="/" />
+    <meta property="og:title" content="Open Analytics" />
+    <meta
+      property="og:description"
+      content="Open Source Analytics"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="{{  "/assets/favicons/iconfinder_Rubics_Cube.svg" | relative_url }}"
+    />
+    <meta property="og:image:alt" content="OPEN ANALYTICS" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="" />
+    <meta name="twitter:creator" content="" />
+  </head>
+
+  <body class="">
+    <script>
+      document.body.className = document.body.className
+        ? document.body.className + " js-enabled"
+        : "js-enabled";
+    </script>
+
+    <a class="nhsuk-skip-link" href="#maincontent">Skip to main content</a>
+
+    <header class="nhsuk-header nhsuk-header--logo-only" role="banner">
+      <div class="nhsuk-width-container nhsuk-header__container">
+        <div class="nhsuk-header__logo">
+          <a
+            class="nhsuk-header__link nhsuk-header__link--service"
+            href="https://github.com/nhsx/open-analytics-template"
+            aria-label="Template"
+          >
+            <img height="40" alt="Logo" src="{{  "/assets/icons/iconfinder-icon.svg" | relative_url }}">
+            <span class="nhsuk-header__service-name">OPEN ANALYTICS</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="nhsuk-warning-disclaimer">
+      <p><b>Disclaimer:</b> The following webpage is an analytical project focused on showcasing what can 
+        be done with the python programming language and open access NHS data. It is not an official policy site.</p>
+    </div>
+
+    <div class="nhsuk-width-container">
+      <main class="nhsuk-main-wrapper" id="maincontent">
+        <div class="nhsuk-grid-row">
+          <div class="nhsuk-grid-column-full">{{ content }}</div>
+        </div>
+      </main>
+    </div>
+
+    <footer role="contentinfo">
+      <div class="nhsuk-footer" id="nhsuk-footer">
+        <div class="nhsuk-width-container">
+          <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+          <ul class="nhsuk-footer__list">
+            <li class="nhsuk-footer__list-item">
+              Developed by
+              <a
+                class="nhsuk-footer__list-item-link"
+                href="{{ site.github.owner_url }}"
+                >Mattia Ficarelli</a
+              >
+            </li>
+            <li class="nhsuk-footer__list-item">
+              View the Project on
+              <a
+                class="nhsuk-footer__list-item-link"
+                href="{{ site.github.repository_url }}"
+                >GitHub</a
+              >
+            </li>
+          </ul>
+
+          <p class="nhsuk-footer__copyright">&copy; MIT</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

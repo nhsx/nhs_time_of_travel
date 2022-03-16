@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_139758395337488f927986d2f7669187 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_139758395337488f927986d2f7669187" ></div>
+        
+</body>
+<script>    
+    
+            var map_139758395337488f927986d2f7669187 = L.map(
+                "map_139758395337488f927986d2f7669187",
+                {
+                    center: [52.21, 0.15],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bc6cda80eff94a5fa4341816cf4c813c = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var marker_88c88d72ee92421ab069eff070112b95 = L.marker(
+                [52.1984318, 0.1244819945723581],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_1753cec1a4614cf498adc63a3aa0535f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_88c88d72ee92421ab069eff070112b95.setIcon(icon_1753cec1a4614cf498adc63a3aa0535f);
+        
+    
+        var popup_653584aeb6674e79a7026428ecbe346e = L.popup({"maxWidth": 1060});
+
+        
+            var html_79b16d428de9458ebe6c16e5eb4e9888 = $(`<div id="html_79b16d428de9458ebe6c16e5eb4e9888" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Lensfield Medical Practice<br><b>GP Practice Code: </b>D81001<br><b>Address: </b>48 Lensfield Road, Cambridge, Cambridgeshire, CB2 1EH<br><b>Telephone Number: </b>01223 651020<br></div>`)[0];
+            popup_653584aeb6674e79a7026428ecbe346e.setContent(html_79b16d428de9458ebe6c16e5eb4e9888);
+        
+
+        marker_88c88d72ee92421ab069eff070112b95.bindPopup(popup_653584aeb6674e79a7026428ecbe346e)
+        ;
+
+        
+    
+    
+            var marker_ee0043f9f9474605a57b5cbfddee5d28 = L.marker(
+                [52.21427136666667, 0.1100022428530129],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_155ea5bd01f44b96be49a22ff6bbdb37 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_ee0043f9f9474605a57b5cbfddee5d28.setIcon(icon_155ea5bd01f44b96be49a22ff6bbdb37);
+        
+    
+        var popup_9e92b06786534412a1b211a006291192 = L.popup({"maxWidth": 760});
+
+        
+            var html_b5a31f68e7364b269568fd51d374567e = $(`<div id="html_b5a31f68e7364b269568fd51d374567e" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Huntingdon Road Surgery<br><b>GP Practice Code: </b>D81002<br><b>Address: </b>1 Huntingdon Road, Cambridge,  CB3 0DB<br><b>Telephone Number: </b>01223 364127<br></div>`)[0];
+            popup_9e92b06786534412a1b211a006291192.setContent(html_b5a31f68e7364b269568fd51d374567e);
+        
+
+        marker_ee0043f9f9474605a57b5cbfddee5d28.bindPopup(popup_9e92b06786534412a1b211a006291192)
+        ;
+
+        
+    
+    
+            var marker_ab1145abecb74402b3fd6f3484180a1f = L.marker(
+                [52.20542264268294, 0.141534333101005],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_37c5d4ace00740858fd0cdc2a1b8cba4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_ab1145abecb74402b3fd6f3484180a1f.setIcon(icon_37c5d4ace00740858fd0cdc2a1b8cba4);
+        
+    
+        var popup_2cf1c10aca50420b8d02d14c7fefa657 = L.popup({"maxWidth": 1100});
+
+        
+            var html_41afab8028f0477eae7af409c72014e8 = $(`<div id="html_41afab8028f0477eae7af409c72014e8" style="width: 100.0%; height: 100.0%;"><b>Name: </b>York Street Medical Practice<br><b>GP Practice Code: </b>D81003<br><b>Address: </b>146-148 York Street, Cambridge, Cambridgeshire, CB1 2PY<br><b>Telephone Number: </b>01223 364116<br></div>`)[0];
+            popup_2cf1c10aca50420b8d02d14c7fefa657.setContent(html_41afab8028f0477eae7af409c72014e8);
+        
+
+        marker_ab1145abecb74402b3fd6f3484180a1f.bindPopup(popup_2cf1c10aca50420b8d02d14c7fefa657)
+        ;
+
+        
+    
+    
+            var marker_6d69e21f075d4b108ca10e0fde21be99 = L.marker(
+                [52.19935475, 0.1105268058632455],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_41b1f2f3a3084133aa7fba18ae974184 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_6d69e21f075d4b108ca10e0fde21be99.setIcon(icon_41b1f2f3a3084133aa7fba18ae974184);
+        
+    
+        var popup_d143657761b94d00ad8869a86cfbb35b = L.popup({"maxWidth": 1040});
+
+        
+            var html_58c54428b4de481eb20062ad998eba85 = $(`<div id="html_58c54428b4de481eb20062ad998eba85" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Newnham Walk Surgery<br><b>GP Practice Code: </b>D81005<br><b>Address: </b>Wordsworth Grove, Cambridge, Cambridgeshire, CB3 9HS<br><b>Telephone Number: </b>01223 366811<br></div>`)[0];
+            popup_d143657761b94d00ad8869a86cfbb35b.setContent(html_58c54428b4de481eb20062ad998eba85);
+        
+
+        marker_6d69e21f075d4b108ca10e0fde21be99.bindPopup(popup_d143657761b94d00ad8869a86cfbb35b)
+        ;
+
+        
+    
+    
+            var marker_1f7d4f69c55b4b3aa764853480d53e51 = L.marker(
+                [52.18593757115384, 0.157111013198643],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_b366b817a71f42018bedd3cfae7f0b2b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_1f7d4f69c55b4b3aa764853480d53e51.setIcon(icon_b366b817a71f42018bedd3cfae7f0b2b);
+        
+    
+        var popup_b09adecd343a4a91a0b1d247d4ba626f = L.popup({"maxWidth": 1160});
+
+        
+            var html_a5b39c9559134fcabe00a4bdbff7dd42 = $(`<div id="html_a5b39c9559134fcabe00a4bdbff7dd42" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Cornford House Surgery<br><b>GP Practice Code: </b>D81012<br><b>Address: </b>364 Cherry Hinton Road, Cambridge, Cambridgeshire, CB1 8BA<br><b>Telephone Number: </b>01223 247505<br></div>`)[0];
+            popup_b09adecd343a4a91a0b1d247d4ba626f.setContent(html_a5b39c9559134fcabe00a4bdbff7dd42);
+        
+
+        marker_1f7d4f69c55b4b3aa764853480d53e51.bindPopup(popup_b09adecd343a4a91a0b1d247d4ba626f)
+        ;
+
+        
+    
+    
+            var marker_802c2561fc5b427c8703ef1a37d97389 = L.marker(
+                [52.20246169166666, 0.1179415857563406],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_b250bea7fec14a62aeb0b3db02276231 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_802c2561fc5b427c8703ef1a37d97389.setIcon(icon_b250bea7fec14a62aeb0b3db02276231);
+        
+    
+        var popup_fe871bab1ec84baa9053eee7684cddbf = L.popup({"maxWidth": 1140});
+
+        
+            var html_765343ea4dec429592c5a920005d297c = $(`<div id="html_765343ea4dec429592c5a920005d297c" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Trumpington Street Medical Practice<br><b>GP Practice Code: </b>D81013<br><b>Address: </b>56 Trumpington Street, Cambridge, Cambridgeshire, CB2 1RG<br><b>Telephone Number: </b>01223 361611<br></div>`)[0];
+            popup_fe871bab1ec84baa9053eee7684cddbf.setContent(html_765343ea4dec429592c5a920005d297c);
+        
+
+        marker_802c2561fc5b427c8703ef1a37d97389.bindPopup(popup_fe871bab1ec84baa9053eee7684cddbf)
+        ;
+
+        
+    
+    
+            var marker_0de2a0c4a97b4c38a0554e41a5ad04ef = L.marker(
+                [52.22582185, 0.1281393499999941],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_508eac1084a94b60a0a0010d9c40b06b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_0de2a0c4a97b4c38a0554e41a5ad04ef.setIcon(icon_508eac1084a94b60a0a0010d9c40b06b);
+        
+    
+        var popup_9d2649150d3948b08d7584b4a8af6593 = L.popup({"maxWidth": 1020});
+
+        
+            var html_077a5b97709f4d3ab8165e8bc7abc057 = $(`<div id="html_077a5b97709f4d3ab8165e8bc7abc057" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Arbury Road Surgery<br><b>GP Practice Code: </b>D81016<br><b>Address: </b>114 Arbury Road, Cambridge, Cambridgeshire, CB4 2JG<br><b>Telephone Number: </b>01223 364433<br></div>`)[0];
+            popup_9d2649150d3948b08d7584b4a8af6593.setContent(html_077a5b97709f4d3ab8165e8bc7abc057);
+        
+
+        marker_0de2a0c4a97b4c38a0554e41a5ad04ef.bindPopup(popup_9d2649150d3948b08d7584b4a8af6593)
+        ;
+
+        
+    
+    
+            var marker_3d1f855284824939b0e3f9169ce326bc = L.marker(
+                [52.1971563, 0.150585],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_8314b496684d42c5b1b60f65ad9a05da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_3d1f855284824939b0e3f9169ce326bc.setIcon(icon_8314b496684d42c5b1b60f65ad9a05da);
+        
+    
+        var popup_332681d537db4bfa9f280f0ee08209df = L.popup({"maxWidth": 700});
+
+        
+            var html_f798dc4994ce4d7ba0ebd83e0a304cf6 = $(`<div id="html_f798dc4994ce4d7ba0ebd83e0a304cf6" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Mill Road Surgery<br><b>GP Practice Code: </b>D81017<br><b>Address: </b>Cambridge, Cambridgeshire,  CB1 3DG<br><b>Telephone Number: </b>01223 247812<br></div>`)[0];
+            popup_332681d537db4bfa9f280f0ee08209df.setContent(html_f798dc4994ce4d7ba0ebd83e0a304cf6);
+        
+
+        marker_3d1f855284824939b0e3f9169ce326bc.bindPopup(popup_332681d537db4bfa9f280f0ee08209df)
+        ;
+
+        
+    
+    
+            var marker_5721aba2ea9148c9a6b2d77e2d136ef7 = L.marker(
+                [52.18759842124166, 0.1776921179559278],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_fc9cf914603745f5ad236363d99cfade = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_5721aba2ea9148c9a6b2d77e2d136ef7.setIcon(icon_fc9cf914603745f5ad236363d99cfade);
+        
+    
+        var popup_c1f82c89397248e5b91c717634e330ac = L.popup({"maxWidth": 1000});
+
+        
+            var html_aeb5ef9703514bac969706e0709a4d74 = $(`<div id="html_aeb5ef9703514bac969706e0709a4d74" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Cherry Hinton Medical Centre<br><b>GP Practice Code: </b>D81025<br><b>Address: </b>34 Fishers Lane, Cherry Hinton, Cambridge, CB1 9HR<br><b>Telephone Number: </b>01223 652221<br></div>`)[0];
+            popup_c1f82c89397248e5b91c717634e330ac.setContent(html_aeb5ef9703514bac969706e0709a4d74);
+        
+
+        marker_5721aba2ea9148c9a6b2d77e2d136ef7.bindPopup(popup_c1f82c89397248e5b91c717634e330ac)
+        ;
+
+        
+    
+    
+            var marker_b79b173715e24e90873d1530391d09e2 = L.marker(
+                [52.20774177999999, 0.11885366],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_e35f128dc1364fb3a5a841a97cce09f4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_b79b173715e24e90873d1530391d09e2.setIcon(icon_e35f128dc1364fb3a5a841a97cce09f4);
+        
+    
+        var popup_b014b687c22840048bc95aba04041607 = L.popup({"maxWidth": 840});
+
+        
+            var html_b0651f796aee4fda9a90be9aec1eeaf5 = $(`<div id="html_b0651f796aee4fda9a90be9aec1eeaf5" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Bridge Street Medical Centre<br><b>GP Practice Code: </b>D81037<br><b>Address: </b>Passage,Off Bridge St, Cambridge,  CB2 3LS<br><b>Telephone Number: </b>01223 652671<br></div>`)[0];
+            popup_b014b687c22840048bc95aba04041607.setContent(html_b0651f796aee4fda9a90be9aec1eeaf5);
+        
+
+        marker_b79b173715e24e90873d1530391d09e2.bindPopup(popup_b014b687c22840048bc95aba04041607)
+        ;
+
+        
+    
+    
+            var marker_19121bc0b0884bb1b43645495b332081 = L.marker(
+                [52.225275209756106, 0.1527564632504133],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_046d6183863e4b568a69cb9fcab182f3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_19121bc0b0884bb1b43645495b332081.setIcon(icon_046d6183863e4b568a69cb9fcab182f3);
+        
+    
+        var popup_b98a195dea0e4b5789a49e9c75be4f2b = L.popup({"maxWidth": 980});
+
+        
+            var html_68ef6ced466c44f9b89f2e97b9029e01 = $(`<div id="html_68ef6ced466c44f9b89f2e97b9029e01" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Nuffield Road Medical Centre<br><b>GP Practice Code: </b>D81044<br><b>Address: </b>Nuffield Road, Cambridge, Cambridgeshire, CB4 1GL<br><b>Telephone Number: </b>01223 423424<br></div>`)[0];
+            popup_b98a195dea0e4b5789a49e9c75be4f2b.setContent(html_68ef6ced466c44f9b89f2e97b9029e01);
+        
+
+        marker_19121bc0b0884bb1b43645495b332081.bindPopup(popup_b98a195dea0e4b5789a49e9c75be4f2b)
+        ;
+
+        
+    
+    
+            var marker_10dd91fdba39447fab0300148bee76c8 = L.marker(
+                [52.2149548125, 0.1293199018343979],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_cd7b29ac129e4263b7d7ac5233c6776c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_10dd91fdba39447fab0300148bee76c8.setIcon(icon_cd7b29ac129e4263b7d7ac5233c6776c);
+        
+    
+        var popup_13b65eb3ed8543aabe0876d407d9f499 = L.popup({"maxWidth": 1080});
+
+        
+            var html_79e6f021e19c4123a93b84fcbf9886b8 = $(`<div id="html_79e6f021e19c4123a93b84fcbf9886b8" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Red House Surgery<br><b>GP Practice Code: </b>D81054<br><b>Address: </b>96 Chesterton Road, Cambridge, Cambridgeshire, CB4 1ER<br><b>Telephone Number: </b>01223 365555<br></div>`)[0];
+            popup_13b65eb3ed8543aabe0876d407d9f499.setContent(html_79e6f021e19c4123a93b84fcbf9886b8);
+        
+
+        marker_10dd91fdba39447fab0300148bee76c8.bindPopup(popup_13b65eb3ed8543aabe0876d407d9f499)
+        ;
+
+        
+    
+    
+            var marker_91c06561cc3f465da6fe83050c4bf29b = L.marker(
+                [52.20146851666667, 0.1338921083333333],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_44071d509adc4830baf6bb169cae10ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_91c06561cc3f465da6fe83050c4bf29b.setIcon(icon_44071d509adc4830baf6bb169cae10ae);
+        
+    
+        var popup_93b98222b33f4d72b99ba5eba3cd81a3 = L.popup({"maxWidth": 960});
+
+        
+            var html_61a9a24faf3a4be6860c3314d7587158 = $(`<div id="html_61a9a24faf3a4be6860c3314d7587158" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Petersfield Medical Practice<br><b>GP Practice Code: </b>D81056<br><b>Address: </b>25 Mill Road, Cambridge, Cambridgeshire, CB1 2AB<br><b>Telephone Number: </b>01223 350647<br></div>`)[0];
+            popup_93b98222b33f4d72b99ba5eba3cd81a3.setContent(html_61a9a24faf3a4be6860c3314d7587158);
+        
+
+        marker_91c06561cc3f465da6fe83050c4bf29b.bindPopup(popup_93b98222b33f4d72b99ba5eba3cd81a3)
+        ;
+
+        
+    
+    
+            var marker_d7907827484a4fe0a85ad10532dc3f5e = L.marker(
+                [52.17974306666667, 0.1509789734190989],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_3dc32c69ffc347faa562670545717e45 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_d7907827484a4fe0a85ad10532dc3f5e.setIcon(icon_3dc32c69ffc347faa562670545717e45);
+        
+    
+        var popup_f12787854cbc44bcac95799a3eee3081 = L.popup({"maxWidth": 820});
+
+        
+            var html_ec674884497d410ab1ba95080606d0b6 = $(`<div id="html_ec674884497d410ab1ba95080606d0b6" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Queen Edith Medical Practice<br><b>GP Practice Code: </b>D81066<br><b>Address: </b>59 Queen Edith'S Way, Cambridge,  CB1 8PJ<br><b>Telephone Number: </b>01223 247288<br></div>`)[0];
+            popup_f12787854cbc44bcac95799a3eee3081.setContent(html_ec674884497d410ab1ba95080606d0b6);
+        
+
+        marker_d7907827484a4fe0a85ad10532dc3f5e.bindPopup(popup_f12787854cbc44bcac95799a3eee3081)
+        ;
+
+        
+    
+    
+            var marker_02ecfbd344da47a18668d13f3e7b9777 = L.marker(
+                [52.195301835, 0.1283330929684304],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_00dba3da203f4580abf5c24354348b36 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_02ecfbd344da47a18668d13f3e7b9777.setIcon(icon_00dba3da203f4580abf5c24354348b36);
+        
+    
+        var popup_0bdb38524b424543a65c665fc3c100f5 = L.popup({"maxWidth": 1120});
+
+        
+            var html_941a26e8f05b425fa5ca7131d3875c99 = $(`<div id="html_941a26e8f05b425fa5ca7131d3875c99" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Woodlands Surgery<br><b>GP Practice Code: </b>D81070<br><b>Address: </b>48-49 Bateman Street, Cambridge, Cambridgeshire, CB2 1LR<br><b>Telephone Number: </b>01223 697600<br></div>`)[0];
+            popup_0bdb38524b424543a65c665fc3c100f5.setContent(html_941a26e8f05b425fa5ca7131d3875c99);
+        
+
+        marker_02ecfbd344da47a18668d13f3e7b9777.bindPopup(popup_0bdb38524b424543a65c665fc3c100f5)
+        ;
+
+        
+    
+    
+            var marker_d85b135eff36484d94e5c1002ad2b017 = L.marker(
+                [52.213980975, 0.1672527852215487],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_a53cec1bc4fe49668bfc69a59ab8f3e9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_d85b135eff36484d94e5c1002ad2b017.setIcon(icon_a53cec1bc4fe49668bfc69a59ab8f3e9);
+        
+    
+        var popup_39af0d2f13354f1eb64e2b9b3a276510 = L.popup({"maxWidth": 940});
+
+        
+            var html_69cb54516c3540a68a22de3177d7775a = $(`<div id="html_69cb54516c3540a68a22de3177d7775a" style="width: 100.0%; height: 100.0%;"><b>Name: </b>East Barnwell Health Centre<br><b>GP Practice Code: </b>D81086<br><b>Address: </b>Ditton Lane, Cambridge, Cambridgeshire, CB5 8SP<br><b>Telephone Number: </b>01223 728900<br></div>`)[0];
+            popup_39af0d2f13354f1eb64e2b9b3a276510.setContent(html_69cb54516c3540a68a22de3177d7775a);
+        
+
+        marker_d85b135eff36484d94e5c1002ad2b017.bindPopup(popup_39af0d2f13354f1eb64e2b9b3a276510)
+        ;
+
+        
+    
+    
+            var marker_0e42439ea56b46dc8a16ab522c6e0860 = L.marker(
+                [52.2087054, 0.1386611],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_446739f5c6b842289e5883b96bd53ff2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_0e42439ea56b46dc8a16ab522c6e0860.setIcon(icon_446739f5c6b842289e5883b96bd53ff2);
+        
+    
+        var popup_58c6a3ba28094d629bd71a3dd5cade24 = L.popup({"maxWidth": 1080});
+
+        
+            var html_28d247d00f71481b8b89d71e5aca1674 = $(`<div id="html_28d247d00f71481b8b89d71e5aca1674" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Cambridge Access Surgery<br><b>GP Practice Code: </b>Y00056<br><b>Address: </b>125 Newmarket Road, Cambridge, Cambridgeshire, CB5 8HB<br><b>Telephone Number: </b>01223 358961<br></div>`)[0];
+            popup_58c6a3ba28094d629bd71a3dd5cade24.setContent(html_28d247d00f71481b8b89d71e5aca1674);
+        
+
+        marker_0e42439ea56b46dc8a16ab522c6e0860.bindPopup(popup_58c6a3ba28094d629bd71a3dd5cade24)
+        ;
+
+        
+    
+</script>

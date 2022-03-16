@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_139758395337488f927986d2f7669187 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_139758395337488f927986d2f7669187" ></div>
+        
+</body>
+<script>    
+    
+            var map_139758395337488f927986d2f7669187 = L.map(
+                "map_139758395337488f927986d2f7669187",
+                {
+                    center: [52.21, 0.15],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 12,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bc6cda80eff94a5fa4341816cf4c813c = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var marker_88c88d72ee92421ab069eff070112b95 = L.marker(
+                [52.1984318, 0.1244819945723581],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_1753cec1a4614cf498adc63a3aa0535f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_88c88d72ee92421ab069eff070112b95.setIcon(icon_1753cec1a4614cf498adc63a3aa0535f);
+        
+    
+        var popup_653584aeb6674e79a7026428ecbe346e = L.popup({"maxWidth": 1060});
+
+        
+            var html_79b16d428de9458ebe6c16e5eb4e9888 = $(`<div id="html_79b16d428de9458ebe6c16e5eb4e9888" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Lensfield Medical Practice<br><b>GP Practice Code: </b>D81001<br><b>Address: </b>48 Lensfield Road, Cambridge, Cambridgeshire, CB2 1EH<br><b>Telephone Number: </b>01223 651020<br></div>`)[0];
+            popup_653584aeb6674e79a7026428ecbe346e.setContent(html_79b16d428de9458ebe6c16e5eb4e9888);
+        
+
+        marker_88c88d72ee92421ab069eff070112b95.bindPopup(popup_653584aeb6674e79a7026428ecbe346e)
+        ;
+
+        
+    
+    
+            var marker_ee0043f9f9474605a57b5cbfddee5d28 = L.marker(
+                [52.21427136666667, 0.1100022428530129],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_155ea5bd01f44b96be49a22ff6bbdb37 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_ee0043f9f9474605a57b5cbfddee5d28.setIcon(icon_155ea5bd01f44b96be49a22ff6bbdb37);
+        
+    
+        var popup_9e92b06786534412a1b211a006291192 = L.popup({"maxWidth": 760});
+
+        
+            var html_b5a31f68e7364b269568fd51d374567e = $(`<div id="html_b5a31f68e7364b269568fd51d374567e" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Huntingdon Road Surgery<br><b>GP Practice Code: </b>D81002<br><b>Address: </b>1 Huntingdon Road, Cambridge,  CB3 0DB<br><b>Telephone Number: </b>01223 364127<br></div>`)[0];
+            popup_9e92b06786534412a1b211a006291192.setContent(html_b5a31f68e7364b269568fd51d374567e);
+        
+
+        marker_ee0043f9f9474605a57b5cbfddee5d28.bindPopup(popup_9e92b06786534412a1b211a006291192)
+        ;
+
+        
+    
+    
+            var marker_ab1145abecb74402b3fd6f3484180a1f = L.marker(
+                [52.20542264268294, 0.141534333101005],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_37c5d4ace00740858fd0cdc2a1b8cba4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_ab1145abecb74402b3fd6f3484180a1f.setIcon(icon_37c5d4ace00740858fd0cdc2a1b8cba4);
+        
+    
+        var popup_2cf1c10aca50420b8d02d14c7fefa657 = L.popup({"maxWidth": 1100});
+
+        
+            var html_41afab8028f0477eae7af409c72014e8 = $(`<div id="html_41afab8028f0477eae7af409c72014e8" style="width: 100.0%; height: 100.0%;"><b>Name: </b>York Street Medical Practice<br><b>GP Practice Code: </b>D81003<br><b>Address: </b>146-148 York Street, Cambridge, Cambridgeshire, CB1 2PY<br><b>Telephone Number: </b>01223 364116<br></div>`)[0];
+            popup_2cf1c10aca50420b8d02d14c7fefa657.setContent(html_41afab8028f0477eae7af409c72014e8);
+        
+
+        marker_ab1145abecb74402b3fd6f3484180a1f.bindPopup(popup_2cf1c10aca50420b8d02d14c7fefa657)
+        ;
+
+        
+    
+    
+            var marker_6d69e21f075d4b108ca10e0fde21be99 = L.marker(
+                [52.19935475, 0.1105268058632455],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_41b1f2f3a3084133aa7fba18ae974184 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_6d69e21f075d4b108ca10e0fde21be99.setIcon(icon_41b1f2f3a3084133aa7fba18ae974184);
+        
+    
+        var popup_d143657761b94d00ad8869a86cfbb35b = L.popup({"maxWidth": 1040});
+
+        
+            var html_58c54428b4de481eb20062ad998eba85 = $(`<div id="html_58c54428b4de481eb20062ad998eba85" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Newnham Walk Surgery<br><b>GP Practice Code: </b>D81005<br><b>Address: </b>Wordsworth Grove, Cambridge, Cambridgeshire, CB3 9HS<br><b>Telephone Number: </b>01223 366811<br></div>`)[0];
+            popup_d143657761b94d00ad8869a86cfbb35b.setContent(html_58c54428b4de481eb20062ad998eba85);
+        
+
+        marker_6d69e21f075d4b108ca10e0fde21be99.bindPopup(popup_d143657761b94d00ad8869a86cfbb35b)
+        ;
+
+        
+    
+    
+            var marker_1f7d4f69c55b4b3aa764853480d53e51 = L.marker(
+                [52.18593757115384, 0.157111013198643],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_b366b817a71f42018bedd3cfae7f0b2b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_1f7d4f69c55b4b3aa764853480d53e51.setIcon(icon_b366b817a71f42018bedd3cfae7f0b2b);
+        
+    
+        var popup_b09adecd343a4a91a0b1d247d4ba626f = L.popup({"maxWidth": 1160});
+
+        
+            var html_a5b39c9559134fcabe00a4bdbff7dd42 = $(`<div id="html_a5b39c9559134fcabe00a4bdbff7dd42" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Cornford House Surgery<br><b>GP Practice Code: </b>D81012<br><b>Address: </b>364 Cherry Hinton Road, Cambridge, Cambridgeshire, CB1 8BA<br><b>Telephone Number: </b>01223 247505<br></div>`)[0];
+            popup_b09adecd343a4a91a0b1d247d4ba626f.setContent(html_a5b39c9559134fcabe00a4bdbff7dd42);
+        
+
+        marker_1f7d4f69c55b4b3aa764853480d53e51.bindPopup(popup_b09adecd343a4a91a0b1d247d4ba626f)
+        ;
+
+        
+    
+    
+            var marker_802c2561fc5b427c8703ef1a37d97389 = L.marker(
+                [52.20246169166666, 0.1179415857563406],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_b250bea7fec14a62aeb0b3db02276231 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_802c2561fc5b427c8703ef1a37d97389.setIcon(icon_b250bea7fec14a62aeb0b3db02276231);
+        
+    
+        var popup_fe871bab1ec84baa9053eee7684cddbf = L.popup({"maxWidth": 1140});
+
+        
+            var html_765343ea4dec429592c5a920005d297c = $(`<div id="html_765343ea4dec429592c5a920005d297c" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Trumpington Street Medical Practice<br><b>GP Practice Code: </b>D81013<br><b>Address: </b>56 Trumpington Street, Cambridge, Cambridgeshire, CB2 1RG<br><b>Telephone Number: </b>01223 361611<br></div>`)[0];
+            popup_fe871bab1ec84baa9053eee7684cddbf.setContent(html_765343ea4dec429592c5a920005d297c);
+        
+
+        marker_802c2561fc5b427c8703ef1a37d97389.bindPopup(popup_fe871bab1ec84baa9053eee7684cddbf)
+        ;
+
+        
+    
+    
+            var marker_0de2a0c4a97b4c38a0554e41a5ad04ef = L.marker(
+                [52.22582185, 0.1281393499999941],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_508eac1084a94b60a0a0010d9c40b06b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_0de2a0c4a97b4c38a0554e41a5ad04ef.setIcon(icon_508eac1084a94b60a0a0010d9c40b06b);
+        
+    
+        var popup_9d2649150d3948b08d7584b4a8af6593 = L.popup({"maxWidth": 1020});
+
+        
+            var html_077a5b97709f4d3ab8165e8bc7abc057 = $(`<div id="html_077a5b97709f4d3ab8165e8bc7abc057" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Arbury Road Surgery<br><b>GP Practice Code: </b>D81016<br><b>Address: </b>114 Arbury Road, Cambridge, Cambridgeshire, CB4 2JG<br><b>Telephone Number: </b>01223 364433<br></div>`)[0];
+            popup_9d2649150d3948b08d7584b4a8af6593.setContent(html_077a5b97709f4d3ab8165e8bc7abc057);
+        
+
+        marker_0de2a0c4a97b4c38a0554e41a5ad04ef.bindPopup(popup_9d2649150d3948b08d7584b4a8af6593)
+        ;
+
+        
+    
+    
+            var marker_3d1f855284824939b0e3f9169ce326bc = L.marker(
+                [52.1971563, 0.150585],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_8314b496684d42c5b1b60f65ad9a05da = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_3d1f855284824939b0e3f9169ce326bc.setIcon(icon_8314b496684d42c5b1b60f65ad9a05da);
+        
+    
+        var popup_332681d537db4bfa9f280f0ee08209df = L.popup({"maxWidth": 700});
+
+        
+            var html_f798dc4994ce4d7ba0ebd83e0a304cf6 = $(`<div id="html_f798dc4994ce4d7ba0ebd83e0a304cf6" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Mill Road Surgery<br><b>GP Practice Code: </b>D81017<br><b>Address: </b>Cambridge, Cambridgeshire,  CB1 3DG<br><b>Telephone Number: </b>01223 247812<br></div>`)[0];
+            popup_332681d537db4bfa9f280f0ee08209df.setContent(html_f798dc4994ce4d7ba0ebd83e0a304cf6);
+        
+
+        marker_3d1f855284824939b0e3f9169ce326bc.bindPopup(popup_332681d537db4bfa9f280f0ee08209df)
+        ;
+
+        
+    
+    
+            var marker_5721aba2ea9148c9a6b2d77e2d136ef7 = L.marker(
+                [52.18759842124166, 0.1776921179559278],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_fc9cf914603745f5ad236363d99cfade = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_5721aba2ea9148c9a6b2d77e2d136ef7.setIcon(icon_fc9cf914603745f5ad236363d99cfade);
+        
+    
+        var popup_c1f82c89397248e5b91c717634e330ac = L.popup({"maxWidth": 1000});
+
+        
+            var html_aeb5ef9703514bac969706e0709a4d74 = $(`<div id="html_aeb5ef9703514bac969706e0709a4d74" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Cherry Hinton Medical Centre<br><b>GP Practice Code: </b>D81025<br><b>Address: </b>34 Fishers Lane, Cherry Hinton, Cambridge, CB1 9HR<br><b>Telephone Number: </b>01223 652221<br></div>`)[0];
+            popup_c1f82c89397248e5b91c717634e330ac.setContent(html_aeb5ef9703514bac969706e0709a4d74);
+        
+
+        marker_5721aba2ea9148c9a6b2d77e2d136ef7.bindPopup(popup_c1f82c89397248e5b91c717634e330ac)
+        ;
+
+        
+    
+    
+            var marker_b79b173715e24e90873d1530391d09e2 = L.marker(
+                [52.20774177999999, 0.11885366],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_e35f128dc1364fb3a5a841a97cce09f4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_b79b173715e24e90873d1530391d09e2.setIcon(icon_e35f128dc1364fb3a5a841a97cce09f4);
+        
+    
+        var popup_b014b687c22840048bc95aba04041607 = L.popup({"maxWidth": 840});
+
+        
+            var html_b0651f796aee4fda9a90be9aec1eeaf5 = $(`<div id="html_b0651f796aee4fda9a90be9aec1eeaf5" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Bridge Street Medical Centre<br><b>GP Practice Code: </b>D81037<br><b>Address: </b>Passage,Off Bridge St, Cambridge,  CB2 3LS<br><b>Telephone Number: </b>01223 652671<br></div>`)[0];
+            popup_b014b687c22840048bc95aba04041607.setContent(html_b0651f796aee4fda9a90be9aec1eeaf5);
+        
+
+        marker_b79b173715e24e90873d1530391d09e2.bindPopup(popup_b014b687c22840048bc95aba04041607)
+        ;
+
+        
+    
+    
+            var marker_19121bc0b0884bb1b43645495b332081 = L.marker(
+                [52.225275209756106, 0.1527564632504133],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_046d6183863e4b568a69cb9fcab182f3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_19121bc0b0884bb1b43645495b332081.setIcon(icon_046d6183863e4b568a69cb9fcab182f3);
+        
+    
+        var popup_b98a195dea0e4b5789a49e9c75be4f2b = L.popup({"maxWidth": 980});
+
+        
+            var html_68ef6ced466c44f9b89f2e97b9029e01 = $(`<div id="html_68ef6ced466c44f9b89f2e97b9029e01" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Nuffield Road Medical Centre<br><b>GP Practice Code: </b>D81044<br><b>Address: </b>Nuffield Road, Cambridge, Cambridgeshire, CB4 1GL<br><b>Telephone Number: </b>01223 423424<br></div>`)[0];
+            popup_b98a195dea0e4b5789a49e9c75be4f2b.setContent(html_68ef6ced466c44f9b89f2e97b9029e01);
+        
+
+        marker_19121bc0b0884bb1b43645495b332081.bindPopup(popup_b98a195dea0e4b5789a49e9c75be4f2b)
+        ;
+
+        
+    
+    
+            var marker_10dd91fdba39447fab0300148bee76c8 = L.marker(
+                [52.2149548125, 0.1293199018343979],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_cd7b29ac129e4263b7d7ac5233c6776c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_10dd91fdba39447fab0300148bee76c8.setIcon(icon_cd7b29ac129e4263b7d7ac5233c6776c);
+        
+    
+        var popup_13b65eb3ed8543aabe0876d407d9f499 = L.popup({"maxWidth": 1080});
+
+        
+            var html_79e6f021e19c4123a93b84fcbf9886b8 = $(`<div id="html_79e6f021e19c4123a93b84fcbf9886b8" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Red House Surgery<br><b>GP Practice Code: </b>D81054<br><b>Address: </b>96 Chesterton Road, Cambridge, Cambridgeshire, CB4 1ER<br><b>Telephone Number: </b>01223 365555<br></div>`)[0];
+            popup_13b65eb3ed8543aabe0876d407d9f499.setContent(html_79e6f021e19c4123a93b84fcbf9886b8);
+        
+
+        marker_10dd91fdba39447fab0300148bee76c8.bindPopup(popup_13b65eb3ed8543aabe0876d407d9f499)
+        ;
+
+        
+    
+    
+            var marker_91c06561cc3f465da6fe83050c4bf29b = L.marker(
+                [52.20146851666667, 0.1338921083333333],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_44071d509adc4830baf6bb169cae10ae = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_91c06561cc3f465da6fe83050c4bf29b.setIcon(icon_44071d509adc4830baf6bb169cae10ae);
+        
+    
+        var popup_93b98222b33f4d72b99ba5eba3cd81a3 = L.popup({"maxWidth": 960});
+
+        
+            var html_61a9a24faf3a4be6860c3314d7587158 = $(`<div id="html_61a9a24faf3a4be6860c3314d7587158" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Petersfield Medical Practice<br><b>GP Practice Code: </b>D81056<br><b>Address: </b>25 Mill Road, Cambridge, Cambridgeshire, CB1 2AB<br><b>Telephone Number: </b>01223 350647<br></div>`)[0];
+            popup_93b98222b33f4d72b99ba5eba3cd81a3.setContent(html_61a9a24faf3a4be6860c3314d7587158);
+        
+
+        marker_91c06561cc3f465da6fe83050c4bf29b.bindPopup(popup_93b98222b33f4d72b99ba5eba3cd81a3)
+        ;
+
+        
+    
+    
+            var marker_d7907827484a4fe0a85ad10532dc3f5e = L.marker(
+                [52.17974306666667, 0.1509789734190989],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_3dc32c69ffc347faa562670545717e45 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_d7907827484a4fe0a85ad10532dc3f5e.setIcon(icon_3dc32c69ffc347faa562670545717e45);
+        
+    
+        var popup_f12787854cbc44bcac95799a3eee3081 = L.popup({"maxWidth": 820});
+
+        
+            var html_ec674884497d410ab1ba95080606d0b6 = $(`<div id="html_ec674884497d410ab1ba95080606d0b6" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Queen Edith Medical Practice<br><b>GP Practice Code: </b>D81066<br><b>Address: </b>59 Queen Edith'S Way, Cambridge,  CB1 8PJ<br><b>Telephone Number: </b>01223 247288<br></div>`)[0];
+            popup_f12787854cbc44bcac95799a3eee3081.setContent(html_ec674884497d410ab1ba95080606d0b6);
+        
+
+        marker_d7907827484a4fe0a85ad10532dc3f5e.bindPopup(popup_f12787854cbc44bcac95799a3eee3081)
+        ;
+
+        
+    
+    
+            var marker_02ecfbd344da47a18668d13f3e7b9777 = L.marker(
+                [52.195301835, 0.1283330929684304],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_00dba3da203f4580abf5c24354348b36 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_02ecfbd344da47a18668d13f3e7b9777.setIcon(icon_00dba3da203f4580abf5c24354348b36);
+        
+    
+        var popup_0bdb38524b424543a65c665fc3c100f5 = L.popup({"maxWidth": 1120});
+
+        
+            var html_941a26e8f05b425fa5ca7131d3875c99 = $(`<div id="html_941a26e8f05b425fa5ca7131d3875c99" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Woodlands Surgery<br><b>GP Practice Code: </b>D81070<br><b>Address: </b>48-49 Bateman Street, Cambridge, Cambridgeshire, CB2 1LR<br><b>Telephone Number: </b>01223 697600<br></div>`)[0];
+            popup_0bdb38524b424543a65c665fc3c100f5.setContent(html_941a26e8f05b425fa5ca7131d3875c99);
+        
+
+        marker_02ecfbd344da47a18668d13f3e7b9777.bindPopup(popup_0bdb38524b424543a65c665fc3c100f5)
+        ;
+
+        
+    
+    
+            var marker_d85b135eff36484d94e5c1002ad2b017 = L.marker(
+                [52.213980975, 0.1672527852215487],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_a53cec1bc4fe49668bfc69a59ab8f3e9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_d85b135eff36484d94e5c1002ad2b017.setIcon(icon_a53cec1bc4fe49668bfc69a59ab8f3e9);
+        
+    
+        var popup_39af0d2f13354f1eb64e2b9b3a276510 = L.popup({"maxWidth": 940});
+
+        
+            var html_69cb54516c3540a68a22de3177d7775a = $(`<div id="html_69cb54516c3540a68a22de3177d7775a" style="width: 100.0%; height: 100.0%;"><b>Name: </b>East Barnwell Health Centre<br><b>GP Practice Code: </b>D81086<br><b>Address: </b>Ditton Lane, Cambridge, Cambridgeshire, CB5 8SP<br><b>Telephone Number: </b>01223 728900<br></div>`)[0];
+            popup_39af0d2f13354f1eb64e2b9b3a276510.setContent(html_69cb54516c3540a68a22de3177d7775a);
+        
+
+        marker_d85b135eff36484d94e5c1002ad2b017.bindPopup(popup_39af0d2f13354f1eb64e2b9b3a276510)
+        ;
+
+        
+    
+    
+            var marker_0e42439ea56b46dc8a16ab522c6e0860 = L.marker(
+                [52.2087054, 0.1386611],
+                {}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+    
+            var icon_446739f5c6b842289e5883b96bd53ff2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "darkblue", "prefix": "fa"}
+            );
+            marker_0e42439ea56b46dc8a16ab522c6e0860.setIcon(icon_446739f5c6b842289e5883b96bd53ff2);
+        
+    
+        var popup_58c6a3ba28094d629bd71a3dd5cade24 = L.popup({"maxWidth": 1080});
+
+        
+            var html_28d247d00f71481b8b89d71e5aca1674 = $(`<div id="html_28d247d00f71481b8b89d71e5aca1674" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Cambridge Access Surgery<br><b>GP Practice Code: </b>Y00056<br><b>Address: </b>125 Newmarket Road, Cambridge, Cambridgeshire, CB5 8HB<br><b>Telephone Number: </b>01223 358961<br></div>`)[0];
+            popup_58c6a3ba28094d629bd71a3dd5cade24.setContent(html_28d247d00f71481b8b89d71e5aca1674);
+        
+
+        marker_0e42439ea56b46dc8a16ab522c6e0860.bindPopup(popup_58c6a3ba28094d629bd71a3dd5cade24)
+        ;
+
+        
+    
+    
+        function geo_json_d4c4a669404b40ed8d3c4cf7317d94f9_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000000", "fillColor": "#003087", "fillOpacity": 0.5, "name": "5 min walk", "weight": 1};
+            }
+        }
+
+        function geo_json_d4c4a669404b40ed8d3c4cf7317d94f9_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_d4c4a669404b40ed8d3c4cf7317d94f9 = L.geoJson(null, {
+                onEachFeature: geo_json_d4c4a669404b40ed8d3c4cf7317d94f9_onEachFeature,
+            
+                style: geo_json_d4c4a669404b40ed8d3c4cf7317d94f9_styler,
+        });
+
+        function geo_json_d4c4a669404b40ed8d3c4cf7317d94f9_add (data) {
+            geo_json_d4c4a669404b40ed8d3c4cf7317d94f9
+                .addData(data)
+                .addTo(map_139758395337488f927986d2f7669187);
+        }
+            geo_json_d4c4a669404b40ed8d3c4cf7317d94f9_add({"bbox": [0.0934689, 52.1693158, 0.1910077, 52.2359304], "features": [{"bbox": [0.0934689, 52.1693158, 0.1910077, 52.2359304], "geometry": {"coordinates": [[[0.1505728, 52.1693158], [0.1390254, 52.1716702], [0.1364782, 52.1722232], [0.1293463, 52.1797305], [0.1369005790201849, 52.18575772308191], [0.1289813, 52.1878202], [0.1286236807144861, 52.18796353199391], [0.1279762, 52.1878075], [0.1207178, 52.1868272], [0.11066986639314776, 52.19205891922551], [0.1074627, 52.1915987], [0.1053832, 52.1923269], [0.1032737, 52.1931627], [0.0973585, 52.1958204], [0.0981851, 52.1989821], [0.0982082, 52.199036], [0.099834, 52.2025038], [0.101849, 52.2064215], [0.10329340985763154, 52.207116784173344], [0.1031803770815795, 52.20728495730297], [0.0984857, 52.2104386], [0.097742, 52.2112488], [0.0973986, 52.2119533], [0.0934689, 52.2215514], [0.0937717, 52.2225428], [0.0939956, 52.222765], [0.11020283306211869, 52.22646484807854], [0.1096651, 52.2277977], [0.1097372, 52.2280878], [0.1097487, 52.2281291], [0.1119693, 52.2325934], [0.1121252, 52.2328172], [0.1150298, 52.2346616], [0.115556, 52.2348029], [0.1187294, 52.2351762], [0.1197787, 52.235279], [0.1301411, 52.2359304], [0.1404299, 52.2321604], [0.1410836, 52.2319159], [0.14132116630487682, 52.23161099936791], [0.1488551, 52.2320965], [0.1504773, 52.2320024], [0.151569, 52.2308092], [0.15563, 52.2254929], [0.1560751, 52.2248483], [0.1554029, 52.2204376], [0.1517458, 52.2192604], [0.14699863553179998, 52.21781317671764], [0.1467431030779303, 52.21751982410485], [0.15495468302742202, 52.215139050902124], [0.1569483, 52.2169586], [0.1578031, 52.2174437], [0.1583201, 52.2176746], [0.1694314, 52.2218063], [0.1750009, 52.2229348], [0.1750662, 52.2229209], [0.1751214, 52.2229032], [0.1781813, 52.2190681], [0.1788535, 52.2175961], [0.1788872, 52.217249], [0.1751569, 52.2107649], [0.1739587, 52.2102301], [0.1644618, 52.2074926], [0.1636348, 52.2074175], [0.1606139, 52.2078962], [0.1565724, 52.2095595], [0.15615093430426769, 52.210056581342684], [0.15523288358357712, 52.20635836679436], [0.1632155, 52.2047325], [0.1633653, 52.2043789], [0.1640144, 52.2027592], [0.16309173554524764, 52.193185320762474], [0.1657460778709845, 52.191953923821835], [0.1693011, 52.1965353], [0.16958, 52.1967604], [0.1705072, 52.1971348], [0.1861136, 52.1982517], [0.1882597, 52.1927539], [0.1906679, 52.1843221], [0.1910077, 52.1828105], [0.1864614, 52.1789998], [0.1671508, 52.1780559], [0.16582881518500425, 52.17885015125889], [0.1540048, 52.169875], [0.1539475, 52.1698385], [0.1505728, 52.1693158]]], "type": "Polygon"}, "id": "0", "properties": {}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+        function geo_json_aa6c8e9b9a4147699f494e13b7ab03b7_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000000", "fillColor": "#005EB8", "fillOpacity": 0.5, "name": "5 min walk", "weight": 1};
+            }
+        }
+
+        function geo_json_aa6c8e9b9a4147699f494e13b7ab03b7_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_aa6c8e9b9a4147699f494e13b7ab03b7 = L.geoJson(null, {
+                onEachFeature: geo_json_aa6c8e9b9a4147699f494e13b7ab03b7_onEachFeature,
+            
+                style: geo_json_aa6c8e9b9a4147699f494e13b7ab03b7_styler,
+        });
+
+        function geo_json_aa6c8e9b9a4147699f494e13b7ab03b7_add (data) {
+            geo_json_aa6c8e9b9a4147699f494e13b7ab03b7
+                .addData(data)
+                .addTo(map_139758395337488f927986d2f7669187);
+        }
+            geo_json_aa6c8e9b9a4147699f494e13b7ab03b7_add({"bbox": [0.1016597, 52.1751146, 0.1820835, 52.2307314], "features": [{"bbox": [0.1016597, 52.1751146, 0.1820835, 52.2307314], "geometry": {"coordinates": [[[[0.1340325, 52.1919928], [0.12650336398947012, 52.19467386803731], [0.1228644, 52.1938088], [0.1214294, 52.1939442], [0.1172383, 52.1945411], [0.1165898, 52.1951186], [0.11629674751346714, 52.19547195488039], [0.1159958, 52.195296], [0.1143509, 52.1950009], [0.1099775, 52.1943041], [0.1084611, 52.1950523], [0.1063408, 52.1967672], [0.1051125, 52.1994669], [0.1053037, 52.2010247], [0.1055439, 52.2013243], [0.1115409, 52.2050508], [0.1120865, 52.2049017], [0.1131206955895297, 52.20455515253941], [0.11436959851774099, 52.20564987571416], [0.1141435, 52.2059202], [0.11151458190811162, 52.210129304352606], [0.1081758, 52.2108893], [0.1016597, 52.2185826], [0.1115989, 52.2201113], [0.1153255, 52.218691], [0.1160847, 52.2181446], [0.1192193, 52.2151154], [0.11807466164213462, 52.212481892896136], [0.1185984, 52.2124464], [0.1276056, 52.2090497], [0.1287364206183176, 52.2082632757874], [0.1293519, 52.2088468], [0.1314491, 52.2105487], [0.13277258652967971, 52.21159535817463], [0.1321947, 52.211318], [0.1318299, 52.2112265], [0.1309863, 52.2113144], [0.1259544, 52.2119594], [0.1199704, 52.2130036], [0.1199867, 52.2136084], [0.1203889, 52.2149323], [0.1205758, 52.2153862], [0.1230213, 52.2171358], [0.1270976, 52.2195709], [0.1316352, 52.2194625], [0.1338894, 52.2191588], [0.1377541, 52.2168918], [0.1379141, 52.214495], [0.13737866318784203, 52.21407766030677], [0.1469421, 52.2112667], [0.1472076, 52.2111324], [0.1478566, 52.2107727], [0.1471647, 52.2083755], [0.1466353, 52.2076215], [0.14494766487724617, 52.206086846244006], [0.1444042, 52.2041493], [0.1437547, 52.2029118], [0.1425881, 52.201171], [0.14190864675913792, 52.20085929609031], [0.1426362325921129, 52.19936819680161], [0.1526214, 52.2023232], [0.1541621, 52.2021907], [0.1541941, 52.2021738], [0.1546446, 52.2019048], [0.1567339, 52.1992109], [0.1582689, 52.1950291], [0.1494457, 52.1926099], [0.1464785, 52.1921571], [0.1461492, 52.1922101], [0.1421463, 52.1960151], [0.1418572, 52.1964179], [0.1411847, 52.1974166], [0.14118262927175457, 52.19742797035014], [0.1381022, 52.1965637], [0.13563683661168788, 52.19602547319888], [0.135768, 52.1959317], [0.1364878, 52.1953193], [0.1374766, 52.194168], [0.1346537, 52.1921211], [0.1340325, 52.1919928]], [[0.12722568881940208, 52.20525300744389], [0.1285785, 52.2056036], [0.12998725937627292, 52.20587177826143], [0.12881263581750912, 52.20720982664374], [0.12722568881940208, 52.20525300744389]], [[0.1254852050895947, 52.203106866467806], [0.12609954309122157, 52.203069579299644], [0.12591366614330396, 52.2036351896048], [0.1254852050895947, 52.203106866467806]]], [[[0.1819816, 52.1829466], [0.1715188, 52.1839429], [0.168733, 52.1878514], [0.1685379, 52.1886452], [0.1699239, 52.1895398], [0.1719872, 52.1905174], [0.177301, 52.1927377], [0.1801356, 52.192723], [0.1818605, 52.1870036], [0.1819338, 52.1857938], [0.1820834, 52.183058], [0.1820835, 52.1830175], [0.1819816, 52.1829466]]], [[[0.1471584, 52.1751146], [0.1442757, 52.1757454], [0.1434956, 52.1760194], [0.1431573, 52.176337], [0.1404799, 52.1789444], [0.1433867, 52.1804286], [0.15026652232319088, 52.18393343438609], [0.1475048, 52.1871527], [0.1476741, 52.1875636], [0.1480388, 52.1880267], [0.1512713, 52.1894367], [0.1537039, 52.189924], [0.1547115, 52.189901], [0.1636189, 52.189659], [0.1670604, 52.1862616], [0.1678814, 52.1846311], [0.166312, 52.1840187], [0.1644103, 52.1836903], [0.1577650566875873, 52.182669859828025], [0.1615821, 52.1805475], [0.1566059, 52.1766377], [0.1548142, 52.1761387], [0.1494433, 52.1753322], [0.1471584, 52.1751146]]], [[[0.162881, 52.212991], [0.1617111, 52.2141051], [0.1599351, 52.217095], [0.1601686, 52.2174906], [0.1651391, 52.2178767], [0.1653369, 52.217892], [0.1664832, 52.2179546], [0.1681178, 52.2178771], [0.1702745, 52.217366], [0.1710845, 52.2154042], [0.1711703, 52.2146311], [0.1710005, 52.2143378], [0.1668216, 52.2132724], [0.162881, 52.212991]]], [[[0.148728, 52.2219605], [0.1478596, 52.2222234], [0.1466018, 52.2243906], [0.1462202, 52.2252678], [0.1464878, 52.226609], [0.1481996, 52.2286543], [0.1486277, 52.2289528], [0.1505718, 52.2287308], [0.1516179, 52.2283792], [0.1518191, 52.2283102], [0.1527766, 52.2278124], [0.15563, 52.2254929], [0.1560751, 52.2248483], [0.1515855, 52.2222285], [0.148728, 52.2219605]]], [[[0.1313198, 52.2211032], [0.1296264, 52.2211413], [0.1202511, 52.2234274], [0.1190894, 52.2249558], [0.1194426, 52.2273991], [0.1205002, 52.2301214], [0.1205833, 52.2301858], [0.1206355, 52.2302193], [0.1212997, 52.2302766], [0.1281006, 52.2307314], [0.1327077, 52.2302156], [0.1342842, 52.2299224], [0.1348468, 52.2297998], [0.1350582, 52.2296032], [0.1350954, 52.2284696], [0.1340021, 52.2224315], [0.1334987, 52.221809], [0.1332353, 52.2216859], [0.1313198, 52.2211032]]]], "type": "MultiPolygon"}, "id": "0", "properties": {}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+        function geo_json_fb2eb58de3124be58573b25fde85523e_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#000000", "fillColor": "#41B6E6", "fillOpacity": 0.5, "name": "5 min walk", "weight": 1};
+            }
+        }
+
+        function geo_json_fb2eb58de3124be58573b25fde85523e_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_fb2eb58de3124be58573b25fde85523e = L.geoJson(null, {
+                onEachFeature: geo_json_fb2eb58de3124be58573b25fde85523e_onEachFeature,
+            
+                style: geo_json_fb2eb58de3124be58573b25fde85523e_styler,
+        });
+
+        function geo_json_fb2eb58de3124be58573b25fde85523e_add (data) {
+            geo_json_fb2eb58de3124be58573b25fde85523e
+                .addData(data)
+                .addTo(map_139758395337488f927986d2f7669187);
+        }
+            geo_json_fb2eb58de3124be58573b25fde85523e_add({"bbox": [0.1059499, 52.1766783, 0.1807409, 52.2280023], "features": [{"bbox": [0.1059499, 52.1766783, 0.1807409, 52.2280023], "geometry": {"coordinates": [[[[0.1500821, 52.1766783], [0.1478497, 52.1792098], [0.1478037, 52.1795111], [0.1485259, 52.1801403], [0.1497836, 52.1811947], [0.1525653, 52.1815786], [0.1535765, 52.1812332], [0.1552852, 52.179853], [0.1533505, 52.1777253], [0.151961, 52.1767343], [0.1500821, 52.1766783]]], [[[0.1798519, 52.1859337], [0.1737288, 52.1871633], [0.1731714, 52.1885237], [0.1757639, 52.1896983], [0.1767526, 52.1900983], [0.1805267, 52.1882855], [0.1807409, 52.1861646], [0.1798519, 52.1859337]]], [[[0.1585959, 52.1844438], [0.1555124, 52.1850768], [0.1548814, 52.1852308], [0.1525647, 52.1867416], [0.1524541, 52.1868351], [0.1527811, 52.1873176], [0.1554933, 52.1880084], [0.1572091, 52.187966], [0.1580192, 52.1878531], [0.1583243, 52.1877965], [0.159559, 52.1873195], [0.1601903, 52.1869063], [0.1625627, 52.1853195], [0.1611138, 52.1848244], [0.1601396, 52.1845163], [0.1585959, 52.1844438]]], [[[0.1421489, 52.2027244], [0.1418154, 52.2027539], [0.140527, 52.2034588], [0.1376262, 52.2061443], [0.13750065217969112, 52.206415562679574], [0.1374563, 52.2063983], [0.1362293, 52.206045], [0.1351692, 52.2059383], [0.1337275, 52.2082023], [0.1355521, 52.2094788], [0.1430894, 52.2095771], [0.1431418, 52.2095429], [0.1432639, 52.2093805], [0.1433174, 52.2092943], [0.14314, 52.2086105], [0.14102080166994868, 52.20778566924789], [0.1417152, 52.2074855], [0.1423242, 52.2072003], [0.1432894, 52.2060119], [0.1444042, 52.2041493], [0.1432283, 52.2029523], [0.1421489, 52.2027244]]], [[[0.1112823, 52.1973848], [0.1090074, 52.1986891], [0.1076491, 52.199835], [0.1099361, 52.2003588], [0.11379933170968605, 52.20105541446286], [0.11769720578469457, 52.205577302846], [0.1168451, 52.209653], [0.1179223, 52.2105274], [0.118304, 52.2106517], [0.1195226, 52.2103744], [0.1206963, 52.2100413], [0.1238043, 52.208289], [0.1218039, 52.2052927], [0.1215128, 52.2050662], [0.11899418994222032, 52.20508877171325], [0.1224498, 52.2032911], [0.1207847, 52.1998086], [0.11428372599244088, 52.200785504401516], [0.1145011, 52.1992077], [0.1140107, 52.1986916], [0.1126025, 52.1979682], [0.1112823, 52.1973848]]], [[[0.1360973, 52.1990998], [0.1351615, 52.1992908], [0.1337504, 52.1996992], [0.1306692, 52.2007835], [0.1301651, 52.2009693], [0.1298151, 52.2012155], [0.1295504, 52.2023372], [0.1296164, 52.2031986], [0.132436, 52.2037529], [0.1372454, 52.2028343], [0.1374081, 52.2026401], [0.1378755, 52.201199], [0.1383265, 52.1996098], [0.1360973, 52.1990998]]], [[[0.1317032, 52.1946496], [0.1269002, 52.195029], [0.1250705, 52.1951841], [0.1248122, 52.1964771], [0.1260527, 52.1972333], [0.1296547, 52.1967561], [0.1312327, 52.1955371], [0.1317491, 52.1950519], [0.1317032, 52.1946496]]], [[[0.1500379, 52.19433], [0.1482309, 52.1945384], [0.1465237, 52.1961489], [0.1450706, 52.1975528], [0.1479834, 52.1989133], [0.1488821, 52.199173], [0.1523855, 52.1996845], [0.1553897, 52.1961863], [0.1539177, 52.1955284], [0.1517918, 52.1948507], [0.1500379, 52.19433]]], [[[0.122801, 52.1958995], [0.1205379, 52.1974484], [0.1207847, 52.1998086], [0.1217699, 52.2008426], [0.1278411, 52.1999748], [0.1279872, 52.1998796], [0.1244497, 52.1969973], [0.122801, 52.1958995]]], [[[0.1127401, 52.2117031], [0.1118286, 52.2118201], [0.110629, 52.2120058], [0.1059499, 52.2164489], [0.1066786, 52.2165064], [0.108621, 52.2165878], [0.1110132, 52.2166181], [0.1111029, 52.2166145], [0.1140943, 52.2156511], [0.1138145, 52.2126796], [0.1133013, 52.2120348], [0.1127401, 52.2117031]]], [[[0.1629327, 52.2134543], [0.1628353, 52.2141067], [0.1628133, 52.2142558], [0.1661686, 52.2159173], [0.1665028, 52.214118], [0.1645741, 52.2135225], [0.1634746, 52.2134555], [0.1629327, 52.2134543]]], [[[0.1528731, 52.2247297], [0.1497473, 52.2248483], [0.149584, 52.2253666], [0.1522555, 52.2271568], [0.1523229, 52.2271188], [0.1527747, 52.2267396], [0.1533487, 52.2261082], [0.1535508, 52.2249062], [0.1528731, 52.2247297]]], [[[0.127454, 52.2132876], [0.126964, 52.2134217], [0.1257241, 52.2138459], [0.1248059, 52.214164], [0.1250684, 52.2147346], [0.1254124, 52.2150494], [0.1295421, 52.2174959], [0.1340742, 52.2162144], [0.1317914, 52.214559], [0.127454, 52.2132876]]], [[[0.1272123, 52.2240926], [0.1237477, 52.2253032], [0.1237459, 52.2254243], [0.1243931, 52.2278555], [0.1294711, 52.2280023], [0.1310715, 52.2278836], [0.1306558, 52.2259166], [0.1303392, 52.2248913], [0.1302003, 52.2248125], [0.1300019, 52.2247005], [0.1297762, 52.2245747], [0.1272123, 52.2240926]]]], "type": "MultiPolygon"}, "id": "0", "properties": {}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            var layer_control_085b8cdc633a4f8380fc55c7ea638aaf = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_bc6cda80eff94a5fa4341816cf4c813c,
+                },
+                overlays :  {
+                    "20 min walk" : geo_json_d4c4a669404b40ed8d3c4cf7317d94f9,
+                    "10 min walk" : geo_json_aa6c8e9b9a4147699f494e13b7ab03b7,
+                    "5 min walk" : geo_json_fb2eb58de3124be58573b25fde85523e,
+                },
+            };
+            L.control.layers(
+                layer_control_085b8cdc633a4f8380fc55c7ea638aaf.base_layers,
+                layer_control_085b8cdc633a4f8380fc55c7ea638aaf.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_139758395337488f927986d2f7669187);
+        
+</script>

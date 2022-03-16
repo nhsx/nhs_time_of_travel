@@ -1,0 +1,18 @@
+<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title stroke="#ffffff">Layer 1</title>
+  <polygon id="svg_2" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" points="12,23.5    12,11 22.5,5.5 22.5,17.5  " fill="none"/>
+  <polyline id="svg_3" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" points="12,11    1.5,5.5 1.5,17.5 12,23.5  " fill="none"/>
+  <polyline id="svg_4" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" points="1.5,5.5    12,0.5 22.5,5.5  " fill="none"/>
+  <line id="svg_5" y2="20" y1="8.119047" x2="17.5" x1="17.5" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none"/>
+  <line id="svg_6" y2="20" y1="8.119047" x2="6.5" x1="6.5" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none"/>
+  <polyline id="svg_7" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" points="1.5,11.5    12,17 22.5,11.5  " fill="none"/>
+  <line id="svg_8" y2="8.056689" y1="2.940457" x2="17.619047" x1="6.875041" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none"/>
+  <line id="svg_9" y2="8.056689" y1="2.940456" x2="6.380951" x1="17.124958" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none"/>
+ </g>
+</svg>
