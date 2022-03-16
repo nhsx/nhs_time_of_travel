@@ -20,7 +20,7 @@ Data sources: [NHS Digital](https://digital.nhs.uk/data-and-information/publicat
 Click on an indvidual marker for the GP practice name, code, address, and contact information. 
 </p>
 
-<iframe width= "500" height="500"  src="_includes/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+<iframe width= "500" height="500"  src="images/png/cambridge_osmnx_nodes.png" style="border:none;"></iframe><iframe width= "500" height="500"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
 
 
 ### Route Map
@@ -29,7 +29,7 @@ Click on an indvidual marker for the GP practice name, code, address, and contac
 Placeholder text. 
 </p>
 
-<iframe width= "500" height="500"  src="_includes/folium/route_map.html" style="border:none;"></iframe>
+<iframe width= "500" height="500"  src="images/folium/route_map.html" style="border:none;"></iframe>
 
 
 
