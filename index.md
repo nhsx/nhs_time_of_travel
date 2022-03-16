@@ -4,8 +4,6 @@ Data sources: [NHS Digital](https://digital.nhs.uk/data-and-information/publicat
 
 <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
 
-{% include update.html %}
-
 <div class="nhsuk-warning-callout">
   <h3 class="nhsuk-warning-callout__label">
     Data Quality<span class="nhsuk-u-visually-hidden">:</span>
