@@ -24,19 +24,23 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <iframe width= "500" height="500"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
-<img src="images/png/cambridge_osmnx_nodes.png" 
-     width="500" 
-     height="500">
+<div class="row">
+  <div class="column">
+    <img src="images/png/cambridge_osmnx_nodes.png" width="500" height="500">
+  </div>
+  <div class="column">
+    <img src="images/png/cambridge_node_coloured.png" width="500" height="500">
+  </div>
+</div>
 
-<img src="images/png/cambridge_node_coloured.png" 
-     width="500" 
-     height="500">
-
-<img src="cambridge_isochromes_coloured.png" 
-     width="500" 
-     height="500">
-
-<iframe width= "500" height="500"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+<div class="row">
+  <div class="column">
+    <img src="images/png/cambridge_isochromes_coloured.png" width="500" height="500">
+  </div>
+  <div class="column">
+    <iframe width= "500" height="500"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+  </div>
+</div>
 
 ### Driving time between a GP Practice and a Hospital in central London
 
