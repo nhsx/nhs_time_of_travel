@@ -30,14 +30,12 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
   <img src="images/png/cambridge_node_coloured.png" width="400" height="400">
 </p>
 
-<div class=".nhsuk-grid-row">
-  <div class=".nhsuk-grid-column-one-third">
-    <img src="images/png/cambridge_isochromes_coloured.png" width="500" height="500">
-  </div>
-  <div class="column">
-    <iframe width= "500" height="500"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
-  </div>
-</div>
+<p align="center">
+  <img src="images/png/cambridge_isochromes_coloured.png" width="400" height="400">
+  &nbsp; &nbsp;
+  <iframe width= "400" height="400"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+</p>
+
 
 ### Driving time between a GP Practice and a Hospital in central London
 
