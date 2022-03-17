@@ -24,14 +24,11 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <iframe width= "500" height="500"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
-<div class=".nhsuk-grid-row">
-  <div class=".nhsuk-grid-column-one-third">
-    <img src="images/png/cambridge_osmnx_nodes.png" width="500" height="500">
-  </div>
-  <div class=".nhsuk-grid-column-one-third">
-    <img src="images/png/cambridge_node_coloured.png" width="500" height="500">
-  </div>
-</div>
+<p align="center">
+  <img src="images/png/cambridge_osmnx_nodes.png" width="400" height="400">
+  &nbsp; &nbsp;
+  <img src="images/png/cambridge_node_coloured.png" width="400" height="400">
+</p>
 
 <div class=".nhsuk-grid-row">
   <div class=".nhsuk-grid-column-one-third">
