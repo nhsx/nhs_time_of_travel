@@ -44,9 +44,14 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 Placeholder text. 
 </p>
 
-<iframe width= "500" height="500"  src="images/folium/route_map.html" style="border:none;"></iframe>
-
-
+<div class="row">
+  <div class="column">
+    <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
+  </div>
+  <div class="column">
+    <iframe width= "500" height="500"  src="images/folium/route_map.html" style="border:none;"></iframe>
+  </div>
+</div>
 
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="">
