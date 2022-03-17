@@ -1,3 +1,5 @@
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+
 ## Travel time to NHS organisations
 
 The following page and accompanying GitHub repository contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
