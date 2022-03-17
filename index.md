@@ -33,7 +33,7 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 <p align="left">
   <img src="images/png/cambridge_isochromes_coloured.png" width="460" height="460">
   &nbsp; &nbsp;
-  <iframe width= "450" height="450"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+  <iframe width= "455" height="455"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
 </p>
 
 
@@ -46,11 +46,11 @@ Placeholder text.
 <p align="left">
   <img src="images/png/london_osmnx_nodes.png" width="460" height="460">
   &nbsp; &nbsp;
-  <iframe width= "450" height="450"  src="images/folium/route_map.html" style="border:none;"></iframe>
+  <iframe width= "455" height="455"  src="images/folium/route_map.html" style="border:none;"></iframe>
 </p>
 
 <p align="left">
-  <img src="images/png/plotly_table.png" width="950" height="80">
+  <iframe width= "950" src="images/folium/plotly_table.html" style="border:none;"></iframe>
 </p>
 
 <div class="nhsuk-action-link">
