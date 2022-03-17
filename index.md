@@ -27,7 +27,7 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="450" height="450">
   &nbsp; &nbsp;
-  <img src="images/png/cambridge_node_coloured.png" width="450" height="500">
+  <img src="images/png/cambridge_node_coloured.png" width="450" height="450">
 </p>
 
 <p align="left">
@@ -44,7 +44,7 @@ Placeholder text.
 </p>
 
 <p align="left">
-  <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
+  <img src="images/png/london_osmnx_nodes.png" width="450" height="450">
   &nbsp; &nbsp;
   <iframe width= "450" height="450"  src="images/folium/route_map.html" style="border:none;"></iframe>
 </p>
