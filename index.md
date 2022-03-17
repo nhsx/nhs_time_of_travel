@@ -52,7 +52,7 @@ Placeholder text.
 </p>
 
 <p align="left">
-  <src="images/folium/plotly_table.html" style="border:none;"></iframe>
+  <iframe src="images/folium/plotly_table.html" style="border:none;"></iframe>
 </p>
 
 <div class="nhsuk-action-link">
