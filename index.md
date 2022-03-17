@@ -24,14 +24,14 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <iframe width= "500" height="500"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
-<p align="center">
-  <img src="images/png/cambridge_osmnx_nodes.png" width="400" height="400">
+<p align="left">
+  <img src="images/png/cambridge_osmnx_nodes.png" width="500" height="500">
   &nbsp; &nbsp;
-  <img src="images/png/cambridge_node_coloured.png" width="400" height="400">
+  <img src="images/png/cambridge_node_coloured.png" width="500" height="500">
 </p>
 
-<p align="center">
-  <img src="images/png/cambridge_isochromes_coloured.png" width="400" height="400">
+<p align="left">
+  <img src="images/png/cambridge_isochromes_coloured.png" width="500" height="500">
   &nbsp; &nbsp;
   <iframe width= "400" height="400"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
 </p>
@@ -43,16 +43,14 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 Placeholder text. 
 </p>
 
-<div class=".nhsuk-grid-row">
-  <div class=".nhsuk-grid-column-one-third">
-    <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
-  </div>
-  <div class=".nhsuk-grid-column-one-third">
-    <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
-  </div>
+<p align="left">
+  <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
+  &nbsp; &nbsp;
+  <img src="images/folium/route_map.html" width="500" height="500">
+</p>
 </div>
 <p align="center">
-  <img src="images/png/plotly_table.png" width="800" height="200">
+  <img src="images/png/plotly_table.png" width="800" height="50">
 </p>
 
 <div class="nhsuk-action-link">
