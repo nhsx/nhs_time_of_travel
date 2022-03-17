@@ -24,17 +24,17 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <iframe width= "500" height="500"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
-<div class="row">
-  <div class="column">
+<div class=".nhsuk-grid-row">
+  <div class=".nhsuk-grid-column-one-third">
     <img src="images/png/cambridge_osmnx_nodes.png" width="500" height="500">
   </div>
-  <div class="column">
+  <div class=".nhsuk-grid-column-one-third">
     <img src="images/png/cambridge_node_coloured.png" width="500" height="500">
   </div>
 </div>
 
-<div class="row">
-  <div class="column">
+<div class=".nhsuk-grid-row">
+  <div class=".nhsuk-grid-column-one-third">
     <img src="images/png/cambridge_isochromes_coloured.png" width="500" height="500">
   </div>
   <div class="column">
@@ -48,14 +48,15 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 Placeholder text. 
 </p>
 
-<div class="row">
-  <div class="column">
+<div class=".nhsuk-grid-row">
+  <div class=".nhsuk-grid-column-one-third">
     <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
   </div>
-  <div class="column">
+  <div class=".nhsuk-grid-column-one-third">
     <iframe width= "500" height="500"  src="images/folium/route_map.html" style="border:none;"></iframe>
   </div>
 </div>
+<img src="images/png/plotly_table.png" width="1000" height="400">
 
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="">
