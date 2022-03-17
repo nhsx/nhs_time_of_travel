@@ -53,7 +53,7 @@ Placeholder text.
     <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
   </div>
   <div class=".nhsuk-grid-column-one-third">
-    <iframe width= "500" height="500"  src="images/folium/route_map.html" style="border:none;"></iframe>
+    <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
   </div>
 </div>
 <img src="images/png/plotly_table.png" width="1000" height="400">
