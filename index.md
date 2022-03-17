@@ -22,18 +22,18 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <p>Click on an indvidual marker for the GP practice name, code, address, and contact information.</p>
 
-<iframe width= "500" height="500"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
+<iframe width= "450" height="450"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
 <p align="left">
-  <img src="images/png/cambridge_osmnx_nodes.png" width="500" height="500">
+  <img src="images/png/cambridge_osmnx_nodes.png" width="450" height="450">
   &nbsp; &nbsp;
-  <img src="images/png/cambridge_node_coloured.png" width="500" height="500">
+  <img src="images/png/cambridge_node_coloured.png" width="450" height="500">
 </p>
 
 <p align="left">
-  <img src="images/png/cambridge_isochromes_coloured.png" width="500" height="500">
+  <img src="images/png/cambridge_isochromes_coloured.png" width="450" height="450">
   &nbsp; &nbsp;
-  <iframe width= "400" height="400"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+  <iframe width= "450" height="450"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
 </p>
 
 
@@ -46,11 +46,11 @@ Placeholder text.
 <p align="left">
   <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
   &nbsp; &nbsp;
-  <img src="images/folium/route_map.html" width="500" height="500">
+  <iframe width= "450" height="450"  src="images/folium/route_map.html" style="border:none;"></iframe>
 </p>
-</div>
-<p align="center">
-  <img src="images/png/plotly_table.png" width="800" height="50">
+
+<p align="left">
+  <img src="images/png/plotly_table.png">
 </p>
 
 <div class="nhsuk-action-link">
