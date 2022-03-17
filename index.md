@@ -53,7 +53,9 @@ Placeholder text.
     <img src="images/png/london_osmnx_nodes.png" width="500" height="500">
   </div>
 </div>
-<img src="images/png/plotly_table.png" width="1000" height="400">
+<p align="center">
+  <img src="images/png/plotly_table.png" width="800" height="200">
+</p>
 
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="">
