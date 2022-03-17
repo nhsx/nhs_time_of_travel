@@ -1,6 +1,12 @@
-## Travel time
+## Travel time to NHS organisations
 
-Data sources: [NHS Digital](https://digital.nhs.uk/data-and-information/publications/statistical/patients-registered-at-a-gp-practice)
+The following page and accompanying GitHub repository contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
+
+A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
+
+Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London and Cambridge. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
+
+Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), [Uber Movement](https://movement.uber.com/)
 
 <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
 
@@ -12,18 +18,27 @@ Data sources: [NHS Digital](https://digital.nhs.uk/data-and-information/publicat
   </p>
 </div>
 
-### Number of patients registered at indvidual GP Practices 
+### Walking time to GP practices in Cambridge
 
-### Part 1
+<p>Click on an indvidual marker for the GP practice name, code, address, and contact information.</p>
 
-<p>
-Click on an indvidual marker for the GP practice name, code, address, and contact information. 
-</p>
+<iframe width= "500" height="500"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
-<iframe width= "500" height="500"  src="images/png/cambridge_osmnx_nodes.png" style="border:none;"></iframe><iframe width= "500" height="500"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+<img src="images/png/cambridge_osmnx_nodes.png" 
+     width="500" 
+     height="500">
 
+<img src="images/png/cambridge_node_coloured.png" 
+     width="500" 
+     height="500">
 
-### Route Map
+<img src="cambridge_isochromes_coloured.png" 
+     width="500" 
+     height="500">
+
+<iframe width= "500" height="500"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
+
+### Driving time between a GP Practice and a Hospital in central London
 
 <p>
 Placeholder text. 
