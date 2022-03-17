@@ -25,13 +25,13 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 <iframe width= "450" height="450"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
 <p align="left">
-  <img src="images/png/cambridge_osmnx_nodes.png" width="450" height="450">
+  <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
   &nbsp; &nbsp;
-  <img src="images/png/cambridge_node_coloured.png" width="450" height="450">
+  <img src="images/png/cambridge_node_coloured.png" width="460" height="460">
 </p>
 
 <p align="left">
-  <img src="images/png/cambridge_isochromes_coloured.png" width="450" height="450">
+  <img src="images/png/cambridge_isochromes_coloured.png" width="460" height="460">
   &nbsp; &nbsp;
   <iframe width= "450" height="450"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
 </p>
@@ -44,13 +44,13 @@ Placeholder text.
 </p>
 
 <p align="left">
-  <img src="images/png/london_osmnx_nodes.png" width="450" height="450">
+  <img src="images/png/london_osmnx_nodes.png" width="460" height="460">
   &nbsp; &nbsp;
   <iframe width= "450" height="450"  src="images/folium/route_map.html" style="border:none;"></iframe>
 </p>
 
 <p align="left">
-  <img src="images/png/plotly_table.png">
+  <img src="images/png/plotly_table.png" width="950" height="80">
 </p>
 
 <div class="nhsuk-action-link">
