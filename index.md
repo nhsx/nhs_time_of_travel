@@ -26,14 +26,12 @@ Cambridge
 
 <p>Click on an indvidual marker for the GP practice name, code, address, and contact information.</p>
 
-<iframe width= "450" height="450"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
+<iframe width= "455" height="455"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
 <p align="left">
-  <img src="images/png/cambridge_osmnx_nodes.png" width="450" height="450">
-  <em><b>Figure 2:</b> Placeholder text</em>
+  <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
   &nbsp; &nbsp;
-  <img src="images/png/cambridge_node_coloured.png" width="450" height="450">
-  <em><b>Figure 3:</b> Placeholder text</em>
+  <img src="images/png/cambridge_node_coloured.png" width="460" height="460">
 </p>
 
 <p align="left">
