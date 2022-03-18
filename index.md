@@ -22,14 +22,18 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 ### Walking time to GP practices in Cambridge 
 
-Cambridge was selected as a case city to explore the walking distance to GP practices due to its relatively small size and because central Cambridge is well defined by the CB1, CB2, CB3, CB4, and CB5 postcodes. The currently active GP practices within the central Cambridge postcode areas were extracted from the [EPRACCUR dataset](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), which contains data for general Medical Practices supplied by the NHS Prescription Services and published by NHS Digital.
+Cambridge was selected as a case city to explore the walking distance to GP practices due to its relatively small size and because central Cambridge is well defined by the CB1, CB2, CB3, CB4, and CB5 postcodes (highlighted in blue in the Cambridge postcode map). The currently active GP practices within the central Cambridge postcode areas were extracted from the [EPRACCUR dataset](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), which contains data for general Medical Practices supplied by the NHS Prescription Services and published by NHS Digital.
 
 Using the [GeoPy library](https://geopy.readthedocs.io/en/stable/#) and the [Nominatim API](https://nominatim.org/) the coordinates for the central Cambridge GP practices were identified from GP Practice postcodes. GeoPy allows for the use of multiple different geolocation services, including Google Maps and Bing Maps. Nominatim was selected as it is free to use (limited to a maximum of 1 request per second) and because it is integrated with OpenStreetMap. Due to its usage limits, Nominatim is not suitable for heavy use and does not support systematic queries. Before using Nominatim please read its [usage policy](https://operations.osmfoundation.org/policies/nominatim/).
 
 The [Folium library](https://python-visualization.github.io/folium/) was used to map the GP practices in central Cambridge using their coordinates. Click on an individual marker for the GP practice name, code, address, and contact information.
 
-<iframe width= "455" height="455"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
-<br>&nbsp;</br>
+<p align="left">
+  <iframe width= "455" height="455"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
+  &nbsp; &nbsp;
+  <iframe width= "455" height="455"  src="images/folium/cambridge_postcode_map.html" style="border:none;"></iframe>
+</p>
+
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="data/cambridge_gp_practices.csv">
     <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
