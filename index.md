@@ -50,10 +50,9 @@ OSMnx is a Python package that lets you download geospatial data from [OpenStree
 
 Walkable urban networks represent all the streets and paths that pedestrians can use (ignoring one-way directionality). We created a graph of the walkable urban network 5000 meters from a point arbitrarily defined as the centre of Cambridge (Figure on the left).
 
-OSMnx can determine the node within a network that is closest to a given set of coordinates. Using this functionality, we added the location of all the GP practices in central Cambridge to the OSMnx Cambridge walkable urban network. While useful, this can be inaccurate. To read more about the possible issues that can arise from, and the solutions to, the inaccuracy of mapping coordinates to an OSMnx network node see [here] (https://nathanrooy.github.io/posts/2021-03-12/osmnx-openstreetmap-taxicab-routing/).The GP practice nodes were specified as points of interest - where the time of travel starts. 
+OSMnx can determine the node within a network that is closest to a given set of coordinates. Using this functionality, we added the location of all the GP practices in central Cambridge to the OSMnx Cambridge walkable urban network. While useful, this can be inaccurate. To read more about the possible issues that can arise from, and the solutions to, the inaccuracy of mapping coordinates to an OSMnx network node see [here](https://nathanrooy.github.io/posts/2021-03-12/osmnx-openstreetmap-taxicab-routing/).The GP practice nodes were specified as points of interest - where the time of travel starts. 
 
 We specified the walking speed in our analysis to be 4.5 km/hr. By dividing the length of the edge (distance between two nodes) by the walking speed we calculated the time it would take to walk the distance of the edge, adding this as a new attribute 'time' to each edge in the network.
-
 
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
