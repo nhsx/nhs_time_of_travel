@@ -44,7 +44,7 @@ The [Folium library](https://python-visualization.github.io/folium/) was used to
   </a>
 </div>
 
-We then decided to determine the area of central Cambridge which was specified walking distance from any of the central Cambridge GP practices. 
+Determining areas which have poor accessibility to health and social care services could inform new service placement strategies. Isochrones are areas on a map accessible from a point within a certain time threshold. Using the [OSMnx library](https://osmnx.readthedocs.io/en/stable/) we aimed to determine the areas of central Cambridge (isochrones) which were 5 minutes, 10 minutes, and 20 minutes walking distance from any of the central Cambridge GP practices. 
 
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
