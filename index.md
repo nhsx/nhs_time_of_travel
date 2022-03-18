@@ -30,10 +30,10 @@ Cambridge
 
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="450" height="450">
-  <figcaption><b>Figure 2:</b> Placeholder text</figcaption>
+   <em><b>Figure 2:</b> Placeholder text</em>
   &nbsp; &nbsp;
   <img src="images/png/cambridge_node_coloured.png" width="450" height="450">
-  <figcaption><b>Figure 3:</b> Placeholder text</figcaption>
+  <em><b>Figure 3:</b> Placeholder text</em>
 </p>
 
 <p align="left">
