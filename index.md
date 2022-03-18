@@ -28,13 +28,17 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <p align="left">
   <figure>
-    <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
-    <figcaption>Figure 2: Placeholder text</figcaption>
+    <img src="images/png/cambridge_osmnx_nodes.png" width="440" height="440">
+    <p align="center">
+    <figcaption><b>Figure 2:</b> Placeholder text</figcaption>
+    <p align="center">
   </figure>
   &nbsp; &nbsp;
   <figure>
-    <img src="images/png/cambridge_node_coloured.png" width="460" height="460">
-    <figcaption>Figure 3: Placeholder text</figcaption>
+    <img src="images/png/cambridge_node_coloured.png" width="440" height="450">
+    <p align="center">
+    <figcaption><b>Figure 3:</b> Placeholder text</figcaption>
+    <p align="center">
   </figure>
 </p>
 
