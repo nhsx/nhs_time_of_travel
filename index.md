@@ -29,9 +29,9 @@ Using the [GeoPy library](https://geopy.readthedocs.io/en/stable/#) and the [Nom
 The [Folium library](https://python-visualization.github.io/folium/) was used to map the GP practices in central Cambridge using their coordinates. Click on an individual marker for the GP practice name, code, address, and contact information.
 
 <p align="left">
-  <iframe width= "455" height="455"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
-  &nbsp; &nbsp;
   <iframe width= "455" height="455"  src="images/folium/cambridge_postcode_map.html" style="border:none;"></iframe>
+  &nbsp; &nbsp;
+  <iframe width= "455" height="455"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 </p>
 
 <div class="nhsuk-action-link">
