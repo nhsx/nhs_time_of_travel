@@ -7897,3 +7897,7 @@ b {
     page-break-inside: avoid;
   }
 }
+figcaption {
+  padding: 2px;
+  text-align: center;
+}

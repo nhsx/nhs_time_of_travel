@@ -20,7 +20,9 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
   </p>
 </div>
 
-### Walking time to GP practices in Cambridge
+### Walking time to GP practices in Cambridge 
+
+Cambridge 
 
 <p>Click on an indvidual marker for the GP practice name, code, address, and contact information.</p>
 
@@ -28,17 +30,13 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <p align="left">
   <figure>
-    <img src="images/png/cambridge_osmnx_nodes.png" width="440" height="440">
-    <p align="center">
+    <img src="images/png/cambridge_osmnx_nodes.png" width="400" height="400">
     <figcaption><b>Figure 2:</b> Placeholder text</figcaption>
-    <p align="center">
   </figure>
   &nbsp; &nbsp;
   <figure>
-    <img src="images/png/cambridge_node_coloured.png" width="440" height="450">
-    <p align="center">
+    <img src="images/png/cambridge_node_coloured.png" width="400" height="400">
     <figcaption><b>Figure 3:</b> Placeholder text</figcaption>
-    <p align="center">
   </figure>
 </p>
 
