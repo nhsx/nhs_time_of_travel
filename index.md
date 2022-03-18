@@ -29,13 +29,11 @@ Cambridge
 <iframe width= "450" height="450"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
 <p align="left">
-  <figure>
-    <img src="images/png/cambridge_osmnx_nodes.png" width="440" height="440">
-    <figcaption><b>Figure 2:</b> Placeholder text</figcaption>
+  <img src="images/png/cambridge_osmnx_nodes.png" width="450" height="450">
+  <figcaption><b>Figure 2:</b> Placeholder text</figcaption>
   &nbsp; &nbsp;
-    <img src="images/png/cambridge_node_coloured.png" width="440" height="440">
-    <figcaption><b>Figure 3:</b> Placeholder text</figcaption>
-  </figure>
+  <img src="images/png/cambridge_node_coloured.png" width="450" height="450">
+  <figcaption><b>Figure 3:</b> Placeholder text</figcaption>
 </p>
 
 <p align="left">
