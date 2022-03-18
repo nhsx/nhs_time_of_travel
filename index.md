@@ -44,7 +44,7 @@ The [Folium library](https://python-visualization.github.io/folium/) was used to
   </a>
 </div>
 
-Text here. 
+We then decided to determine the area of central Cambridge which was specified walking distance from any of the central Cambridge GP practices. 
 
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
