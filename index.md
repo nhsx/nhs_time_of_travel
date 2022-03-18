@@ -27,9 +27,15 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 <iframe width= "450" height="450"  src="images/folium/cambridge_map_no_travel.html" style="border:none;"></iframe>
 
 <p align="left">
-  <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
+  <figure>
+    <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
+    <figcaption>Figure 2: Placeholder text</figcaption>
+  </figure>
   &nbsp; &nbsp;
-  <img src="images/png/cambridge_node_coloured.png" width="460" height="460">
+  <figure>
+    <img src="images/png/cambridge_node_coloured.png" width="460" height="460">
+    <figcaption>Figure 3: Placeholder text</figcaption>
+  </figure>
 </p>
 
 <p align="left">
