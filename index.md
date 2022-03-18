@@ -16,7 +16,7 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
   <h3 class="nhsuk-warning-callout__label">
     Data Quality<span class="nhsuk-u-visually-hidden">:</span>
   </h3>
-  <p>Data Quality placeholder. 
+  <p>Work in progress. 
   </p>
 </div>
 
