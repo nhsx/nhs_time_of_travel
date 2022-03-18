@@ -44,7 +44,11 @@ The [Folium library](https://python-visualization.github.io/folium/) was used to
   </a>
 </div>
 
-Determining areas which have poor accessibility to health and social care services could inform new service placement strategies. Isochrones are areas on a map accessible from a point within a certain time threshold. Using the [OSMnx library](https://osmnx.readthedocs.io/en/stable/) we aimed to determine the areas of central Cambridge (isochrones) which were 5 minutes, 10 minutes, and 20 minutes walking distance from any of the central Cambridge GP practices. 
+Determining areas which have poor access to health and social care services could inform new service placement strategies. Isochrones are areas on a map accessible from a point within a certain time threshold. Using the [OSMnx library](https://osmnx.readthedocs.io/en/stable/) we aimed to determine the areas of central Cambridge (isochrones ) which were 5 minutes, 10 minutes, and 20 minutes walking distance from any of the central Cambridge GP practices.
+
+OSMnx is a Python package that lets you download geospatial data from [OpenStreetMap](https://www.openstreetmap.org/) and model, project, visualise and analyse real-world street networks and any other geospatial geometries, including walkable, drivable, or bikeable urban networks. A network is a collection of connected objects. The objects in a network are called nodes (or vertices) and are visualised as points. The connections between nodes are called edges and are drawn as lines.  OSMnx networks are topologically corrected, directed, and preserve one-way directionality.
+
+Walkable urban networks represent all the streets and paths that pedestrians can use (ignoring one-way directionality). We created a graph of the walkable urban network 5000 meters from a point arbitrarily defined as the centre of Cambridge (Figure on the left).
 
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
