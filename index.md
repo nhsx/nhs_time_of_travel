@@ -24,7 +24,7 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 ### Walking time to GP practices in Cambridge
 
-The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/development_code.ipynb).
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/tree/main/code/walking_gp_practice_cambridge.ipynb).
 
 Cambridge was selected as a case city to explore the walking distance to GP practices due to its relatively small size and because central Cambridge is well defined by the CB1, CB2, CB3, CB4, and CB5 postcodes (highlighted in blue in the Cambridge postcode map). The currently active GP practices within the central Cambridge postcode areas were extracted from the [EPRACCUR dataset](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), which contains data for general Medical Practices supplied by the NHS Prescription Services and published by NHS Digital.
 
@@ -76,9 +76,7 @@ OSMnx does not have a native function to plot isochrones with Folium base maps. 
 
 ### Driving time between a GP Practice and a Hospital in central London
 
-<p>
-Placeholder text. 
-</p>
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/tree/main/code/driving_hospital_london.ipynb)
 
 <p align="left">
   <img src="images/png/london_osmnx_nodes.png" width="460" height="460">
