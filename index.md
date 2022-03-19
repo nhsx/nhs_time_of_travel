@@ -2,6 +2,8 @@
 
 ## Travel time to NHS organisations
 
+This work was led by [Mattia Ficarelli](https://github.com/mattia-ficarelli), Data Engineer, and [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, as part of their roles with the Analytics Unit of the NHS Transformation Directorate.
+
 The following page and accompanying [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
 
 A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
@@ -20,7 +22,9 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
   </p>
 </div>
 
-### Walking time to GP practices in Cambridge 
+### Walking time to GP practices in Cambridge
+
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/development_code.ipynb).
 
 Cambridge was selected as a case city to explore the walking distance to GP practices due to its relatively small size and because central Cambridge is well defined by the CB1, CB2, CB3, CB4, and CB5 postcodes (highlighted in blue in the Cambridge postcode map). The currently active GP practices within the central Cambridge postcode areas were extracted from the [EPRACCUR dataset](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), which contains data for general Medical Practices supplied by the NHS Prescription Services and published by NHS Digital.
 
