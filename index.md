@@ -76,7 +76,7 @@ OSMnx does not have a native function to plot isochrones with Folium base maps. 
 
 ### Driving time between a GP Practice and a Hospital in central London
 
-The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/tree/main/code/driving_hospital_london.ipynb)
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/walking_gp_practice_cambridge.ipynb)
 
 <p align="left">
   <img src="images/png/london_osmnx_nodes.png" width="460" height="460">
