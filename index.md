@@ -50,9 +50,9 @@ OSMnx is a Python package that lets you download geospatial data from [OpenStree
 
 Walkable urban networks represent all the streets and paths that pedestrians can use (ignoring one-way directionality). We created a graph of the walkable urban network 5000 meters from a point arbitrarily defined as the centre of Cambridge (Figure on the left).
 
-OSMnx can determine the node within a network that is closest to a given set of coordinates. Using this functionality, we added the location of all the GP practices in central Cambridge to the OSMnx Cambridge walkable urban network. While useful, this can be inaccurate. To read more about the possible issues that can arise from, and the solutions to, the inaccuracy of mapping coordinates to an OSMnx network node see [here](https://nathanrooy.github.io/posts/2021-03-12/osmnx-openstreetmap-taxicab-routing/).The GP practice nodes were specified as points of interest - where the time of travel starts. 
+OSMnx can determine the node within a network that is closest to a given set of coordinates. Using this functionality, we added the location of all the GP practices in central Cambridge to the OSMnx Cambridge walkable urban network. While useful, this can be inaccurate. To read more about the possible issues that can arise from, and the solutions to, the inaccuracy of mapping coordinates to an OSMnx network node see [here](https://nathanrooy.github.io/posts/2021-03-12/osmnx-openstreetmap-taxicab-routing/). The GP practice nodes were specified as points of interest - where the time of travel starts. 
 
-We specified the walking speed in our analysis to be 4.5 km/hr. By dividing the length of the edge (distance between two nodes) by the walking speed we calculated the time it would take to walk the distance of the edge, adding this as a new attribute 'time' to each edge in the network.
+We specified the walking speed in our analysis to be 4.5 km/hr. By dividing the length of the edge (distance between two nodes) by the walking speed we calculated the time it would take to walk the distance of the edge, adding this as a new attribute 'time' to each edge in the network. This allowed us to determine which nodes in the Cambridge walkable urban network were 5-, 10-, and 20-minutes walking distance from the GP practice nodes. Nodes 5 minutes walking distance from a GP practice were coloured in dark red, while those 10 minutes and 20 minutes away were coloured in orange and yellow respectively (Figure on the right).
 
 <p align="left">
   <img src="images/png/cambridge_osmnx_nodes.png" width="460" height="460">
@@ -60,12 +60,15 @@ We specified the walking speed in our analysis to be 4.5 km/hr. By dividing the 
   <img src="images/png/cambridge_node_coloured.png" width="460" height="460">
 </p>
 
+[GeoPandas]( https://geopandas.org/en/stable/) combines the capabilities of pandas and shapely, providing geospatial operations in pandas and a high-level interface to multiple geometries to shapely, facilitating geospatial data manipulation in python. Using the [NetworkX](https://networkx.org/documentation/stable/index.html) and GeoPandas libraries one can create isochrone polygons from the isochrone network graph, allowing isochrones to be better visualised (Figure on the left). Put simply, nodes for each of the travel times are extracted as point clouds and polygon convex hulls are generated. However, a limitation of this approach is that by generating polygon convex hull geometries detail is lost, and inaccessible areas within isochrones are ignored. Alternative approaches and detailed methods on how to generate isochrones from network graphs are explored[here](http://kuanbutts.com/2017/12/16/osmnx-isochrones/).
+
+OSMnx does not have a native function to plot isochrones with Folium base maps. However, you can create a Geodataframe from isochrones polygons with Geopandas and export the isochrones as geoJSON files. Using this approach, we generated three isochrone GeoJSON files representing the areas 5 minutes, 10 minutes, and 20 minutes walking distance from any of the central Cambridge GP practices and added them to an interactive folium map (Figure on the right). 
+
 <p align="left">
   <img src="images/png/cambridge_isochromes_coloured.png" width="460" height="460">
   &nbsp; &nbsp;
   <iframe width= "455" height="455"  src="images/folium/cambridge_map_travel.html" style="border:none;"></iframe>
 </p>
-
 
 ### Driving time between a GP Practice and a Hospital in central London
 
