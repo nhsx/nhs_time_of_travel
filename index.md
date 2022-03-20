@@ -78,6 +78,19 @@ OSMnx does not have a native function to plot isochrones with Folium base maps. 
 
 The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/driving_hospital_london.ipynb)
 
+A major challenge when estimating accurate travel times is accounting for the multitude of factors that impact vehicle speed during a journey. Free-flow speed is defined as the average speed of vehicles on a given segment, measured under low-volume conditions – usually close to the speed limit of a given street. However, in major cities such as London free-flow speed is rarely, if ever, achieved by a vehicle during a trip, especially during rush hour. OpenStreetMap does not contain any traffic information, and therefore while travel time information can be calculated using OSMnx it assumes free-flow conditions. As a result, travel times for most trips would be underestimated.
+
+In this section of the project, we explored combining [Uber Movement](https://movement.uber.com/) data with OSMnx to determine a better estimate of the fastest route between a GP Practice and a Hospital in central London. Uber movement consists of billions of pieces of Uber trip data, including datasets measuring zone-to-zone travel times and information on street speeds across a city for Ubers. The data is publicly accessible and can be downloaded in CSV format. 
+
+In this section of the project, we used the Uber Movement travel speed data. The data can either be downloaded as a summary of an entire quarter, with speeds on a given road segment provided by the hour of the day, aggregated from all days in the specified quarter, or a monthly dataset can be used which provides the average speed on a given road segment for each hour of each day in the specified month. In our analysis, we used the most recent quarterly speed statistic dataset (Q1 2020). The Uber Movement data does not cover all source and destination pairs for each time interval and includes only road segments with at least 5 unique trips in a quarter resulting in data gaps. Currently, Uber Movement data is available only for selected cities. In the UK, zone-to-zone travel time data is available for London, Birmingham, and Bristol while travel speed data is only available for London. 
+
+We decided to conduct exploratory analyses on the route and trip time between St. John’s Wood Medical Practice and St. Thomas Hospital, as any route between them would need to cross central London which is severely impacted by traffic. We generated an OSMnx drivable urban network for the section of central London where the hospital and GP practice are located (Figure on the left). As in the previous section, using their coordinates the GP practice and hospital were mapped to their nearest node within the driveable network.
+
+The OSMnx library contains a built-in shortest-path function which allows you to find the shortest path between any two nodes in a network. You can weight the shortest-path function using different edge attributes. Uber Movement speed data is indexed by OpenStreetMap way ID and OSMnx retains the OpenStreetMap way ID for each edge in the network as an attribute. This allows for the Uber Movement speed data to be appended to each edge as a new attribute. If no Uber Movement speeds were available for a given edge in the network, free-flow speed was appended (which assumes that the speed along an edge is the speed limit of the street). As we were interested in exploring the impact of traffic data on the predicted shortest route between two locations, the Uber Movement speeds at 6 pm (peak London rush hour) was used. This cut of the Uber Movement dataset can be downloaded from this webpage in CSV format. 
+
+
+
+
 <p align="left">
   <img src="images/png/london_osmnx_nodes.png" width="460" height="460">
   &nbsp; &nbsp;
