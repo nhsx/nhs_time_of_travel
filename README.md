@@ -12,4 +12,7 @@ A mapping tool could support national and regional commissioning strategies by f
 
 Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London and Cambridge. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
 
-![Alt text](images\png\cambridge_osmnx_nodes.png?raw=true "OSMnx walkable urban network of central Cambridge")
+<figure>
+  <img src="images/png/cambridge_osmnx_nodes.png" width="300" height="360">
+  <figcaption><b>OSMnx walkable urban network of central Cambridge</b></figcaption>
+</figure>
