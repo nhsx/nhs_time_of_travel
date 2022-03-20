@@ -88,8 +88,7 @@ We decided to conduct exploratory analyses on the route and trip time between St
 
 The OSMnx library contains a built-in shortest-path function which allows you to find the shortest path between any two nodes in a network. You can weight the shortest-path function using different edge attributes. Uber Movement speed data is indexed by OpenStreetMap way ID and OSMnx retains the OpenStreetMap way ID for each edge in the network as an attribute. This allows for the Uber Movement speed data to be appended to each edge as a new attribute. If no Uber Movement speeds were available for a given edge in the network, free-flow speed was appended (which assumes that the speed along an edge is the speed limit of the street). As we were interested in exploring the impact of traffic data on the predicted shortest route between two locations, the Uber Movement speeds at 6 pm (peak London rush hour) was used. This cut of the Uber Movement dataset can be downloaded from this webpage in CSV format. 
 
-
-
+The travel time for each edge can be calculated and appended as a new edge attribute by dividing the length of the edge by the speed. Travel time was used to weight the shortest path function, translating to the predicted fastest route between St. John’s Wood Medical Practice and St. Thomas Hospital. The shortest path using both free-flow travel time and Uber-weighted travel was calculated, with both routes visualised on a interactive folium map (Figure on the right). The OSMnx driveable urban network for this region of centeral London is also added as layer on the Map. 
 
 <p align="left">
   <img src="images/png/london_osmnx_nodes.png" width="460" height="460">
@@ -97,9 +96,13 @@ The OSMnx library contains a built-in shortest-path function which allows you to
   <iframe width= "455" height="455"  src="images/folium/route_map.html" style="border:none;"></iframe>
 </p>
 
+The statistics for the free-flow and Uber-weighted fastest routes between St. John’s Wood Medical Practice and St. Thomas Hospital are summarized in a table (Table below). At 6 pm the Uber-weighted route differs significantly from the free-flow route, highlighting the impact of traffic on the fastest route between two locations in central London. The free-flow route is slightly longer than the Uber-weighted route. While longer, assuming free-flow speeds this route is quicker than the Uber-weighted route as it involves driving through Park Lane (on the edge of Hyde park) which in 2020 had a speed limit of 40 mph (almost all other streets in central London have a speed limit of 20 mph).  As a result of the gaps in the Uber Movement dataset, only 51% of the edges in the Uber-weighted route had corresponding Uber Movement datapoints. Therefore, the estimated travel time for this route (~ 13 min 40 seconds) is still likely a significant underestimation of the actual travel time at 6 pm. 
+
 <p align="left">
   <iframe width= "960" src="images/folium/plotly_table.html" style="border:none;"></iframe>
 </p>
+
+Estimating accurate travel times using open-source tools and data is challenging due to the lack of available travel time and speed data. Examples of paid-for alternatives include the [Google Maps API](https://developers.google.com/maps) and [Otonomo](https://otonomo.io/traffic-data/). 
 
 <div class="nhsuk-action-link">
   <a class="nhsuk-action-link__link" href="data/uber_movement_speeds_6pm.csv">
