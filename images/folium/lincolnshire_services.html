@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_216c230db1f74bd3a4f0f8b79d59719f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_216c230db1f74bd3a4f0f8b79d59719f" ></div>
+        
+</body>
+<script>    
+    
+            var map_216c230db1f74bd3a4f0f8b79d59719f = L.map(
+                "map_216c230db1f74bd3a4f0f8b79d59719f",
+                {
+                    center: [53.2, -0.3],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 8,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ee8d22c4d4254f26ab0382943b6370d2 = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+            var circle_marker_6d7524024cb740ef902dbbdc9c4afede = L.circleMarker(
+                [53.2339104, -0.5196066],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_080c40cfcba74459b5b06d4e3baf1141 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5c64c8bf8dff45759c8723f384516959 = $(`<div id="html_5c64c8bf8dff45759c8723f384516959" style="width: 100.0%; height: 100.0%;">Lincoln Urgent Treatment Centre</div>`)[0];
+            popup_080c40cfcba74459b5b06d4e3baf1141.setContent(html_5c64c8bf8dff45759c8723f384516959);
+        
+
+        circle_marker_6d7524024cb740ef902dbbdc9c4afede.bindPopup(popup_080c40cfcba74459b5b06d4e3baf1141)
+        ;
+
+        
+    
+    
+            var circle_marker_11b2f7816c9a45dea463e4fab3bd57ae = L.circleMarker(
+                [53.1451456, 0.3321511],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_c1c0c0d4bb0e4f159b8bc8833e1f9431 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_243a9b7f409c4255868eb4d7d617021c = $(`<div id="html_243a9b7f409c4255868eb4d7d617021c" style="width: 100.0%; height: 100.0%;">Skegness Urgent Treatment Centre</div>`)[0];
+            popup_c1c0c0d4bb0e4f159b8bc8833e1f9431.setContent(html_243a9b7f409c4255868eb4d7d617021c);
+        
+
+        circle_marker_11b2f7816c9a45dea463e4fab3bd57ae.bindPopup(popup_c1c0c0d4bb0e4f159b8bc8833e1f9431)
+        ;
+
+        
+    
+    
+            var circle_marker_5fc307d2dee8498e81aeca5efd0c3eda = L.circleMarker(
+                [53.06742999999999, -0.8067749],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_25776c3979a44118aff25a6b6a5c7a5d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2e664bfc3c9f4b70acfa890c5af03cab = $(`<div id="html_2e664bfc3c9f4b70acfa890c5af03cab" style="width: 100.0%; height: 100.0%;">Urgent Care Centre</div>`)[0];
+            popup_25776c3979a44118aff25a6b6a5c7a5d.setContent(html_2e664bfc3c9f4b70acfa890c5af03cab);
+        
+
+        circle_marker_5fc307d2dee8498e81aeca5efd0c3eda.bindPopup(popup_25776c3979a44118aff25a6b6a5c7a5d)
+        ;
+
+        
+    
+    
+            var circle_marker_8f63f5d173624d8d9cb149f33f54abdf = L.circleMarker(
+                [52.9201216, -0.6420511],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_d620fceee5ac411ab475d0be4f276253 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3ec8303bb03d44db9264d44aaa298d5e = $(`<div id="html_3ec8303bb03d44db9264d44aaa298d5e" style="width: 100.0%; height: 100.0%;">Grantham and District Hospital: Accident and Emergency Department</div>`)[0];
+            popup_d620fceee5ac411ab475d0be4f276253.setContent(html_3ec8303bb03d44db9264d44aaa298d5e);
+        
+
+        circle_marker_8f63f5d173624d8d9cb149f33f54abdf.bindPopup(popup_d620fceee5ac411ab475d0be4f276253)
+        ;
+
+        
+    
+    
+            var circle_marker_5d24c7c544f64661a4b71cb2cb0bcb4b = L.circleMarker(
+                [53.2339139, -0.5188239],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_5d05284616134761b470e5fd08cd8f90 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d837ddcce5a44214a21bfea9fada25f7 = $(`<div id="html_d837ddcce5a44214a21bfea9fada25f7" style="width: 100.0%; height: 100.0%;">Lincoln County Hospital Accident and Emergency</div>`)[0];
+            popup_5d05284616134761b470e5fd08cd8f90.setContent(html_d837ddcce5a44214a21bfea9fada25f7);
+        
+
+        circle_marker_5d24c7c544f64661a4b71cb2cb0bcb4b.bindPopup(popup_5d05284616134761b470e5fd08cd8f90)
+        ;
+
+        
+    
+    
+            var circle_marker_b3959fe96f7d4881a78c94a729d5fbb5 = L.circleMarker(
+                [53.2240921, -0.5423932],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_29e437ce0b2149a0bfdfc35e4a7f2450 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_106b39082dc8444d8ead4c7e9cad6a43 = $(`<div id="html_106b39082dc8444d8ead4c7e9cad6a43" style="width: 100.0%; height: 100.0%;">Biuro Pomocy</div>`)[0];
+            popup_29e437ce0b2149a0bfdfc35e4a7f2450.setContent(html_106b39082dc8444d8ead4c7e9cad6a43);
+        
+
+        circle_marker_b3959fe96f7d4881a78c94a729d5fbb5.bindPopup(popup_29e437ce0b2149a0bfdfc35e4a7f2450)
+        ;
+
+        
+    
+    
+            var circle_marker_9f816c576f6a485bbdd1958008450348 = L.circleMarker(
+                [53.1450348, 0.3325575000000001],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_50bb434442ef42e0904c6e0f93705336 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_2c66c18e97b947568cdb085794150032 = $(`<div id="html_2c66c18e97b947568cdb085794150032" style="width: 100.0%; height: 100.0%;">Skegness and District General Hospital</div>`)[0];
+            popup_50bb434442ef42e0904c6e0f93705336.setContent(html_2c66c18e97b947568cdb085794150032);
+        
+
+        circle_marker_9f816c576f6a485bbdd1958008450348.bindPopup(popup_50bb434442ef42e0904c6e0f93705336)
+        ;
+
+        
+    
+    
+            var circle_marker_cb5c3e72360a4837a20eadd2afbb066d = L.circleMarker(
+                [52.9210011, -0.6406482],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_ba3ac229dcbd4a22a4459ce04d178db1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_239cb2051eb9452bafd327f1ee27c5fc = $(`<div id="html_239cb2051eb9452bafd327f1ee27c5fc" style="width: 100.0%; height: 100.0%;">Grantham and District Hospital</div>`)[0];
+            popup_ba3ac229dcbd4a22a4459ce04d178db1.setContent(html_239cb2051eb9452bafd327f1ee27c5fc);
+        
+
+        circle_marker_cb5c3e72360a4837a20eadd2afbb066d.bindPopup(popup_ba3ac229dcbd4a22a4459ce04d178db1)
+        ;
+
+        
+    
+    
+            var circle_marker_33affb341f9a474ca7265d632360fb2b = L.circleMarker(
+                [52.8018247, -0.1502238],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_a89facc3c2e44888a4b3ce79995e112e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5eee7f38e72d49b2931f67c376bf8b21 = $(`<div id="html_5eee7f38e72d49b2931f67c376bf8b21" style="width: 100.0%; height: 100.0%;">Johnson Community Hospital</div>`)[0];
+            popup_a89facc3c2e44888a4b3ce79995e112e.setContent(html_5eee7f38e72d49b2931f67c376bf8b21);
+        
+
+        circle_marker_33affb341f9a474ca7265d632360fb2b.bindPopup(popup_a89facc3c2e44888a4b3ce79995e112e)
+        ;
+
+        
+    
+    
+            var circle_marker_3d8c0e8f131c424a979ec7495101be5f = L.circleMarker(
+                [53.3702224, -0.0084531],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_c3e128ab8625462ca91b054a369aed76 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_57fd3055c4a44ad5a1dca0e663a094bd = $(`<div id="html_57fd3055c4a44ad5a1dca0e663a094bd" style="width: 100.0%; height: 100.0%;">County Hospital Louth</div>`)[0];
+            popup_c3e128ab8625462ca91b054a369aed76.setContent(html_57fd3055c4a44ad5a1dca0e663a094bd);
+        
+
+        circle_marker_3d8c0e8f131c424a979ec7495101be5f.bindPopup(popup_c3e128ab8625462ca91b054a369aed76)
+        ;
+
+        
+    
+    
+            var circle_marker_bb89f614fff94529abb0eadc0fe58d14 = L.circleMarker(
+                [53.7157176, -0.8741329999999999],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_ae41e59db32d4714b62edd0581206601 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_f24ec90b05d245568ace5287173fbdbe = $(`<div id="html_f24ec90b05d245568ace5287173fbdbe" style="width: 100.0%; height: 100.0%;">Urgent Treatment Centre - Goole Hospital</div>`)[0];
+            popup_ae41e59db32d4714b62edd0581206601.setContent(html_f24ec90b05d245568ace5287173fbdbe);
+        
+
+        circle_marker_bb89f614fff94529abb0eadc0fe58d14.bindPopup(popup_ae41e59db32d4714b62edd0581206601)
+        ;
+
+        
+    
+    
+            var circle_marker_dd7a2387c40b40d6abee2ed0d5eb08ab = L.circleMarker(
+                [52.6552399, -0.4687506],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_f179eb1769d04a4883bf6802db0e67a9 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6c49b79202244a819a3c461a5e777e2d = $(`<div id="html_6c49b79202244a819a3c461a5e777e2d" style="width: 100.0%; height: 100.0%;">Stamford and Rutland Hospital</div>`)[0];
+            popup_f179eb1769d04a4883bf6802db0e67a9.setContent(html_6c49b79202244a819a3c461a5e777e2d);
+        
+
+        circle_marker_dd7a2387c40b40d6abee2ed0d5eb08ab.bindPopup(popup_f179eb1769d04a4883bf6802db0e67a9)
+        ;
+
+        
+    
+    
+            var circle_marker_dd00f581ea5f47c9889b93dfdf2714ad = L.circleMarker(
+                [53.4118799, -0.7847],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_ff977f9900294e6cb453182853351b83 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c33ef3318827459bb9cb1a0056537dba = $(`<div id="html_c33ef3318827459bb9cb1a0056537dba" style="width: 100.0%; height: 100.0%;">John Coupland Hospital</div>`)[0];
+            popup_ff977f9900294e6cb453182853351b83.setContent(html_c33ef3318827459bb9cb1a0056537dba);
+        
+
+        circle_marker_dd00f581ea5f47c9889b93dfdf2714ad.bindPopup(popup_ff977f9900294e6cb453182853351b83)
+        ;
+
+        
+    
+    
+            var circle_marker_41400bbcfcf0496888120db97aeb8819 = L.circleMarker(
+                [52.4905986, -0.7124965999999999],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_da1bf8227a9443a0a618937279ae9715 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_098985b7f2cc41b1907a1064de269e0e = $(`<div id="html_098985b7f2cc41b1907a1064de269e0e" style="width: 100.0%; height: 100.0%;">Corby Urgent Care Centre</div>`)[0];
+            popup_da1bf8227a9443a0a618937279ae9715.setContent(html_098985b7f2cc41b1907a1064de269e0e);
+        
+
+        circle_marker_41400bbcfcf0496888120db97aeb8819.bindPopup(popup_da1bf8227a9443a0a618937279ae9715)
+        ;
+
+        
+    
+    
+            var circle_marker_6f56b15f405f4e1b9f75408da478d180 = L.circleMarker(
+                [53.0677058, -0.806459],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_4e950ebc1ffc4319a30721a7a3e2e487 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_edb20940f79d4f43907f9f6063169947 = $(`<div id="html_edb20940f79d4f43907f9f6063169947" style="width: 100.0%; height: 100.0%;">Newark Hospital</div>`)[0];
+            popup_4e950ebc1ffc4319a30721a7a3e2e487.setContent(html_edb20940f79d4f43907f9f6063169947);
+        
+
+        circle_marker_6f56b15f405f4e1b9f75408da478d180.bindPopup(popup_4e950ebc1ffc4319a30721a7a3e2e487)
+        ;
+
+        
+    
+    
+            var circle_marker_bcb31d131907411892c5042c17182e54 = L.circleMarker(
+                [53.2335711, -0.519479],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_6f91dab8b3c344aeaf081be41c780b08 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9498d6bf67644f398c4802872e751e08 = $(`<div id="html_9498d6bf67644f398c4802872e751e08" style="width: 100.0%; height: 100.0%;">Lincoln County Hospital</div>`)[0];
+            popup_6f91dab8b3c344aeaf081be41c780b08.setContent(html_9498d6bf67644f398c4802872e751e08);
+        
+
+        circle_marker_bcb31d131907411892c5042c17182e54.bindPopup(popup_6f91dab8b3c344aeaf081be41c780b08)
+        ;
+
+        
+    
+    
+            var circle_marker_640b2181687d4830b64eb358a174ea6c = L.circleMarker(
+                [52.9979591, -0.4063757],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_5035d26711604b4e9fe3f60ddd9911e3 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_43affbab3f674c3da6ee26f9d75ab537 = $(`<div id="html_43affbab3f674c3da6ee26f9d75ab537" style="width: 100.0%; height: 100.0%;">Sleaford Medical Group</div>`)[0];
+            popup_5035d26711604b4e9fe3f60ddd9911e3.setContent(html_43affbab3f674c3da6ee26f9d75ab537);
+        
+
+        circle_marker_640b2181687d4830b64eb358a174ea6c.bindPopup(popup_5035d26711604b4e9fe3f60ddd9911e3)
+        ;
+
+        
+    
+    
+            var circle_marker_6bd7e5142e264585967381e80fd8bfaa = L.circleMarker(
+                [52.5743787, -0.2584554],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_70878dd2423c4ac2b9329223e9b3b6e1 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fe8614bb65d745daa17764aacefda88a = $(`<div id="html_fe8614bb65d745daa17764aacefda88a" style="width: 100.0%; height: 100.0%;">Peterborough City Care Centre</div>`)[0];
+            popup_70878dd2423c4ac2b9329223e9b3b6e1.setContent(html_fe8614bb65d745daa17764aacefda88a);
+        
+
+        circle_marker_6bd7e5142e264585967381e80fd8bfaa.bindPopup(popup_70878dd2423c4ac2b9329223e9b3b6e1)
+        ;
+
+        
+    
+    
+            var circle_marker_7500b595362f46fb9b2e4c10072b0b81 = L.circleMarker(
+                [53.5739667, -0.0714041],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_7ade97c79db7473084adc8892c4e44ee = L.popup({"maxWidth": "100%"});
+
+        
+            var html_d7cd40a2f771498d80b9e126a1281b97 = $(`<div id="html_d7cd40a2f771498d80b9e126a1281b97" style="width: 100.0%; height: 100.0%;">North East Lincolnshire C C G</div>`)[0];
+            popup_7ade97c79db7473084adc8892c4e44ee.setContent(html_d7cd40a2f771498d80b9e126a1281b97);
+        
+
+        circle_marker_7500b595362f46fb9b2e4c10072b0b81.bindPopup(popup_7ade97c79db7473084adc8892c4e44ee)
+        ;
+
+        
+    
+    
+            var circle_marker_f758b40c5df749388bd99fa3326a6287 = L.circleMarker(
+                [52.9494501, -1.1387071],
+                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+        var popup_7d4916c19cec441bb70db85848e0b47e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_06c523d2bb314d4ebf535bf877da301f = $(`<div id="html_06c523d2bb314d4ebf535bf877da301f" style="width: 100.0%; height: 100.0%;">NHS Urgent Treatment Centre</div>`)[0];
+            popup_7d4916c19cec441bb70db85848e0b47e.setContent(html_06c523d2bb314d4ebf535bf877da301f);
+        
+
+        circle_marker_f758b40c5df749388bd99fa3326a6287.bindPopup(popup_7d4916c19cec441bb70db85848e0b47e)
+        ;
+
+        
+    
+    
+            var marker_07b28c30f5974917a0875e9d78b91776 = L.marker(
+                [53.54485702514648, -0.0962134972214699],
+                {}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+            var icon_b968d68374054f6ab985661c670edac4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_07b28c30f5974917a0875e9d78b91776.setIcon(icon_b968d68374054f6ab985661c670edac4);
+        
+    
+        var popup_b10ed36a2f324216b368158b0a0f5f55 = L.popup({"maxWidth": 240});
+
+        
+            var html_175aa77a1255427a9ba27a714af0dfe3 = $(`<div id="html_175aa77a1255427a9ba27a714af0dfe3" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Diana, Princess Of Wales Hospital<br><b>OrganisationCode: </b>RJL30<br><b>Address: </b>,   DN33 2BA<br><b>Telephone Number: </b>01472 874111<br></div>`)[0];
+            popup_b10ed36a2f324216b368158b0a0f5f55.setContent(html_175aa77a1255427a9ba27a714af0dfe3);
+        
+
+        marker_07b28c30f5974917a0875e9d78b91776.bindPopup(popup_b10ed36a2f324216b368158b0a0f5f55)
+        ;
+
+        
+    
+    
+            var marker_26ae62e71ab74be99e866f98f4dfe188 = L.marker(
+                [53.58758544921875, -0.6675840616226196],
+                {}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+            var icon_679b6443b07b4606aee9fe8896ba8fc4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_26ae62e71ab74be99e866f98f4dfe188.setIcon(icon_679b6443b07b4606aee9fe8896ba8fc4);
+        
+    
+        var popup_cdd92be3755e453582215efa4fa3e385 = L.popup({"maxWidth": 240});
+
+        
+            var html_64fe6d83347d494bbd9c14198a3a40af = $(`<div id="html_64fe6d83347d494bbd9c14198a3a40af" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Scunthorpe General Hospital<br><b>OrganisationCode: </b>RJL32<br><b>Address: </b>,   DN15 7BH<br><b>Telephone Number: </b>01724 282282<br></div>`)[0];
+            popup_cdd92be3755e453582215efa4fa3e385.setContent(html_64fe6d83347d494bbd9c14198a3a40af);
+        
+
+        marker_26ae62e71ab74be99e866f98f4dfe188.bindPopup(popup_cdd92be3755e453582215efa4fa3e385)
+        ;
+
+        
+    
+    
+            var marker_d663427e597d4bd59d396b1ad3e3c9e2 = L.marker(
+                [53.23357772827149, -0.5196201801300049],
+                {}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+            var icon_bc12c0b818604293b07206f37b354791 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d663427e597d4bd59d396b1ad3e3c9e2.setIcon(icon_bc12c0b818604293b07206f37b354791);
+        
+    
+        var popup_31f4921a82be4933bbd0f1b875350aa2 = L.popup({"maxWidth": 480});
+
+        
+            var html_c9373a4e4ecb4060ad354777c59e5daf = $(`<div id="html_c9373a4e4ecb4060ad354777c59e5daf" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Lincoln County Hospital<br><b>OrganisationCode: </b>RWDDA<br><b>Address: </b>,  Lincolnshire, LN2 5QY<br><b>Telephone Number: </b>01522 512512<br></div>`)[0];
+            popup_31f4921a82be4933bbd0f1b875350aa2.setContent(html_c9373a4e4ecb4060ad354777c59e5daf);
+        
+
+        marker_d663427e597d4bd59d396b1ad3e3c9e2.bindPopup(popup_31f4921a82be4933bbd0f1b875350aa2)
+        ;
+
+        
+    
+    
+            var marker_932f80ad53b1420ca46be42ccfb20146 = L.marker(
+                [52.99112701416016, -0.0099528534337878],
+                {}
+            ).addTo(map_216c230db1f74bd3a4f0f8b79d59719f);
+        
+    
+            var icon_8507c841b12d41aa9abc5c30be317f42 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "fa-medkit", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_932f80ad53b1420ca46be42ccfb20146.setIcon(icon_8507c841b12d41aa9abc5c30be317f42);
+        
+    
+        var popup_878506545a924e238b2cc9ef40628d72 = L.popup({"maxWidth": 500});
+
+        
+            var html_4856cf1d4f3f4297b22529281a65306c = $(`<div id="html_4856cf1d4f3f4297b22529281a65306c" style="width: 100.0%; height: 100.0%;"><b>Name: </b>Pilgrim Hospital<br><b>OrganisationCode: </b>RWDLA<br><b>Address: </b>,  Lincolnshire, PE21 9QS<br><b>Telephone Number: </b>01205 364801<br></div>`)[0];
+            popup_878506545a924e238b2cc9ef40628d72.setContent(html_4856cf1d4f3f4297b22529281a65306c);
+        
+
+        marker_932f80ad53b1420ca46be42ccfb20146.bindPopup(popup_878506545a924e238b2cc9ef40628d72)
+        ;
+
+        
+    
+</script>
