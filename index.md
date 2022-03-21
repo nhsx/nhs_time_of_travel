@@ -114,6 +114,18 @@ Estimating accurate travel times using open-source tools and data is challenging
   </a>
 </div>
 
+### Search functionality as a layer for isochrone maps
+
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/search/a%26e.ipynb)
+
+When trying to compare available services and prospective travel times, it is sometimes not easy to find certain health services from the publicly available datasets. This part of the project takes an example of 24 hour A & E services in one of the largest counties in England. It purely focuses on driving times, so excludes the air ambulance. The manual search I used in this part of the project was to ascertain where the locations for the next level of care in the county may be. 
+
+Using a googleCP api key, the user can search for anything in google maps, and the code in this notebook extracts the name and latitude and longitude. The example shown uses a publicly available dataset, found  [here](https://www.nhs.uk/about-us/nhs-website-datasets/hospital.csv), but the first search could be done using the search functionality, and this repeated to put a second layer of data in the mapping functionality. 
+
+Once again, this project uses OSMnx in a similar way to the Cambridge GP project. But here the transport mode selected is 'drive', giving driving times at the selected speed across the network selected, in this case Lincolnshire. I specified the driving speed to be 60 km/hr, and selected 10, 20 and 30 minute driving distances. 
+
+
+
 ## Citations
 
 Boeing, G. 2017. [OSMnx: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks.](https://geoffboeing.com/publications/osmnx-complex-street-networks/)<i>Computers, Environment and Urban Systems</i> 65, 126-139. doi:10.1016/j.compenvurbsys.2017.05.004
