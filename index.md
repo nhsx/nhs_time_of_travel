@@ -125,11 +125,23 @@ Using a googleCP api key, the user can search for anything in google maps, and t
 
 Once again, this project uses OSMnx in a similar way to the Cambridge GP project. But here the transport mode selected is 'drive', giving driving times at the selected speed across the network selected, in this case Lincolnshire. I specified the driving speed to be 60 km/hr, and selected 10, 20 and 30 minute driving distances. 
 
+The two interactive folium maps below show the 24 hour A & E locations, and in the second map, the Urgent Care Centres on top of the 24 hour A & E services. 
+
 <p align="left">
   <iframe width= "455" height="455"  src="images/folium/lincolnshire_a&e.html" style="border:none;"></iframe>
   &nbsp; &nbsp;
   <iframe width= "455" height="455"  src="images/folium/lincolnshire_services.html" style="border:none;"></iframe>
 </p>
+
+Adding the isochromes to the services and county map shows the following distributions; nodes and isochromes maps:
+
+<p align="left">
+  <img src="images/png/lincolnshire_nodes_coloured.png" width="460" height="460">
+  &nbsp; &nbsp;
+  <img src="images/png/lincolnshire_isochromes.png" width="460" height="460">
+</p>
+
+
 
 ## Citations
 
