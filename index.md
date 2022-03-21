@@ -141,7 +141,12 @@ Adding the isochromes to the services and county map shows the following distrib
   <img src="images/png/lincolnshire_isochromes.png" width="460" height="460">
 </p>
 
+The final interactive folium map shows the results of the workbook. Four 24 hour A & E services overlayed on the 12 Urgent Care Centres. 
 
+<p align="centre">
+  <iframe width= "455" height="455"  src="images/folium/lincolnshire_services_traveltimes.html" style="border:none;"></iframe>
+  &nbsp; &nbsp;
+</p>
 
 ## Citations
 
