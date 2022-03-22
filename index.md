@@ -150,13 +150,13 @@ The final interactive folium map shows the results of the workbook. Four 24 hour
 
 ### London Transport network maps and GP Surgeries
 
-The code for this section of the project can be found [here]https://github.com/nhsx/nhs_time_of_travel/blob/main/tube_gp.ipynb)
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/tube_gp.ipynb)
 
 This part of the project remains unfinished. The idea here was be able to plot a travel time from a London Transport transit point (Underground, Overground or DLR) to a London GP practice. This involved several datasets; London Transport transit nodes and edges, A GP practice dataset for London, and a dataset I found online, which listed the travel times from station to station for the London Underground network, available [here](https://www.whatdotheyknow.com/request/station_to_station_journey_times). 
 
 This involved using networkx, and the nodes and edges functionality therein, alongside latitude and longitude data to correctly plot the London Underground, Overground and DLR maps. Added to this dataset were the travel times between stations. 
 
-OSMnx was used slightly differently here than before. There is a custom travel mode with which you can ask OMSnx to search routes such as 'railway', or 'rail|tram'. This is very useful when looking into urban areas where mass transit may be more popular than both walking or driving. 
+OSMnx was used slightly differently here than before. There is a custom travel mode with which you can ask OMSnx to search routes such as 'railway', or 'rail/tram'. This is very useful when looking into urban areas where mass transit may be more popular than both walking or driving. 
 
 <p align="left">
   <img src="images/png/london_transit.png" width="460" height="460">
