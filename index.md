@@ -148,6 +148,19 @@ The final interactive folium map shows the results of the workbook. Four 24 hour
   &nbsp; &nbsp;
 </p>
 
+### London Transport network maps and GP Surgeries
+
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/search/a%26e.ipynb)
+
+This part of the project remains unfinished. The idea here was be able to plot a travel time from a London Transport transit point (Underground, Overground or DLR) to a GP practice. This involved several datasets; London Transport transit nodes and edges, A GP practice dataset for London, and a dataset I found online, which listed the travel times from station to station for the London Underground network, available [here](https://www.whatdotheyknow.com/request/station_to_station_journey_times). 
+
+This involved using networkx, and the nodes and edges functionality therein, alongside latitude and longitude data to correctly plot the London Underground, Overground and DLR maps. Added to this dataset were the travel times between stations. 
+
+Folium was used to identify GP practices in London, in the same functionality as used in the Cambridge GP and Lincolnshire A&E services parts of this project.
+OSMnx was used slightly differently here than before. There is a custom travel mode 
+
+Using a googleCP api key, the user can search for anything in google maps, and the code in this notebook extracts the name and latitude and longitude from this search. The example shown uses a publicly available dataset, found  [here](https://www.nhs.uk/about-us/nhs-website-datasets/hospital.csv), but the first search could be done using the search functionality, and this repeated to put a second layer of data in the mapping functionality. 
+
 ## Citations
 
 Boeing, G. 2017. [OSMnx: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks.](https://geoffboeing.com/publications/osmnx-complex-street-networks/)<i>Computers, Environment and Urban Systems</i> 65, 126-139. doi:10.1016/j.compenvurbsys.2017.05.004
