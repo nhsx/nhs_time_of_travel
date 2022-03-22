@@ -150,16 +150,30 @@ The final interactive folium map shows the results of the workbook. Four 24 hour
 
 ### London Transport network maps and GP Surgeries
 
-The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/search/a%26e.ipynb)
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/search/tube_gp.ipynb)
 
-This part of the project remains unfinished. The idea here was be able to plot a travel time from a London Transport transit point (Underground, Overground or DLR) to a GP practice. This involved several datasets; London Transport transit nodes and edges, A GP practice dataset for London, and a dataset I found online, which listed the travel times from station to station for the London Underground network, available [here](https://www.whatdotheyknow.com/request/station_to_station_journey_times). 
+This part of the project remains unfinished. The idea here was be able to plot a travel time from a London Transport transit point (Underground, Overground or DLR) to a London GP practice. This involved several datasets; London Transport transit nodes and edges, A GP practice dataset for London, and a dataset I found online, which listed the travel times from station to station for the London Underground network, available [here](https://www.whatdotheyknow.com/request/station_to_station_journey_times). 
 
 This involved using networkx, and the nodes and edges functionality therein, alongside latitude and longitude data to correctly plot the London Underground, Overground and DLR maps. Added to this dataset were the travel times between stations. 
 
-Folium was used to identify GP practices in London, in the same functionality as used in the Cambridge GP and Lincolnshire A&E services parts of this project.
-OSMnx was used slightly differently here than before. There is a custom travel mode 
+OSMnx was used slightly differently here than before. There is a custom travel mode with which you can ask OMSnx to search routes such as 'railway', or 'rail|tram'. This is very useful when looking into urban areas where mass transit may be more popular than both walking or driving. 
 
-Using a googleCP api key, the user can search for anything in google maps, and the code in this notebook extracts the name and latitude and longitude from this search. The example shown uses a publicly available dataset, found  [here](https://www.nhs.uk/about-us/nhs-website-datasets/hospital.csv), but the first search could be done using the search functionality, and this repeated to put a second layer of data in the mapping functionality. 
+<p align="left">
+  <img src="images/png/london_transit.png" width="460" height="460">
+  &nbsp; &nbsp;
+  <img src="images/png/osmnx_london_rail.png" width="460" height="460">
+</p>
+
+Folium was used to identify GP practices in London, in the same functionality as used in the Cambridge GP and Lincolnshire A&E services parts of this project. 
+<p align="centre">
+  <iframe width= "455" height="455"  src="images/folium/london_gp.html" style="border:none;"></iframe>
+  &nbsp; &nbsp;
+</p>
+
+
+
+The last part of the workbook focuses on the path functionality, in particular the shortest path between stations. Currently the user is able to enter two stations, A & B, within the network, and the function will retrieve the route, the path length, the number of stops, and will give advice on the the lines needed to get from A to B. In the two examples shown, St Johns Wood to Cockfosters is one, and the second, Warren Street to Victoria. This function uses the networkx shortest_path functionality
+ 
 
 ## Citations
 
