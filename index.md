@@ -164,16 +164,16 @@ OSMnx was used slightly differently here than before. There is a custom travel m
   <img src="images/png/osmnx_london_rail.png" width="460" height="460">
 </p>
 
-Folium was used to identify GP practices in London, in the same functionality as used in the Cambridge GP and Lincolnshire A&E services parts of this project. 
+Folium was used to identify GP practices in London, the same functionality as used in the Cambridge GP and Lincolnshire A&E services parts of this project. Given the location is London, the output is hugely more clustered representing patient demand in the Capital.
 <p align="centre">
   <iframe width= "455" height="455"  src="images/folium/london_gp.html" style="border:none;"></iframe>
   &nbsp; &nbsp;
 </p>
 
 
+The last part of the workbook focuses on the path functionality, in particular the shortest path between stations. Currently the user is able to enter two stations, A & B, within the network, and the function will retrieve the route, the path length, the number of stops, and will give advice on the the lines needed to get from A to B. In the two examples shown, St Johns Wood to Cockfosters is one, and the second, Warren Street to Victoria. This function uses the networkx shortest_path functionality.
 
-The last part of the workbook focuses on the path functionality, in particular the shortest path between stations. Currently the user is able to enter two stations, A & B, within the network, and the function will retrieve the route, the path length, the number of stops, and will give advice on the the lines needed to get from A to B. In the two examples shown, St Johns Wood to Cockfosters is one, and the second, Warren Street to Victoria. This function uses the networkx shortest_path functionality
- 
+
 
 ## Citations
 
