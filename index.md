@@ -117,7 +117,7 @@ Estimating accurate travel times using open-source tools and data is challenging
 
 ### Search Functionality as a Layer for Isochrone Maps
 
-The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/search/a%26e.ipynb)
+The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/a%26e.ipynb)
 
 When trying to compare available services and prospective travel times, it is sometimes not easy to find certain health services from the publicly available datasets. This part of the project takes an example of 24 hour A & E services in one of the largest counties in England. It purely focuses on driving times, so excludes the air ambulance. The manual search I used in this part of the project was to ascertain where the locations for the next level of care in the county may be. In this case, Urgent Care Centres, layered on 24 hour A & E services.
 
@@ -150,7 +150,7 @@ The final interactive folium map shows the results of the workbook. Four 24 hour
 
 ### London Transport network maps and GP Surgeries
 
-The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/search/tube_gp.ipynb)
+The code for this section of the project can be found [here]https://github.com/nhsx/nhs_time_of_travel/blob/main/tube_gp.ipynb)
 
 This part of the project remains unfinished. The idea here was be able to plot a travel time from a London Transport transit point (Underground, Overground or DLR) to a London GP practice. This involved several datasets; London Transport transit nodes and edges, A GP practice dataset for London, and a dataset I found online, which listed the travel times from station to station for the London Underground network, available [here](https://www.whatdotheyknow.com/request/station_to_station_journey_times). 
 
@@ -161,18 +161,17 @@ OSMnx was used slightly differently here than before. There is a custom travel m
 <p align="left">
   <img src="images/png/london_transit.png" width="460" height="460">
   &nbsp; &nbsp;
-  <img src="images/png/osmnx_london_rail.png" width="460" height="460">
+  <img src="images/png/omsnx_london_rail.png" width="460" height="460">
 </p>
 
 Folium was used to identify GP practices in London, the same functionality as used in the Cambridge GP and Lincolnshire A&E services parts of this project. Given the location is London, the output is hugely more clustered representing patient demand in the Capital.
+
 <p align="centre">
   <iframe width= "455" height="455"  src="images/folium/london_gp.html" style="border:none;"></iframe>
   &nbsp; &nbsp;
 </p>
 
-
 The last part of the workbook focuses on the path functionality, in particular the shortest path between stations. Currently the user is able to enter two stations, A & B, within the network, and the function will retrieve the route, the path length, the number of stops, and will give advice on the the lines needed to get from A to B. In the two examples shown, St Johns Wood to Cockfosters is one, and the second, Warren Street to Victoria. This function uses the networkx shortest_path functionality.
-
 
 
 ## Citations
