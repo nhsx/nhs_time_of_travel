@@ -8,7 +8,7 @@ The following page and accompanying [GitHub repository](https://github.com/nhsx/
 
 A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
-Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London and Cambridge. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
+Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London, Lincolnshire, and Cambridge. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
 
 Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), [Uber Movement](https://movement.uber.com/)
 
@@ -172,7 +172,6 @@ Folium was used to identify GP practices in London, the same functionality as us
 </p>
 
 The last part of the workbook focuses on the path functionality, in particular the shortest path between stations. Currently the user is able to enter two stations, A & B, within the network, and the function will retrieve the route, the path length, the number of stops, and will give advice on the the lines needed to get from A to B. In the two examples shown, St Johns Wood to Cockfosters is one, and the second, Warren Street to Victoria. This function uses the networkx shortest_path functionality.
-
 
 ## Citations
 
