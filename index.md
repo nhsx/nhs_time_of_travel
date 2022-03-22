@@ -14,14 +14,6 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 
 <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
 
-<div class="nhsuk-warning-callout">
-  <h3 class="nhsuk-warning-callout__label">
-    Data Quality<span class="nhsuk-u-visually-hidden">:</span>
-  </h3>
-  <p>Work in progress. 
-  </p>
-</div>
-
 ### Walking time to GP practices in Cambridge
 
 The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/walking_gp_practice_cambridge.ipynb).
