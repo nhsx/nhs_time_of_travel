@@ -29,7 +29,7 @@ Using open-source software and publicly accessible datasets we calculate the tra
 
 ### Getting Started
 
-#### Installation
+### Installation
 
 Install the above software packages as per the following example:
 conda install -c conda-forge osmnx
