@@ -14,6 +14,11 @@ A mapping tool could support national and regional commissioning strategies by f
 
 Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London, Cambridge and Lincolnshire. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
 
+<figure>
+  <img src="images/png/cambridge_osmnx_nodes.png" width="400" height="400">
+  <figcaption><b>OSMnx walkable urban network of central Cambridge</b></figcaption>
+</figure>
+
 ### Built With
 
 [![Python v3.8](https://img.shields.io/badge/python-v3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
@@ -52,7 +57,4 @@ _See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidance._
 
 Distributed under the MIT License. _See [LICENSE](./LICENSE) for more information._
 
-<figure>
-  <img src="images/png/cambridge_osmnx_nodes.png" width="400" height="400">
-  <figcaption><b>OSMnx walkable urban network of central Cambridge</b></figcaption>
-</figure>
+
