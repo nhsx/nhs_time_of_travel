@@ -39,7 +39,7 @@ To clone the repo:
 
 ### Datasets
 
-The data sources are saved in [webpage]( https://nhsx.github.io/nhs_time_of_travel/data/), or are widely available with links to the data within the workbooks. 
+The data sources are saved in [data]( https://nhsx.github.io/nhs_time_of_travel/data), or are widely available with links to the data within the workbooks. 
 
 ### Contributing
 
