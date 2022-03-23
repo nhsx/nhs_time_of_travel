@@ -17,7 +17,7 @@ Using open-source software and publicly accessible datasets we calculate the tra
 ### Built With
 
 [![Python v3.8](https://img.shields.io/badge/python-v3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
-- [Python v3.9](https://img.shields.io/badge/python-v3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![Python v3.9](https://img.shields.io/badge/python-v3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 - [Folium](https://python-visualization.github.io/folium/)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org/)
