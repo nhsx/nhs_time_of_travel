@@ -1,6 +1,6 @@
 ## Travel time to NHS organisations
 
-[![pages-build-deployment](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment) [![Python v3.9](https://img.shields.io/badge/python-v3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![pages-build-deployment](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment)
 
 <b>Work in progress</b>
 
@@ -8,7 +8,7 @@ This work was led by [Mattia Ficarelli](https://github.com/mattia-ficarelli), Da
 
 ### Project Structure
 
-This GitHub repository and accompanying [webpage]( https://nhsx.github.io/nhs_time_of_travel/) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
+This GitHub repository and accompanying [webpage](https://nhsx.github.io/nhs_time_of_travel/) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
 
 A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
