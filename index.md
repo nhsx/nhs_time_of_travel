@@ -140,6 +140,16 @@ The final interactive folium map shows the results of the workbook. Four 24 hour
   &nbsp; &nbsp;
 </p>
 
+<div class="nhsuk-action-link">
+  <a class="nhsuk-action-link__link" href="data/hospital.csv">
+    <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+    </svg>
+    <span class="nhsuk-action-link__text">Download the NHS Hospital dataset (.csv)</span>
+  </a>
+</div>
+
 ### London Transport network maps and GP Surgeries
 
 The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/tube_gp.ipynb)
@@ -164,6 +174,16 @@ Folium was used to identify GP practices in London, the same functionality as us
 </p>
 
 The last part of the workbook focuses on the path functionality, in particular the shortest path between stations. Currently the user is able to enter two stations, A & B, within the network, and the function will retrieve the route, the path length, the number of stops, and will give advice on the the lines needed to get from A to B. In the two examples shown, St Johns Wood to Cockfosters is one, and the second, Warren Street to Victoria. This function uses the networkx shortest_path functionality.
+
+<div class="nhsuk-action-link">
+  <a class="nhsuk-action-link__link" href="data/gp_pop_london_mapped_final.csv">
+    <svg class="nhsuk-icon nhsuk-icon__arrow-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"></path>
+    </svg>
+    <span class="nhsuk-action-link__text">Download the London GP practice dataset (.csv)</span>
+  </a>
+</div>
 
 ## Citations
 
