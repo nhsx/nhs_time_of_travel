@@ -60,4 +60,7 @@ _See [CONTRIBUTING.md](./CONTRIBUTING.md) for detailed guidance._
 
 Distributed under the MIT License. _See [LICENSE](./LICENSE) for more information._
 
+## Geospatial Use Cases 
+https://github.com/nhs-pycom/geospatial-decision-making/blob/main/use_cases.md
+
 
