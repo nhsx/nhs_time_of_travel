@@ -132,5 +132,3 @@ dmypy.json
 movement-speeds-quarterly-by-hod-london-2020-Q1.csv
 /cache/
 
-# JetBrains files
-*.iml
