@@ -48,28 +48,32 @@ Two approaches were considered:
 - By Triangle \[Currently used\]
 - By Catchment area \[Worth trying\]
 
+### By Triangle
+
 The algorithm for by triangle would be:
 
 - find all triangles overlapping the area you want to cover
   ![Area and triangles around part of lambeth](lambeth_subregion.png)
 - for each triangle:
-    - choose a Triangle
-    - get the 3 Locations at the corners
-    - get all triangles which touch any of those locations
-    - download the map for that wider area of all triangles (in case best travel route goes outside the triangle) -
-      essentially 3 catchment areas
-    - for every node in the triangle, calculate minimum travel distance to any of the corners
-    - build the equidistant polygons from those values within the triangle
+  - choose a Triangle
+  - get the 3 Locations at the corners
+  - get all triangles which touch any of those locations
+  - download the map for that wider area of all triangles (in case best travel route goes outside the triangle) -
+    essentially 3 catchment areas
+  - for every node in the triangle, calculate minimum travel distance to any of the corners
+  - build the equidistant polygons from those values within the triangle
+
+### By Catchment area
 
 The algorithm for by Catchment area is:
 
 - find all Locations with catchment areas which overlap the given area
 - for each Location
-    - calculate the travel times polygons for that location within the catchment area
+  - calculate the travel times polygons for that location within the catchment area
 - then for each triangle
-    - find the 3 catchment areas which contain that triangle
-    - intersect the polygons from the catchment areas with the triangle, then intersect these with each other to find
-      polygons for the triangle
+  - find the 3 catchment areas which contain that triangle
+  - intersect the polygons from the catchment areas with the triangle, then intersect these with each other to find
+    polygons for the triangle
 
 In both algorithms you achieve polygons sharded at a triangle level.
 
