@@ -236,8 +236,7 @@ def dis_map(postcodes):
     #Create a OSMnx walkable urban network graph 5000 meters point arbitrarily defined as the centre of Cambridge
     #-------------------------------------------------------------------------------------------------------------
     place = "Cambridge, England"
-    mode = "walk"
-    G = ox.graph_from_address(place, dist = 5000, simplify=True, network_type=mode)
+    G = ox.graph_from_address(place, dist = 5000, network_type="walk")
     # fig, ax = ox.plot_graph(G, figsize = (15,15));
 
     # %%
