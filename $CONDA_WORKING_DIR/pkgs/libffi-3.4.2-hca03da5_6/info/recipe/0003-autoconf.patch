@@ -1,0 +1,27 @@
+Index: libffi-3.4.4/aclocal.m4
+===================================================================
+--- libffi-3.4.4.orig/aclocal.m4
++++ libffi-3.4.4/aclocal.m4
+@@ -14,8 +14,8 @@
+ m4_ifndef([AC_CONFIG_MACRO_DIRS], [m4_defun([_AM_CONFIG_MACRO_DIRS], [])m4_defun([AC_CONFIG_MACRO_DIRS], [_AM_CONFIG_MACRO_DIRS($@)])])
+ m4_ifndef([AC_AUTOCONF_VERSION],
+   [m4_copy([m4_PACKAGE_VERSION], [AC_AUTOCONF_VERSION])])dnl
+-m4_if(m4_defn([AC_AUTOCONF_VERSION]), [2.71],,
+-[m4_warning([this file was generated for autoconf 2.71.
++m4_if(m4_defn([AC_AUTOCONF_VERSION]), [2.69],,
++[m4_warning([this file was generated for autoconf 2.69.
+ You have another version of autoconf.  It may work, but is not guaranteed to.
+ If you have problems, you may need to regenerate the build system entirely.
+ To do so, use the procedure documented by the package, typically 'autoreconf'.])])
+Index: libffi-3.4.4/configure.ac
+===================================================================
+--- libffi-3.4.4.orig/configure.ac
++++ libffi-3.4.4/configure.ac
+@@ -1,6 +1,6 @@
+ dnl Process this with autoconf to create configure
+ 
+-AC_PREREQ([2.71])
++AC_PREREQ([2.69])
+ 
+ AC_INIT([libffi],[3.4.4],[http://github.com/libffi/libffi/issues])
+ AC_CONFIG_HEADERS([fficonfig.h])

@@ -1,0 +1,75 @@
+From c23b6879c789beb899744592bbd5e13a2153c7f1 Mon Sep 17 00:00:00 2001
+From: Ray Donnelly <mingw.android@gmail.com>
+Date: Sun, 29 Apr 2018 16:10:42 +0100
+Subject: [PATCH 12/30] Disable new-dtags in unixccompiler.py
+
+They prevent isolation from system libraries and the HPC 'modules' system
+by giving precedence to LD_LIBRARY_PATH. We never want our libraries to
+be interposed by other libraries.
+
+The ELF spec. has comprehensive rpath support and new-dtags causes far
+more harm than good (for Anaconda Distribution at least). This may be a
+bit controversial I am convinced this is the right thing to do.
+
+Exclude this check from Windows though really we shouldn't have to as
+GNULD should be getting determined in a different way than from using
+sysconfig (which relates to the compiler used to build the interpreter
+itself, MSVC).
+---
+
+diff --git a/setuptools/_distutils/tests/test_unixccompiler.py b/setuptools/_distutils/tests/test_unixccompiler.py
+index 4be4ff2..bb8926d 100644
+--- a/setuptools/_distutils/tests/test_unixccompiler.py
++++ b/setuptools/_distutils/tests/test_unixccompiler.py
+@@ -155,7 +155,7 @@ class UnixCCompilerTestCase(support.TempdirManager, unittest.TestCase):
+                 return 'yes'
+
+         sysconfig.get_config_var = gcv
+-        assert self.cc.rpath_foo() == '-Wl,--enable-new-dtags,-R/foo'
++        assert self.cc.rpath_foo() == '-Wl,-R/foo'
+
+         def gcv(v):
+             if v == 'CC':
+@@ -164,7 +164,7 @@ class UnixCCompilerTestCase(support.TempdirManager, unittest.TestCase):
+                 return 'yes'
+
+         sysconfig.get_config_var = gcv
+-        assert self.cc.rpath_foo() == '-Wl,--enable-new-dtags,-R/foo'
++        assert self.cc.rpath_foo() == '-Wl,-R/foo'
+
+         # GCC non-GNULD
+         sys.platform = 'bar'
+@@ -189,7 +189,7 @@ class UnixCCompilerTestCase(support.TempdirManager, unittest.TestCase):
+                 return 'yes'
+
+         sysconfig.get_config_var = gcv
+-        assert self.cc.rpath_foo() == '-Wl,--enable-new-dtags,-R/foo'
++        assert self.cc.rpath_foo() == '-Wl,-R/foo'
+
+         # non-GCC GNULD
+         sys.platform = 'bar'
+@@ -201,7 +201,7 @@ class UnixCCompilerTestCase(support.TempdirManager, unittest.TestCase):
+                 return 'yes'
+
+         sysconfig.get_config_var = gcv
+-        assert self.cc.rpath_foo() == '-Wl,--enable-new-dtags,-R/foo'
++        assert self.cc.rpath_foo() == '-Wl,-R/foo'
+
+         # non-GCC non-GNULD
+         sys.platform = 'bar'
+diff --git a/setuptools/_distutils/unixccompiler.py b/setuptools/_distutils/unixccompiler.py
+index 4ab771a..bc1c584 100644
+--- a/setuptools/_distutils/unixccompiler.py
++++ b/setuptools/_distutils/unixccompiler.py
+@@ -315,10 +315,10 @@ class UnixCCompiler(CCompiler):
+         # For all compilers, `-Wl` is the presumed way to
+         # pass a compiler option to the linker and `-R` is
+         # the way to pass an RPATH.
+-        if sysconfig.get_config_var("GNULD") == "yes":
++        if sysconfig.get_config_var("GNULD") == "yes" or sys.platform == 'win32':
+             # GNU ld needs an extra option to get a RUNPATH
+             # instead of just an RPATH.
+-            return "-Wl,--enable-new-dtags,-R" + dir
++            return "-Wl,-R" + dir
+         else:
+             return "-Wl,-R" + dir

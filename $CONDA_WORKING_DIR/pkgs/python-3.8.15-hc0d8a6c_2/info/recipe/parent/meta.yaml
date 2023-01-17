@@ -1,0 +1,292 @@
+{% set version = "3.8.15" %}
+{% set linkage_nature = os.environ.get('PY_INTERP_LINKAGE_NATURE', '') %}
+{% set debug = os.environ.get('PY_INTERP_DEBUG', '') %}
+{% if linkage_nature != '' %}
+  {% set linkage_nature = "_" ~ linkage_nature %}
+{% endif %}
+{% set channel_targets = () %}
+{% if debug != '' %}
+  {% set debug = "_d" ~ debug %}
+{% endif %}
+
+
+package:
+  name: python-split
+  version: {{ version }}
+
+source:
+  - url: https://www.python.org/ftp/python/{{ version }}/Python-{{ version }}.tar.xz
+    sha256: 5114fc7918a2a5e20eb5aac696b30c36f412c6ef24b13f5c9eb9e056982d9550
+    patches:
+      - patches/0001-Fix-off-by-one-error-in-_winapi_WaitForMultipleObjec.patch
+{% if 'conda-forge' not in channel_targets %}
+      - patches/0002-Add-Anaconda-Distribution-version-logic.patch
+{% endif %}
+      - patches/0003-Darwin-Add-arch-x86_64-to-UnicCCompiler-ld_args.patch
+      - patches/0004-Win32-Change-FD_SETSIZE-from-512-to-2048.patch
+      - patches/0005-Win32-distutils-Add-support-to-cygwinccompiler-for-V.patch
+      - patches/0006-Do-not-pass-g-to-GCC-when-not-Py_DEBUG.patch
+      - patches/0007-Support-cross-compiling-byte-code.patch
+      - patches/0008-Win32-Fixes-for-Windows-GCC-interop-needed-by-RPy2-a.patch
+      - patches/0009-Darwin-Look-in-sysroot-usr-lib-include-if-sysroot-is.patch
+      - patches/0010-runtime_library_dir_option-Use-1st-word-of-CC-as-com.patch
+      - patches/0011-Win32-Do-not-download-externals.patch
+      - patches/0012-Add-support-for-_CONDA_PYTHON_SYSCONFIGDATA_NAME-if-.patch
+      - patches/0013-Fix-find_library-so-that-it-looks-in-sys.prefix-lib-.patch
+      - patches/0013-Add-CondaEcosystemModifyDllSearchPath.patch  # [win]
+      - patches/0014-Disable-new-dtags-in-unixccompiler.py.patch
+      - patches/0015-Fix-cross-compilation-on-Debian-based-distros.patch
+      - patches/0016-Disable-registry-lookup-unless-CONDA_PY_ALLOW_REG_PA.patch
+      - patches/0017-Unvendor-openssl.patch
+      - patches/0018-Unvendor-sqlite3.patch
+      # https://bugs.python.org/issue35644
+      - patches/0019-venv-Revert-a-change-from-https-github.com-python-cp.patch
+      - patches/0020-Win-Add-back-the-DLLSuffix-used-to-find-the-openssl-.patch
+      - patches/0021-Use-ranlib-from-env-if-env-variable-is-set.patch
+      # Python 3.8 is pretty broken without this.
+      - patches/0022-Add-CondaEcosystemModifyDllSearchPath.patch  # [not win]
+      - patches/0023-Revert-part-of-https-bugs.python.org-issue33895-http.patch  # [not win]
+      - patches/0024-cross-compile-darwin.patch.patch
+      - patches/0032-ctypes-link-to-coreFoundation.patch
+      - patches/0033-py38-mailcap-CVE-2015-20107.patch
+
+  # TODO :: Depend on our own packages for these:
+  - url: https://github.com/python/cpython-source-deps/archive/xz-5.2.2.zip          # [win]
+    folder: externals/xz-5.2.2                                                       # [win]
+    sha256: 02b6d6f1e0369940e7e1f0d324992e069d09f5f3d32d86e2d22cd8b82ac3fb3f         # [win]
+  # Not used as of 3.7b3 (tcltk from cpython-bin- is), but kept for archival and license reasons.
+  - url: https://github.com/python/cpython-source-deps/archive/tcl-core-8.6.9.0.zip  # [win]
+    folder: externals/tcl-core-8.6.9.0                                               # [win]
+    sha256: ea9e724536ec13b476ebbd47948303b92fdd90a33aa94f30fcc2f5c3a899f69e         # [win]
+  # Not used as of 3.7b3 (tcltk from cpython-bin- is), but kept for archival and license reasons.
+  - url: https://github.com/python/cpython-source-deps/archive/tk-8.6.9.0.zip        # [win]
+    folder: externals/tk-8.6.9.0                                                     # [win]
+    sha256: f3112b6bbc3bd163c877030187e73ce9a113ce03eff559ec5b9df697e3a08fad         # [win]
+  - url: https://github.com/python/cpython-bin-deps/archive/tcltk-8.6.9.0.zip        # [win]
+    folder: externals/tcltk-8.6.9.0                                                  # [win]
+    sha256: 37cd629a75d2a34974a3d771ccab5c9e3caf3d138cea81040f9cdba1aded1cf2         # [win]
+  - url: https://github.com/python/cpython-source-deps/archive/tix-8.4.3.6.zip       # [win]
+    folder: externals/tix-8.4.3.6                                                    # [win]
+    sha256: e558e3dc5e67ac0942f8fceafce00ca46b177da9ebeaf38ec7fafd9b9913ac56         # [win]
+  - url: https://github.com/python/cpython-source-deps/archive/bzip2-1.0.8.zip       # [win]
+    folder: externals/bzip2-1.0.8                                                    # [win]
+    sha256: 12c17d15f99e27235529574a722fb484a4e8fdf2427cef53b1b68bdf07e404a9         # [win]
+  - url: https://github.com/python/cpython-source-deps/archive/zlib-1.2.12.zip       # [win]
+    folder: externals/zlib-1.2.12                                                    # [win]
+    sha256: 92197502951ac8414ece9f2d9fa2cc010c51d610e6b2ed9833ba4a35d65f222b         # [win]
+  - url: https://github.com/python/cpython-bin-deps/archive/nasm-2.11.06.zip         # [win]
+    folder: externals/nasm-2.11.06                                                   # [win]
+    sha256: de3c87b26a80e789986d8e6950c6304175d3829afe9c6c7211eb7257266ab0ac         # [win]
+  - url: https://github.com/python/cpython-bin-deps/archive/libffi-3.3.0.zip         # [win]
+    folder: externals/libffi-3.3.0                                                   # [win]
+    sha256: 69e3f7235108a75033cb9325a0a3535ba271d144ec66fccefe134eda27d7bcfe         # [win]
+
+build:
+  number: 2
+  script_env:
+    - PY_INTERP_LINKAGE_NATURE
+    - PY_INTERP_DEBUG
+
+requirements:
+  build:
+    - git
+    - patch  # [not win]
+    - m2-patch  # [win]
+
+outputs:
+  - name: python
+    build:
+      activate_in_script: True
+      # Windows has issues updating python if conda is using files itself.
+      # Copy rather than link.
+      no_link:
+        - DLLs/_ctypes.pyd  # [win]
+      # We delete the shared libraries.
+      ignore_run_exports:   # [unix]
+        - bzip2             # [unix]
+      # Disabled until new conda-build release
+      detect_binary_files_with_prefix: True
+      # detect_binary_files_with_prefix: False
+      # binary_has_prefix_files:
+      #   - lib/libpython3.8.*.1.0
+      #   - bin/python3.8  # [linux]
+      #   - lib/libpython3.8.a  # [linux]
+      #   - lib/libpython3.8.nolto.a  # [linux]
+      #   - lib/libpython3.so  # [linux]
+      #   - lib/python3.8/lib-dynload/_hashlib.cpython-38-x86_64-linux-gnu.so  # [linux]
+      #   - lib/libpython3.dylib  # [osx]
+      # match python.org compiler standard
+      skip: True            # [win and int(float(vc)) < 14]
+      # skip_compile_pyc:
+      #  - '*.py'            # [osx and arm64]
+      # Would like to be able to append to the calculated build string here, ping @msarahan, is this possible?
+      string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}{{ linkage_nature }}{{ debug }}
+      run_exports:
+        noarch:
+          - python
+    # Not until: https://github.com/mingwandroid/conda-build/commit/c68a7d100866df7a3e9c0e3177fc7ef0ff76def9
+    # {% if 'conda-forge' not in channel_targets %}
+    #      - CONDA_FORGE=yes
+    # {% else %}
+    #      - CONDA_FORGE=no
+    # {% endif %}
+      missing_dso_whitelist:
+        - '**/MSVCR71.dll'   # [win]
+        - '**/MSVCR80.dll'   # [win]
+        - '$RPATH/libcrypt.so.1'  # [linux]
+        - '$RPATH/libpthread.so.0'  # [linux]
+        - '$RPATH/libc.so.6'  # [linux]
+        - '$RPATH/libdl.so.2'  # [linux]
+        - '$RPATH/libutil.so.1'  # [linux]
+        - '$RPATH/libm.so.6'  # [linux]
+        - '$RPATH/librt.so.1'  # [linux]
+        - '$RPATH/libnsl.so.1'  # [linux]
+    script: build_base.sh  # [unix]
+    script: build_base.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - {{ cdt('xorg-x11-proto-devel') }}  # [linux]
+        - {{ cdt('libx11-devel') }}  # [linux]
+        - {{ cdt('libuuid-devel') }}  # [linux and not (ppc64le or aarch64)]
+        - make  # [not win]
+        - pkg-config  # [not win]
+        # configure script looks for llvm-ar for lto
+        - llvm-tools  # [osx]
+        - posix  # [win]
+        - ld_impl_{{ target_platform }}        # [linux]
+        - binutils_impl_{{ target_platform }}  # [linux]
+        - libtool  # [unix]
+      host:
+        - bzip2  # [not win]
+        - sqlite
+        - xz  # [not win]
+        - zlib  # [not win]
+        - openssl
+        - readline  # [not win]
+        - tk  # [not win]
+        - ncurses  # [unix]
+        - libffi 3.4  # [not win]
+        - ld_impl_{{ target_platform }}  # [linux]
+      run:
+        - ld_impl_{{ target_platform }}  # [linux]
+        # that is ok, as we assume backward-compatibility
+        - libffi >=3.4,<3.5
+    test:
+      requires:
+        - ripgrep
+        - cmake
+        - ninja
+        - cython
+        - setuptools
+        - {{ compiler('c') }}
+        # Tried to use enable_language(C) to avoid needing this. It does not work.
+        - {{ compiler('cxx') }}
+      files:
+        - tests/distutils/*
+        - tests/distutils.cext/*
+        - tests/cmake/*
+        - tests/cython/*
+        - tests/prefix-replacement/*
+      commands:
+        - echo on  # [win]
+        - set  # [win]
+        - python -V
+        - python3 -V            # [not win]
+        - 2to3 -h
+        - pydoc -h
+        - python3-config --help  # [not win]
+        - set "PIP_NO_BUILD_ISOLATION=False"  # [win]
+        - set "PIP_NO_DEPENDENCIES=True"  # [win]
+        - set "PIP_IGNORE_INSTALLED=True"  # [win]
+        - set "PIP_NO_INDEX=True"  # [win]
+        - set "PIP_CACHE_DIR=%CONDA_PREFIX%/pip_cache"  # [win]
+        - set "TEMP=%CONDA_PREFIX%/tmp"  # [win]
+        - mkdir "%TEMP%"  # [win]
+        - python -Im ensurepip --upgrade --default-pip  # [win]
+        - python -m venv test-venv
+        - python -c "import sysconfig; print(sysconfig.get_config_var('CC'))"  # [not win]
+        -  _CONDA_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_x86_64_conda_cos6_linux_gnu python -c "import sysconfig; print(sysconfig.get_config_var('CC'))"  # [linux64]
+        # check for unreplaced @ symbols in sysconfig files
+        - for f in ${CONDA_PREFIX}/lib/python*/_sysconfig*.py; do echo "Checking $f:"; if [[ `rg @ $f` ]]; then echo "FAILED ON $f"; cat $f; exit 1; fi; done  # [linux64 or osx]
+        - test ! -f ${PREFIX}/lib/libpython${PKG_VERSION%.*}.a  # [unix]
+        - test ! -f ${PREFIX}/lib/libpython${PKG_VERSION%.*}.nolto.a  # [unix]
+        # https://github.com/conda-forge/python-feedstock/issues/384
+        - if exist %PREFIX%\\Scripts\\pydoc exit 1  # [win]
+        - if exist %PREFIX%\\Scripts\\idle exit 1  # [win]
+        - if exist %PREFIX%\\Scripts\\2to3 exit 1  # [win]
+        - if not exist %PREFIX%\\Scripts\\pydoc-script.py exit 1  # [win]
+        - if not exist %PREFIX%\\Scripts\\idle-script.py exit 1  # [win]
+        - if not exist %PREFIX%\\Scripts\\2to3-script.py exit 1  # [win]
+        - if not exist %PREFIX%\\Scripts\\idle.exe exit 1  # [win]
+        - if not exist %PREFIX%\\Scripts\\2to3.exe exit 1  # [win]
+        - if not exist %PREFIX%\\Scripts\\pydoc.exe exit 1  # [win]
+        - pushd tests
+        -   pushd distutils
+        -     python setup.py install -v -v
+        -     python -c "import foobar"
+        -   popd
+        -   pushd distutils.cext
+        -     python setup.py install -v -v
+        -     python -c "import greet; greet.greet('Python user')" | rg "Hello Python"
+        -   popd
+        -   pushd prefix-replacement  # [unix]
+        -     bash build-and-test.sh  # [unix]
+        -   popd  # [unix]
+        -   pushd cmake
+        -     cmake -GNinja -DPY_VER={{ version }}
+              # --trace --debug-output --debug-trycompile .
+        -   popd
+        - popd
+        - test ! -f default.profraw   # [osx]
+  - name: libpython-static
+    build:
+      activate_in_script: True
+      # Would like to be able to append to the calculated build string here, ping @msarahan, is this possible?
+      string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}{{ linkage_nature }}{{ debug }}
+    script: build_static.sh  # [unix]
+    script: build_static.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - {{ compiler('cxx') }}
+        - posix  # [win]
+      host:
+        - {{ pin_subpackage('python', exact=True) }}
+      run:
+        - {{ pin_subpackage('python', exact=True) }}
+    test:
+      commands:
+        - test -f ${PREFIX}/lib/libpython${PKG_VERSION%.*}.a  # [unix]
+        - test -f ${PREFIX}/lib/libpython${PKG_VERSION%.*}.nolto.a  # [unix]
+        - test -f ${PREFIX}/lib/python${PKG_VERSION%.*}/config-${PKG_VERSION%.*}-darwin/libpython${PKG_VERSION%.*}.a  # [osx]
+
+about:
+  home: https://www.python.org/
+  license: PSF-2.0
+  license_family: PSF
+  license_file: LICENSE
+  license_url: https://docs.python.org/3.8/license.html
+  summary: General purpose programming language
+  description: |
+    Python is a widely used high-level, general-purpose, interpreted, dynamic
+    programming language. Its design philosophy emphasizes code
+    readability, and its syntax allows programmers to express concepts in
+    fewer lines of code than would be possible in languages such as C++ or
+    Java. The language provides constructs intended to enable clear programs
+    on both a small and large scale.
+  doc_url: https://www.python.org/doc/versions/
+  doc_source_url: https://github.com/python/pythondotorg/blob/master/docs/source/index.rst
+  dev_url: https://devguide.python.org/
+
+extra:
+  feedstock-name: python
+  recipe-maintainers:
+    - isuruf
+    - jakirkham
+    - mingwandroid
+    - msarahan
+    - pelson
+    - ocefpaf
+    - scopatz

@@ -1,0 +1,16 @@
+diff --color -Naur setuptools-59.2.0.orig/setuptools/_distutils/sysconfig.py setuptools-59.2.0/setuptools/_distutils/sysconfig.py
+--- setuptools-59.2.0.orig/setuptools/_distutils/sysconfig.py	2021-11-18 22:13:45.000000000 -0300
++++ setuptools-59.2.0/setuptools/_distutils/sysconfig.py	2021-11-19 16:04:04.278279056 -0300
+@@ -478,10 +478,11 @@
+     # _sysconfigdata is generated at build time, see the sysconfig module
+     name = os.environ.get(
+         '_PYTHON_SYSCONFIGDATA_NAME',
++        os.environ.get('_CONDA_PYTHON_SYSCONFIGDATA_NAME',
+         _sysconfig_name_tmpl.format(
+             abi=sys.abiflags,
+             platform=sys.platform,
+-            multiarch=getattr(sys.implementation, '_multiarch', ''),
++            multiarch=getattr(sys.implementation, '_multiarch', '')),
+         ),
+     )
+     try:

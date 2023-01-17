@@ -1,0 +1,12 @@
+{
+  "arch": "arm64",
+  "build": "h1a28f6b_3",
+  "build_number": 3,
+  "depends": [],
+  "license": "Free software (MIT-like)",
+  "name": "ncurses",
+  "platform": "osx",
+  "subdir": "osx-arm64",
+  "timestamp": 1657006266076,
+  "version": "6.3"
+}

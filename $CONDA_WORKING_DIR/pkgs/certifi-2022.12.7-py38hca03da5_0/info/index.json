@@ -1,0 +1,15 @@
+{
+  "arch": "arm64",
+  "build": "py38hca03da5_0",
+  "build_number": 0,
+  "depends": [
+    "python >=3.8,<3.9.0a0"
+  ],
+  "license": "MPL-2.0",
+  "license_family": "Other",
+  "name": "certifi",
+  "platform": "osx",
+  "subdir": "osx-arm64",
+  "timestamp": 1671487794295,
+  "version": "2022.12.7"
+}

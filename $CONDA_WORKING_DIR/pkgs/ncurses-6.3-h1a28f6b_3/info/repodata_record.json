@@ -1,0 +1,22 @@
+{
+  "arch": "arm64",
+  "build": "h1a28f6b_3",
+  "build_number": 3,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-arm64",
+  "constrains": [],
+  "depends": [],
+  "features": "",
+  "fn": "ncurses-6.3-h1a28f6b_3.conda",
+  "legacy_bz2_md5": "5fd85fcb0a2368c5d8c9219d88737879",
+  "license": "Free software (MIT-like)",
+  "md5": "7713dda3580e70aa3f474b131be52f20",
+  "name": "ncurses",
+  "platform": "darwin",
+  "sha256": "99fdcb3d379a7fcf84377369358ac130ee259fea4d2ce381d4fd789214ad0694",
+  "size": 886925,
+  "subdir": "osx-arm64",
+  "timestamp": 1657006266076,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/osx-arm64/ncurses-6.3-h1a28f6b_3.conda",
+  "version": "6.3"
+}

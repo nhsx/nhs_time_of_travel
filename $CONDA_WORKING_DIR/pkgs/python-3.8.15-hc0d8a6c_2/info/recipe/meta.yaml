@@ -1,0 +1,177 @@
+# This file created by conda-build 3.22.0
+# ------------------------------------------------
+
+package:
+  name: python
+  version: 3.8.15
+source:
+  - patches:
+      - patches/0001-Fix-off-by-one-error-in-_winapi_WaitForMultipleObjec.patch
+      - patches/0002-Add-Anaconda-Distribution-version-logic.patch
+      - patches/0003-Darwin-Add-arch-x86_64-to-UnicCCompiler-ld_args.patch
+      - patches/0004-Win32-Change-FD_SETSIZE-from-512-to-2048.patch
+      - patches/0005-Win32-distutils-Add-support-to-cygwinccompiler-for-V.patch
+      - patches/0006-Do-not-pass-g-to-GCC-when-not-Py_DEBUG.patch
+      - patches/0007-Support-cross-compiling-byte-code.patch
+      - patches/0008-Win32-Fixes-for-Windows-GCC-interop-needed-by-RPy2-a.patch
+      - patches/0009-Darwin-Look-in-sysroot-usr-lib-include-if-sysroot-is.patch
+      - patches/0010-runtime_library_dir_option-Use-1st-word-of-CC-as-com.patch
+      - patches/0011-Win32-Do-not-download-externals.patch
+      - patches/0012-Add-support-for-_CONDA_PYTHON_SYSCONFIGDATA_NAME-if-.patch
+      - patches/0013-Fix-find_library-so-that-it-looks-in-sys.prefix-lib-.patch
+      - patches/0014-Disable-new-dtags-in-unixccompiler.py.patch
+      - patches/0015-Fix-cross-compilation-on-Debian-based-distros.patch
+      - patches/0016-Disable-registry-lookup-unless-CONDA_PY_ALLOW_REG_PA.patch
+      - patches/0017-Unvendor-openssl.patch
+      - patches/0018-Unvendor-sqlite3.patch
+      - patches/0019-venv-Revert-a-change-from-https-github.com-python-cp.patch
+      - patches/0020-Win-Add-back-the-DLLSuffix-used-to-find-the-openssl-.patch
+      - patches/0021-Use-ranlib-from-env-if-env-variable-is-set.patch
+      - patches/0022-Add-CondaEcosystemModifyDllSearchPath.patch
+      - patches/0023-Revert-part-of-https-bugs.python.org-issue33895-http.patch
+      - patches/0024-cross-compile-darwin.patch.patch
+      - patches/0032-ctypes-link-to-coreFoundation.patch
+      - patches/0033-py38-mailcap-CVE-2015-20107.patch
+    sha256: 5114fc7918a2a5e20eb5aac696b30c36f412c6ef24b13f5c9eb9e056982d9550
+    url: https://www.python.org/ftp/python/3.8.15/Python-3.8.15.tar.xz
+build:
+  activate_in_script: true
+  detect_binary_files_with_prefix: true
+  ignore_run_exports:
+    - bzip2
+  missing_dso_whitelist: null
+  no_link: null
+  number: 2
+  run_exports:
+    noarch:
+      - python
+  string: hc0d8a6c_2
+requirements:
+  build:
+    - cctools_osx-arm64 949.0.1 h332cad3_25
+    - clang 14.0.6 hca03da5_0
+    - clang-14 14.0.6 default_hf5194b7_0
+    - clang_osx-arm64 14.0.6 h9ff6fda_0
+    - clangxx 14.0.6 default_hf5194b7_0
+    - clangxx_osx-arm64 14.0.6 h72866fe_0
+    - compiler-rt 14.0.6 h4ccfd99_0
+    - compiler-rt_osx-arm64 14.0.6 h4fb70ea_0
+    - ld64_osx-arm64 530 h001ce53_25
+    - ldid 2.1.2 h64d1936_2
+    - libclang-cpp14 14.0.6 default_hf5194b7_0
+    - libcxx 14.0.6 h848a8c0_0
+    - libffi 3.4.2 hca03da5_6
+    - libiconv 1.16 h1a28f6b_2
+    - libllvm14 14.0.6 h7ec7a93_1
+    - libtool 2.4.6 hc377ac9_1008
+    - llvm-tools 14.0.6 h7ec7a93_1
+    - make 4.3 h620ffc9_1
+    - pkg-config 0.29.2 h1a28f6b_0
+    - tapi 1100.0.11 h8754e6a_1
+    - zlib 1.2.13 h5a0b063_0
+  host:
+    - bzip2 1.0.8 h620ffc9_4
+    - ca-certificates 2022.10.11 hca03da5_0
+    - libcxx 14.0.6 h848a8c0_0
+    - libffi 3.4.2 hca03da5_6
+    - ncurses 6.3 h1a28f6b_3
+    - openssl 1.1.1s h1a28f6b_0
+    - readline 8.1.2 h1a28f6b_1
+    - sqlite 3.40.0 h7a7dc30_0
+    - tk 8.6.12 hb8d0fd4_0
+    - xz 5.2.6 h1a28f6b_0
+    - zlib 1.2.13 h5a0b063_0
+  run:
+    - libcxx >=14.0.6
+    - libffi >=3.4,<3.5
+    - libffi >=3.4,<4.0a0
+    - ncurses >=6.3,<7.0a0
+    - openssl >=1.1.1s,<1.1.2a
+    - readline >=8.1.2,<9.0a0
+    - sqlite >=3.40.0,<4.0a0
+    - tk >=8.6.12,<8.7.0a0
+    - xz >=5.2.6,<6.0a0
+    - zlib >=1.2.13,<1.3.0a0
+test:
+  commands:
+    - python -V
+    - python3 -V
+    - 2to3 -h
+    - pydoc -h
+    - python3-config --help
+    - python -m venv test-venv
+    - python -c "import sysconfig; print(sysconfig.get_config_var('CC'))"
+    - for f in ${CONDA_PREFIX}/lib/python*/_sysconfig*.py; do echo "Checking $f:";
+      if [[ `rg @ $f` ]]; then echo "FAILED ON $f"; cat $f; exit 1; fi; done
+    - test ! -f ${PREFIX}/lib/libpython${PKG_VERSION%.*}.a
+    - test ! -f ${PREFIX}/lib/libpython${PKG_VERSION%.*}.nolto.a
+    - pushd tests
+    - pushd distutils
+    - python setup.py install -v -v
+    - python -c "import foobar"
+    - popd
+    - pushd distutils.cext
+    - python setup.py install -v -v
+    - python -c "import greet; greet.greet('Python user')" | rg "Hello Python"
+    - popd
+    - pushd prefix-replacement
+    - bash build-and-test.sh
+    - popd
+    - pushd cmake
+    - cmake -GNinja -DPY_VER=3.8.15
+    - popd
+    - popd
+    - test ! -f default.profraw
+  files:
+    - tests/cmake/*
+    - tests/cython/*
+    - tests/distutils.cext/*
+    - tests/distutils/*
+    - tests/prefix-replacement/*
+  requires:
+    - clang_osx-arm64 14.*
+    - clangxx_osx-arm64 14.*
+    - cmake
+    - cython
+    - ninja
+    - ripgrep
+    - setuptools
+about:
+  description: 'Python is a widely used high-level, general-purpose, interpreted,
+    dynamic
+
+    programming language. Its design philosophy emphasizes code
+
+    readability, and its syntax allows programmers to express concepts in
+
+    fewer lines of code than would be possible in languages such as C++ or
+
+    Java. The language provides constructs intended to enable clear programs
+
+    on both a small and large scale.
+
+    '
+  dev_url: https://devguide.python.org/
+  doc_source_url: https://github.com/python/pythondotorg/blob/master/docs/source/index.rst
+  doc_url: https://www.python.org/doc/versions/
+  home: https://www.python.org/
+  license: PSF-2.0
+  license_family: PSF
+  license_file: LICENSE
+  license_url: https://docs.python.org/3.8/license.html
+  summary: General purpose programming language
+extra:
+  copy_test_source_files: true
+  feedstock-name: python
+  final: true
+  flow_run_id: af31b916-c96f-4f31-aa3f-8844af931f32
+  recipe-maintainers:
+    - isuruf
+    - jakirkham
+    - mingwandroid
+    - msarahan
+    - ocefpaf
+    - pelson
+    - scopatz
+  remote_url: git@github.com:AnacondaRecipes/python-feedstock.git
+  sha: 68f3a6d89cdecba8c48869d5af7c6cb9d1925daf

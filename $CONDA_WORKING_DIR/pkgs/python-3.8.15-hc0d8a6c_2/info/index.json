@@ -1,0 +1,24 @@
+{
+  "arch": "arm64",
+  "build": "hc0d8a6c_2",
+  "build_number": 2,
+  "depends": [
+    "libcxx >=14.0.6",
+    "libffi >=3.4,<3.5",
+    "libffi >=3.4,<4.0a0",
+    "ncurses >=6.3,<7.0a0",
+    "openssl >=1.1.1s,<1.1.2a",
+    "readline >=8.1.2,<9.0a0",
+    "sqlite >=3.40.0,<4.0a0",
+    "tk >=8.6.12,<8.7.0a0",
+    "xz >=5.2.6,<6.0a0",
+    "zlib >=1.2.13,<1.3.0a0"
+  ],
+  "license": "PSF-2.0",
+  "license_family": "PSF",
+  "name": "python",
+  "platform": "osx",
+  "subdir": "osx-arm64",
+  "timestamp": 1669302330501,
+  "version": "3.8.15"
+}

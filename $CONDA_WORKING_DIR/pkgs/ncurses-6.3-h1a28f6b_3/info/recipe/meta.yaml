@@ -1,0 +1,171 @@
+# This file created by conda-build 3.21.8
+# meta.yaml template originally from:
+# /var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_b7806911-ab9c-4e8e-bd52-94cb99ab869b9kt_89c6/clone/recipe, last modified Tue Jul  5 02:29:38 2022
+# ------------------------------------------------
+
+package:
+  name: ncurses
+  version: '6.3'
+source:
+  fn: ncurses-6.3.tar.gz
+  patches:
+    - CVE-2022-29458.patch
+    - clang.patch
+    - fix.patch
+  sha256: 97fc51ac2b085d4cde31ef4d2c3122c21abc217e9090a43a30fc5ec21684e059
+  url: https://invisible-mirror.net/archives/ncurses/ncurses-6.3.tar.gz
+build:
+  number: '3'
+  run_exports:
+    - ncurses >=6.3,<7.0a0
+  string: h1a28f6b_3
+requirements:
+  build:
+    - cctools_osx-arm64 949.0.1 h332cad3_24
+    - clang 12.0.0 hca03da5_4
+    - clang-12 12.0.0 default_he099f3d_4
+    - clang_osx-arm64 12.0.0 hcb56dc5_3
+    - clangxx 12.0.0 default_he099f3d_4
+    - compiler-rt 12.0.0 h4ccfd99_3
+    - compiler-rt_osx-arm64 12.0.0 h4fb70ea_3
+    - ld64_osx-arm64 530 h001ce53_24
+    - ldid 2.1.2 h64d1936_2
+    - libclang-cpp12 12.0.0 default_he099f3d_4
+    - libcxx 12.0.0 hf6beb65_1
+    - libllvm12 12.0.0 h12f7ac0_4
+    - libtool 2.4.6 hc377ac9_1008
+    - llvm-tools 12.0.0 h12f7ac0_4
+    - make 4.3 h620ffc9_1
+    - patch 2.7.6 h1a28f6b_1001
+    - tapi 1100.0.11 ha21211d_0
+    - zlib 1.2.12 h5a0b063_2
+  host:
+    - libiconv 1.16 h1a28f6b_2
+    - pkg-config 0.29.2 h1a28f6b_0
+  run: []
+test:
+  commands:
+    - test -f ${PREFIX}/lib/libncurses.a
+    - test -f ${PREFIX}/lib/libncursesw.a
+    - test -f ${PREFIX}/lib/libncurses.dylib
+    - test -f ${PREFIX}/lib/libncursesw.dylib
+    - test -f ${PREFIX}/lib/libtinfo.a
+    - test -f ${PREFIX}/lib/libtinfow.a
+    - test -f ${PREFIX}/lib/libtinfo.dylib
+    - test -f ${PREFIX}/lib/libtinfow.dylib
+    - test -f ${PREFIX}/lib/libform.a
+    - test -f ${PREFIX}/lib/libformw.a
+    - test -f ${PREFIX}/lib/libform.dylib
+    - test -f ${PREFIX}/lib/libformw.dylib
+    - test -f ${PREFIX}/lib/libmenu.a
+    - test -f ${PREFIX}/lib/libmenuw.a
+    - test -f ${PREFIX}/lib/libmenu.dylib
+    - test -f ${PREFIX}/lib/libmenuw.dylib
+    - test -f ${PREFIX}/lib/libpanel.a
+    - test -f ${PREFIX}/lib/libpanelw.a
+    - test -f ${PREFIX}/lib/libpanel.dylib
+    - test -f ${PREFIX}/lib/libpanelw.dylib
+    - test -d ${PREFIX}/include/ncurses
+    - test -d ${PREFIX}/include/ncursesw
+    - test -L ${PREFIX}/include/ncurses/curses.h
+    - test -L ${PREFIX}/include/ncursesw/curses.h
+    - test -f ${PREFIX}/include/curses.h
+    - test -L ${PREFIX}/include/ncurses/cursesapp.h
+    - test -L ${PREFIX}/include/ncursesw/cursesapp.h
+    - test -f ${PREFIX}/include/cursesapp.h
+    - test -L ${PREFIX}/include/ncurses/cursesf.h
+    - test -L ${PREFIX}/include/ncursesw/cursesf.h
+    - test -f ${PREFIX}/include/cursesf.h
+    - test -L ${PREFIX}/include/ncurses/cursesm.h
+    - test -L ${PREFIX}/include/ncursesw/cursesm.h
+    - test -f ${PREFIX}/include/cursesm.h
+    - test -L ${PREFIX}/include/ncurses/cursesp.h
+    - test -L ${PREFIX}/include/ncursesw/cursesp.h
+    - test -f ${PREFIX}/include/cursesp.h
+    - test -L ${PREFIX}/include/ncurses/cursesw.h
+    - test -L ${PREFIX}/include/ncursesw/cursesw.h
+    - test -f ${PREFIX}/include/cursesw.h
+    - test -L ${PREFIX}/include/ncurses/cursslk.h
+    - test -L ${PREFIX}/include/ncursesw/cursslk.h
+    - test -f ${PREFIX}/include/cursslk.h
+    - test -L ${PREFIX}/include/ncurses/eti.h
+    - test -L ${PREFIX}/include/ncursesw/eti.h
+    - test -f ${PREFIX}/include/eti.h
+    - test -L ${PREFIX}/include/ncurses/etip.h
+    - test -L ${PREFIX}/include/ncursesw/etip.h
+    - test -f ${PREFIX}/include/etip.h
+    - test -L ${PREFIX}/include/ncurses/form.h
+    - test -L ${PREFIX}/include/ncursesw/form.h
+    - test -f ${PREFIX}/include/form.h
+    - test -L ${PREFIX}/include/ncurses/menu.h
+    - test -L ${PREFIX}/include/ncursesw/menu.h
+    - test -f ${PREFIX}/include/menu.h
+    - test -L ${PREFIX}/include/ncurses/nc_tparm.h
+    - test -L ${PREFIX}/include/ncursesw/nc_tparm.h
+    - test -f ${PREFIX}/include/nc_tparm.h
+    - test -L ${PREFIX}/include/ncurses/ncurses.h
+    - test -L ${PREFIX}/include/ncursesw/ncurses.h
+    - test -f ${PREFIX}/include/ncurses.h
+    - test -L ${PREFIX}/include/ncurses/ncurses_dll.h
+    - test -L ${PREFIX}/include/ncursesw/ncurses_dll.h
+    - test -f ${PREFIX}/include/ncurses_dll.h
+    - test -L ${PREFIX}/include/ncurses/panel.h
+    - test -L ${PREFIX}/include/ncursesw/panel.h
+    - test -f ${PREFIX}/include/panel.h
+    - test -L ${PREFIX}/include/ncurses/term.h
+    - test -L ${PREFIX}/include/ncursesw/term.h
+    - test -f ${PREFIX}/include/term.h
+    - test -L ${PREFIX}/include/ncurses/term_entry.h
+    - test -L ${PREFIX}/include/ncursesw/term_entry.h
+    - test -f ${PREFIX}/include/term_entry.h
+    - test -L ${PREFIX}/include/ncurses/termcap.h
+    - test -L ${PREFIX}/include/ncursesw/termcap.h
+    - test -f ${PREFIX}/include/termcap.h
+    - test -L ${PREFIX}/include/ncurses/tic.h
+    - test -L ${PREFIX}/include/ncursesw/tic.h
+    - test -f ${PREFIX}/include/tic.h
+    - test -L ${PREFIX}/include/ncurses/unctrl.h
+    - test -L ${PREFIX}/include/ncursesw/unctrl.h
+    - test -f ${PREFIX}/include/unctrl.h
+    - test -f ${PREFIX}/lib/pkgconfig/form.pc
+    - test -f ${PREFIX}/lib/pkgconfig/formw.pc
+    - test -f ${PREFIX}/lib/pkgconfig/menu.pc
+    - test -f ${PREFIX}/lib/pkgconfig/menuw.pc
+    - test -f ${PREFIX}/lib/pkgconfig/ncurses++.pc
+    - test -f ${PREFIX}/lib/pkgconfig/ncurses++w.pc
+    - test -f ${PREFIX}/lib/pkgconfig/ncurses.pc
+    - test -f ${PREFIX}/lib/pkgconfig/ncursesw.pc
+    - test -f ${PREFIX}/lib/pkgconfig/panel.pc
+    - test -f ${PREFIX}/lib/pkgconfig/panelw.pc
+    - test -f ${PREFIX}/lib/pkgconfig/tinfo.pc
+    - test -f ${PREFIX}/lib/pkgconfig/tinfow.pc
+about:
+  description: 'The ncurses (new curses) library is a free software
+
+    emulation of curses in System V Release 4.0 (SVr4),
+
+    and more. It uses terminfo format, supports pads and
+
+    color and multiple highlights and forms characters and
+
+    function-key mapping, and has all the other SVr4-curses
+
+    enhancements over BSD curses. SVr4 curses is better
+
+    known today as X/Open Curses
+
+    '
+  dev_url: http://invisible-island.net/ncurses/
+  doc_url: http://invisible-island.net/ncurses/NCURSES-Programming-HOWTO.html
+  home: http://www.gnu.org/software/ncurses/
+  license: Free software (MIT-like)
+  summary: Library for text-based user interfaces
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: b7806911-ab9c-4e8e-bd52-94cb99ab869b
+  recipe-maintainers:
+    - jakirkham
+    - jjhelmus
+  remote_url: git@github.com:AnacondaRecipes/ncurses-feedstock.git
+  sha: fb6aafa366e5390d203f26997a158b595b6b442a

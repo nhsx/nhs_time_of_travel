@@ -1,0 +1,72 @@
+# This file created by conda-build 3.23.3
+# meta.yaml template originally from:
+# /var/folders/nz/j6p8yfhx1mv_0grj5xl4650h0000gp/T/abs_5d968ni_yn/clone/recipe, last modified Mon Dec 19 16:09:26 2022
+# ------------------------------------------------
+
+package:
+  name: certifi
+  version: 2022.12.7
+source:
+  - folder: certifi
+    sha256: 35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3
+    url: https://pypi.io/packages/source/c/certifi/certifi-2022.12.7.tar.gz
+  - folder: pip_wheel
+    sha256: 0f35d63b7245205f4060efe1982f5ea2196aa6e5b26c07669adcf800e2542026
+    url: https://pypi.io/packages/py2.py3/p/pip/pip-20.2.3-py2.py3-none-any.whl
+  - folder: setuptools_wheel
+    sha256: 4dd5bb0a0a0cff77b46ca5dd3a84857ee48c83e8223886b556613c724994073f
+    url: https://pypi.io/packages/py3/s/setuptools/setuptools-49.6.0-py3-none-any.whl
+build:
+  number: '0'
+  string: py38hca03da5_0
+requirements:
+  host:
+    - ca-certificates 2022.10.11 hca03da5_0
+    - libcxx 14.0.6 h848a8c0_0
+    - libffi 3.4.2 hca03da5_6
+    - ncurses 6.3 h1a28f6b_3
+    - openssl 1.1.1s h1a28f6b_0
+    - python 3.8.15 hc0d8a6c_2
+    - readline 8.2 h1a28f6b_0
+    - sqlite 3.40.0 h7a7dc30_0
+    - tk 8.6.12 hb8d0fd4_0
+    - wheel 0.37.1 pyhd3eb1b0_0
+    - xz 5.2.8 h80987f9_0
+    - zlib 1.2.13 h5a0b063_0
+  run:
+    - python >=3.8,<3.9.0a0
+test:
+  commands:
+    - pip check
+  imports:
+    - certifi
+  requires:
+    - pip
+about:
+  description: 'Certifi is a curated collection of Root Certificates for validating
+    the
+
+    trustworthiness of SSL certificates while verifying the identity of TLS
+
+    hosts.
+
+    '
+  dev_url: https://github.com/certifi/python-certifi
+  doc_url: https://github.com/certifi/python-certifi/blob/master/README.rst
+  home: https://certifi.io/
+  license: MPL-2.0
+  license_family: Other
+  license_file: certifi/LICENSE
+  summary: Python package for providing Mozilla's CA Bundle.
+extra:
+  copy_test_source_files: true
+  final: true
+  flow_run_id: 5dc91707-0c25-4a0f-b31c-2ff727bb6ba0
+  recipe-maintainers:
+    - jakirkham
+    - mingwandroid
+    - ocefpaf
+    - pelson
+    - sigmavirus24
+  remote_url: git@github.com:AnacondaRecipes/certifi-feedstock.git
+  sha: 9270f3db20a477c876e81e7bfd6b3c04ecc65fcf

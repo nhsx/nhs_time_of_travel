@@ -1,0 +1,25 @@
+{
+  "arch": "arm64",
+  "build": "h1a28f6b_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/osx-arm64",
+  "constrains": [],
+  "depends": [
+    "ncurses >=6.3,<7.0a0"
+  ],
+  "features": "",
+  "fn": "readline-8.2-h1a28f6b_0.conda",
+  "legacy_bz2_md5": "a276a37815f1f5e0af0d6445e4f33e0d",
+  "license": "GPL-3.0-only",
+  "license_family": "GPL",
+  "md5": "8e3d8eb62e32065d41fad9a83a901254",
+  "name": "readline",
+  "platform": "darwin",
+  "sha256": "0399187fd09fc52bfac1b67b3cdef33faa76a75213ff932d9fcb079238dd8584",
+  "size": 361268,
+  "subdir": "osx-arm64",
+  "timestamp": 1666648067390,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/osx-arm64/readline-8.2-h1a28f6b_0.conda",
+  "version": "8.2"
+}

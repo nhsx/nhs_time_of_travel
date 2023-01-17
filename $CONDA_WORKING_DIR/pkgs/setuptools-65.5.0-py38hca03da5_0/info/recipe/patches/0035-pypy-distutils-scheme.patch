@@ -1,0 +1,82 @@
+# Branch conda
+# Node ID 85c317f36cd8fc1962c1776a6cfb1df3572c518c
+# Parent  e9052b361691a2de3cfb86712ecd4609ac3aff12
+conda schema fixes for distutils
+
+diff --git a/setuptools/_distutils/command/install.py b/setuptools/_distutils/command/install.py
+index a38cddc..f086a7d 100644
+--- a/setuptools/_distutils/command/install.py
++++ b/setuptools/_distutils/command/install.py
+@@ -51,20 +51,14 @@ INSTALL_SCHEMES = {
+     },
+     'nt': WINDOWS_SCHEME,
+     'pypy': {
+-        'purelib': '{base}/site-packages',
+-        'platlib': '{base}/site-packages',
+-        'headers': '{base}/include/{dist_name}',
++        'purelib': '$base/lib/python$py_version_short/site-packages',
++        'platlib': '$platbase/lib/python$py_version_short/site-packages',
++        'headers': '$base/include/python$py_version_short$abiflags/$dist_name',
+         'scripts': '{base}/bin',
+         'data': '{base}',
+     },
+-    'pypy_nt': {
+-        'purelib': '{base}/site-packages',
+-        'platlib': '{base}/site-packages',
+-        'headers': '{base}/include/{dist_name}',
+-        'scripts': '{base}/Scripts',
+-        'data': '{base}',
+-    },
+-}
++    'pypy_nt': WINDOWS_SCHEME,
++     }
+
+ # user site schemes
+ if HAS_USER_SITE:
+
+diff --git a/setuptools/_distutils/sysconfig.py b/setuptools/_distutils/sys
+config.py
+index aae9c1b..ae2adec 100644
+--- a/setuptools/_distutils/sysconfig.py
++++ b/setuptools/_distutils/sysconfig.py
+@@ -118,6 +118,10 @@ def get_python_inc(plat_specific=0, prefix=None):
+     If 'prefix' is supplied, use it instead of sys.base_prefix or
+     sys.base_exec_prefix -- i.e., ignore 'plat_specific'.
+     """
++
++
++
++
+     default_prefix = BASE_EXEC_PREFIX if plat_specific else BASE_PREFIX
+     resolved_prefix = prefix if prefix is not None else default_prefix
+     try:
+@@ -210,23 +214,19 @@ def get_python_lib(plat_specific=0, standard_lib=0, prefix=None):
+     If 'prefix' is supplied, use it instead of sys.base_prefix or
+     sys.base_exec_prefix -- i.e., ignore 'plat_specific'.
+     """
++    if prefix is None:
++        if standard_lib:
++            prefix = plat_specific and BASE_EXEC_PREFIX or BASE_PREFIX
++        else:
++            prefix = plat_specific and EXEC_PREFIX or PREFIX
+
+     if IS_PYPY and sys.version_info < (3, 8):
+-        # PyPy-specific schema
+-        if prefix is None:
+-            prefix = PREFIX
++        # [Old] PyPy-specific schema
+         if standard_lib:
+             return os.path.join(prefix, "lib-python", sys.version[0])
+-        return os.path.join(prefix, 'site-packages')
+
+     early_prefix = prefix
+
+-    if prefix is None:
+-        if standard_lib:
+-            prefix = plat_specific and BASE_EXEC_PREFIX or BASE_PREFIX
+-        else:
+-            prefix = plat_specific and EXEC_PREFIX or PREFIX
+-
+     if os.name == "posix":
+         if plat_specific or standard_lib:
+             # Platform-specific modules (any module from a non-pure-Python
