@@ -12,7 +12,7 @@ def data_uploader():
   if file_upload is not None:
 
 # Read the CSV file into a pandas DataFrame
-  data = pd.read_csv(file_upload)
+    data = pd.read_csv(file_upload)
 
 
 # Show the first few rows of the data
