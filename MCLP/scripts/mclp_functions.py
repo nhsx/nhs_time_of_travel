@@ -77,14 +77,14 @@ def generate_msr(G, site_names, list_of_target_nodes, nodes_sample):
 
 #function to plot each of the routes from the target node to the sample nodes as a folium map and add a marker for the target node
 #save each of the folium maps as a folium object in the list route_maps to be displayed by streamlit
-def generate_route_maps(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords):
+def generate_route_maps(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords, target_scores):
     route_maps = []
     for site, target_address, target_coords in zip(site_names, list_of_target_addresses, list_of_target_coords):
         route_map = ox.plot_route_folium(G, target_to_node_routes[site][0], route_color = '#ff0000', opacity = 0.5)
         for route in target_to_node_routes[site][1:len(target_to_node_routes[site])]:
             route_map = ox.plot_route_folium(G, route, route_map = route_map, route_color = '#ff0000', opacity = 0.5)
-        iframe = folium.IFrame('{}: {}'.format(site, target_address))
-        popup = folium.Popup(iframe, min_width=200, max_width=200)
+        iframe = folium.IFrame('<font face = "Arial"><b>{}:</b> {}. <br><br><b>{} Score:</b> {}</br></br></font>'.format(site, target_address, site, target_scores[site]))
+        popup = folium.Popup(iframe, min_width=200, max_width=300)
         folium.Marker(location=target_coords,
                     popup = popup).add_to(route_map)
         route_maps.append(route_map)
@@ -102,8 +102,10 @@ def mclp_main(region, list_of_target_addresses):
     nodes_sample = sample_nodes(nodes, list_of_target_nodes, 100)
     site_names, target_scores = generate_target_scores(G, nodes_sample, list_of_target_nodes, list_of_target_addresses)
     target_to_node_routes = generate_msr(G, site_names, list_of_target_nodes, nodes_sample)
-    route_maps = generate_route_maps(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords)
+    route_maps = generate_route_maps(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords, target_scores)
     save_maps(site_names, route_maps)
+
+    return target_scores, route_maps
 
 #region = "Cambridge"
 #list_of_target_addresses = ["PAPWORTH ROAD, Cambridge", "4 TRUMPINGTON ROAD, Cambridge"]
