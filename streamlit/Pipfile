@@ -76,6 +76,7 @@ tzlocal = "==4.2"
 urllib3 = "==1.26.13"
 validators = "==0.20.0"
 zipp = "==3.11.0"
+nhstravel = { editable = true, path = "./.." }
 
 [dev-packages]
 
