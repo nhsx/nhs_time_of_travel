@@ -1,10 +1,11 @@
 import streamlit as st
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
-from scripts.py_walking_gp_practice_cambridge import dis_map
+from scripts.mclp_functions import *
 import base64
+import uploader
 
 st.set_page_config(
     page_title="Hello",
@@ -35,8 +36,10 @@ st.markdown(
     Holding page for max coverage location
 """
 )
-st.sidebar.title("About")
-st.sidebar.info(
+
+with st.sidebar:
+    st.title("About")
+    st.info(
 """
 Developed by: NHS England
 
@@ -44,3 +47,39 @@ GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
 """
 )
 
+with st.form('MCLP_inputs'):
+    region = "Cambridge"#
+    region_option = st.selectbox(
+        'Select Region',
+        ('Cambridge','Other'))
+
+
+    list_of_target_addresses = ["PAPWORTH ROAD, Cambridge" , "4 TRUMPINGTON ROAD, Cambridge"]
+    list_of_target_addresses_option = st.multiselect(
+        'Select addresses'
+        ,("PAPWORTH ROAD, Cambridge" , "4 TRUMPINGTON ROAD, Cambridge")
+
+        , default=None
+        # "PAPWORTH ROAD, Cambridge"
+    )
+    submitted = st.form_submit_button("Submit")
+    
+if submitted:
+# if list_of_target_addresses_option is not None:
+    region = "Cambridge"#
+
+    target_scores, route_maps = mclp_main(region, list_of_target_addresses_option)
+
+    col1, col2 = st.columns(2, gap='medium')
+
+    with col1:
+        st.write('The score for', list_of_target_addresses_option[0] ,'is ' ,target_scores["Site 1"])
+
+    # st_map = st_folium(route_maps[0], width=700, height=450)
+        st_map = folium_static(route_maps[0], width=500, height=450)
+
+    if len(list_of_target_addresses_option) >1:
+        with col2:
+            st.write('The score for', list_of_target_addresses_option[1] ,'is ' ,target_scores["Site 2"])
+
+            st_map2 = folium_static(route_maps[1], width=500, height=450)
