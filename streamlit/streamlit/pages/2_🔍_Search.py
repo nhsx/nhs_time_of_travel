@@ -5,6 +5,7 @@ import pandas as pd
 import geojson
 from scripts.py_walking_gp_practice_cambridge import dis_map
 import base64
+from uploader import data_uploader
 
 st.set_page_config(
     page_title="Search Functionality",
@@ -44,3 +45,4 @@ GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
 """
 )
 
+data_uploader()
