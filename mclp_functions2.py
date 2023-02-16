@@ -157,22 +157,13 @@ def save_maps(site_names, route_maps):
 def mclp_main(region, list_of_target_addresses):
     G, nodes = generate_networkx(region, 'walk')
     list_of_target_nodes, list_of_target_coords = get_target_nodes(G, list_of_target_addresses)
-
-    cambridge_lsoa_with_population_pd = lsoaloader.build_lsoa_data_frame_for_area_england("Cambridge")
-    remapped_lsoa = lsoaloader.load_geo_json_shapefiles_for_lsoas(cambridge_lsoa_with_population_pd, "Cambridge")
-
-    #remapped_lsoa = load_lsoa(region)
+    remapped_lsoa = load_lsoa(region)
     list_of_neighboring_poly_dicts = generate_neighboring_polys(remapped_lsoa, list_of_target_coords, radius)
     list_of_nodes_samples = generate_nodes_samples(list_of_neighboring_poly_dicts, list_of_target_nodes, nodes)
     site_names, target_scores = generate_target_scores(G, list_of_nodes_samples, list_of_target_nodes, list_of_target_addresses)
-    #target_to_node_routes = generate_msr(G, site_names, list_of_target_nodes, list_of_nodes_samples)
-    #route_maps = generate_route_maps(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords, target_scores)
-    #save_maps(site_names, route_maps)
+    target_to_node_routes = generate_msr(G, site_names, list_of_target_nodes, list_of_nodes_samples)
+    route_maps = generate_route_maps(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords, target_scores)
+    save_maps(site_names, route_maps)
 
-    return target_scores#, route_maps
+    return target_scores, route_maps
 
-region = "Cambridge"
-list_of_target_addresses = ["PAPWORTH ROAD, Cambridge", "4 TRUMPINGTON ROAD, Cambridge"]
-radius = 500
-
-mclp_main(region, list_of_target_addresses)
