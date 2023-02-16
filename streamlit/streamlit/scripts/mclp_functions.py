@@ -7,12 +7,12 @@ import osmnx as ox
 import geopandas as gpd
 import networkx as nx
 import folium
-import streamlit as st
+#import streamlit as st
 import time
 
 #generate network x map of a specified region of a specific travel type (walk, drive e.tc)
 # without allow_output_mutation, st.cache is performing a hash of the entire graph on every run. This is taking a long time. Skip check
-@st.cache(persist=True, allow_output_mutation=True)
+#@st.cache(persist=True, allow_output_mutation=True)
 def generate_networkx(region, type):
     G = ox.graph.graph_from_place(region, simplify = True, network_type = type)
     nodes, edges = ox.graph_to_gdfs(G)
@@ -111,3 +111,6 @@ def mclp_main(region, list_of_target_addresses):
 
     return target_scores, route_maps
 
+list_of_target_addresses = ['PAPWORTH ROAD, Cambridge', '4 TRUMPINGTON ROAD, Cambridge']
+
+mclp_main('Cambridge', list_of_target_addresses)

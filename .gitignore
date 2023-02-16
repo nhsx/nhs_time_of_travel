@@ -902,3 +902,4 @@ nhs_venv/share/jupyter/labextensions/jupyterlab-plotly/static/remoteEntry.f372bf
 nhs_venv/share/jupyter/nbextensions/jupyter-js-widgets/extension.js.LICENSE.txt
 nhs_venv/bin/cartopy_feature_download.py
 .DS_Store
+.DS_Store
