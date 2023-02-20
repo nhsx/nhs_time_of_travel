@@ -3,9 +3,9 @@ import folium
 from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
-from scripts.mclp_functions import *
+from scripts.mclp_functions2 import *
 import base64
-import uploader
+from functions.uploader import uploader as up
 
 st.set_page_config(
     page_title="Hello",
@@ -31,13 +31,10 @@ render_svg(svg)
 
 st.title("🗺️ Max Coverage Location")
 
-st.markdown(
-    """
-    Holding page for max coverage location
-"""
-)
-
 with st.sidebar:
+
+    df, fn = up()
+
     st.title("About")
     st.info(
 """
@@ -47,28 +44,30 @@ GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
 """
 )
 
+st.write('Loaded:', fn, "- Preview of the data:")
+st.write(df.head(2))
+
+region_option = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
+filtered_df = df[(df['City'] == region_option) | (df['County'] == region_option)]
+st.write(filtered_df)
+
+
 with st.form('MCLP_inputs'):
-    region = "Cambridge"#
-    region_option = st.selectbox(
-        'Select Region',
-        ('Cambridge','Other'))
 
-
-    list_of_target_addresses = ["PAPWORTH ROAD, Cambridge" , "4 TRUMPINGTON ROAD, Cambridge"]
     list_of_target_addresses_option = st.multiselect(
         'Select addresses'
-        ,("PAPWORTH ROAD, Cambridge" , "4 TRUMPINGTON ROAD, Cambridge")
-
-        , default=None
-        # "PAPWORTH ROAD, Cambridge"
+        ,filtered_df['Address']
+        # , default=None
     )
+
+    search_radius = st.slider('Select search radius (m)', min_value=100, max_value=1000, step=50, value=500)
+
     submitted = st.form_submit_button("Submit")
     
 if submitted:
 # if list_of_target_addresses_option is not None:
-    region = "Cambridge"#
-
-    target_scores, route_maps = mclp_main(region, list_of_target_addresses_option)
+    st.write(region_option, list_of_target_addresses_option)
+    target_scores, route_maps = mclp_main(region_option, list_of_target_addresses_option, search_radius)
 
     col1, col2 = st.columns(2, gap='medium')
 

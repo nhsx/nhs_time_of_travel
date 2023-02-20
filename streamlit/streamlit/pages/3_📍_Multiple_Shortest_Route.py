@@ -1,14 +1,15 @@
 import streamlit as st
 import folium
-from streamlit_folium import st_folium
+from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
-from scripts.py_walking_gp_practice_cambridge import dis_map
 import base64
+from functions.uploader import uploader as up
+from scripts.msr import main as msr
 
 st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
+    page_title="NHS - Multiple Shortest Route",
+    page_icon="📍",
 )
 
 # NHS Logo
@@ -30,11 +31,6 @@ render_svg(svg)
 
 st.title("📍 Multiple Shortest Route")
 
-st.markdown(
-    """
-    Holding page for multiple shortest route Functionality
-    """
-)
 st.sidebar.title("About")
 st.sidebar.info(
 """
@@ -44,3 +40,27 @@ GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
 """
 )
 
+with st.sidebar:
+    df, fn = up()
+
+
+st.write('Loaded:', fn, "- Preview of the data:")
+st.write(df.head())
+
+city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
+filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
+st.write(filtered_df)
+
+with st.form('MSR_inputs'):
+
+    target_address = st.text_input("Enter target address in following format; 2 Hill Road, Cambridge")
+    network_type = st.selectbox("select network type", ["all","drive","walk","bike"])
+
+    submitted = st.form_submit_button("Submit")
+    
+
+if submitted:
+    st.write('Generating shortest route')
+    map, dataframe = msr(city_or_county, filtered_df, target_address, network_type)
+    msr_map = folium_static(map, width=700, height=450)
+    st.write(dataframe)
