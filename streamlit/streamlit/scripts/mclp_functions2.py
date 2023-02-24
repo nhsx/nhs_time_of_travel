@@ -12,8 +12,11 @@ from shapely.geometry import shape
 from shapely.ops import unary_union
 import nhstravel.loaders.lsoaloader as lsoaloader
 import folium 
+import streamlit as st
 
 #generate network x map of a specified region of a specific travel type (walk, drive e.tc)
+# without allow_output_mutation, st.cache is performing a hash of the entire graph on every run. This is taking a long time. Skip check
+@st.cache(persist=True, allow_output_mutation=True)
 def generate_networkx(region, type):
     G = ox.graph.graph_from_place(region, simplify = True, network_type = type)
     nodes, edges = ox.graph_to_gdfs(G)
@@ -26,7 +29,7 @@ def get_target_nodes(G, list_of_target_addresses):
     list_of_target_coords = []
     for target_address in list_of_target_addresses:
         target_coords = ox.geocode(target_address)
-        target_node = ox.get_nearest_node(G, target_coords)
+        target_node = ox.distance.nearest_nodes(G, X=target_coords[1], Y=target_coords[0])
         list_of_target_nodes.append(target_node)
         list_of_target_coords.append(target_coords)
     return list_of_target_nodes, list_of_target_coords
@@ -154,11 +157,11 @@ def save_maps(site_names, route_maps):
         map.save('route map for {}.html'.format(site_name))
 
 #main function to generate networkx map then generate the scores and folium map for each proposed target location
-def mclp_main(region, list_of_target_addresses):
+def mclp_main(region, list_of_target_addresses, radius):
     G, nodes = generate_networkx(region, 'walk')
     list_of_target_nodes, list_of_target_coords = get_target_nodes(G, list_of_target_addresses)
     remapped_lsoa = load_lsoa(region)
-    list_of_neighboring_poly_dicts = generate_neighboring_polys(remapped_lsoa, list_of_target_coords, radius)
+    list_of_neighboring_poly_dicts = generate_neighboring_polys(remapped_lsoa, list_of_target_coords, radius=radius)
     list_of_nodes_samples = generate_nodes_samples(list_of_neighboring_poly_dicts, list_of_target_nodes, nodes)
     site_names, target_scores = generate_target_scores(G, list_of_nodes_samples, list_of_target_nodes, list_of_target_addresses)
     target_to_node_routes = generate_msr(G, site_names, list_of_target_nodes, list_of_nodes_samples)
