@@ -34,7 +34,7 @@ render_svg(svg)
 st.title("📍 Multiple Shortest Route")
 
 
-df, fn = sidebar()
+df, fn = sidebar(True)
 
 st.write('Loaded:', fn, "- Preview of the data:")
 st.write(df.head())
