@@ -18,12 +18,20 @@ def main(city_or_county,filtered_df,target_address,network_type):
     G = ox.graph_from_place(city_or_county, network_type=network_type)
     target = ox.nearest_nodes(G, target_location[1],Y=target_location[0])
 
+    use_long_lat = False
+    if 'Longitude' in filtered_df.columns and 'Latitude' in filtered_df.columns:
+        use_long_lat = True
+
     coords = []
-    for address in filtered_df['Address']:
+    for _,row in filtered_df.iterrows():
         try:
-            coords.append(ox.geocoder.geocode(address))
+            if use_long_lat:
+                coords.append([row['Longitude'], row['Latitude']])
+            else:
+                coords.append(ox.geocoder.geocode(row['Address']))
         except Exception as e:
-            pass
+            print(e)
+            raise e
     list=[]
     for i,c in enumerate(coords):
         list.append(ox.nearest_nodes(G,X=coords[i][1],Y=coords[i][0]))
@@ -44,7 +52,5 @@ def main(city_or_county,filtered_df,target_address,network_type):
     folium.Marker(location=target_location,popup = popup).add_to(route_map)
 
     filtered_df['lengths'] = np.array(lengths)
-
-
 
     return route_map, filtered_df
