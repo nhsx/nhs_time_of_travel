@@ -5,7 +5,7 @@ import pandas as pd
 import geojson
 from scripts.mclp_functions2 import *
 import base64
-from functions.uploader import uploader as up
+from functions.sidebar import sidebar as sidebar
 
 st.set_page_config(
     page_title="Hello",
@@ -31,18 +31,7 @@ render_svg(svg)
 
 st.title("🗺️ Max Coverage Location")
 
-with st.sidebar:
-
-    df, fn = up()
-
-    st.title("About")
-    st.info(
-"""
-Developed by: NHS England
-
-GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
-"""
-)
+df, fn = sidebar(True)
 
 st.write('Loaded:', fn, "- Preview of the data:")
 st.write(df.head(2))
