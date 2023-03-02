@@ -12,7 +12,17 @@ import osmnx as ox
 import geopandas as gpd
 import folium
 
+@st.cache(allow_output_mutation=True)
+def gen_G(city_or_county,target_address,network_type):
+    ox.config(log_console=True, use_cache=True)
+    target_location = ox.geocode(target_address)
+    G = ox.graph_from_place(city_or_county, network_type=network_type)
+    target = ox.nearest_nodes(G, target_location[1],Y=target_location[0])
+    return G, target
+
 def main(city_or_county,filtered_df,target_address,network_type):
+
+    G, target = gen_G(city_or_county,target_address,network_type)
     ox.config(log_console=True, use_cache=True)
     target_location = ox.geocode(target_address)
     G = ox.graph_from_place(city_or_county, network_type=network_type)
