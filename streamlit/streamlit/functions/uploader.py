@@ -5,7 +5,8 @@ import pathlib
 import os
 
 # hospital = '/Users/oliver.jones/Documents/GitHub/pycom_nhs_time_of_travel/streamlit/streamlit/data/Hospital.csv'
-hospital = 'streamlit/data/Hospital.csv'
+# hospital = '/Users/oliver.jones/Documents/GitHub/pycom_nhs_time_of_travel/streamlit/streamlit/data/Hospital.csv'
+hospital = '../../data/Hospital.csv'
 
 # @st.cache
 def load_data_csv(file):
