@@ -4,19 +4,22 @@ import numpy as np
 import pathlib
 import os
 
-hospital = 'streamlit/data/Hospital.csv'
+# hospital = '/Users/oliver.jones/Documents/GitHub/pycom_nhs_time_of_travel/streamlit/streamlit/data/Hospital.csv'
+# hospital = '/Users/oliver.jones/Documents/GitHub/pycom_nhs_time_of_travel/streamlit/streamlit/data/Hospital.csv'
+hospital = '../../data/Hospital.csv'
 
-@st.cache
+# @st.cache
 def load_data_csv(file):
     return pd.read_csv(file)
 
-@st.cache
+# @st.cache
 def load_data_xls(file):
     return pd.read_excel(file)
 
 
-def uploader():
-    file = st.file_uploader("Upload your excel from the template, or use one of our datasets, hospital.csv or epraccur.csv (for gp practices)", type= ["xls","xlsx"])
+
+@st.cache
+def uploader(file):
     if file is not None:
         df = load_data_xls(file)
         df = df.dropna(subset=['County'])

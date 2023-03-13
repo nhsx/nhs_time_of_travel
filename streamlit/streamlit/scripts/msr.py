@@ -11,6 +11,7 @@ import networkx as nx
 import osmnx as ox
 import geopandas as gpd
 import folium
+import math
 
 def main(city_or_county,filtered_df,target_address,network_type):
     ox.config(log_console=True, use_cache=True)
@@ -22,25 +23,24 @@ def main(city_or_county,filtered_df,target_address,network_type):
     if 'Longitude' in filtered_df.columns and 'Latitude' in filtered_df.columns:
         use_long_lat = True
 
-    coords = []
+    routes = []
+    lengths=[]
+
     for _,row in filtered_df.iterrows():
         try:
             if use_long_lat:
-                coords.append([row['Longitude'], row['Latitude']])
+                coords = (row['Latitude'], row['Longitude'])
             else:
-                coords.append(ox.geocoder.geocode(row['Address']))
+                coords = ox.geocoder.geocode(row['Address'])
+
+            nodes = ox.nearest_nodes(G,X=coords[1],Y=coords[0])
+            routes.append(nx.shortest_path(G,nodes,target,weight="length"))
+            lengths.append(nx.shortest_path_length(G,source=nodes,target=target,weight='length'))
+
         except Exception as e:
-            print(e)
-            raise e
-    list=[]
-    for i,c in enumerate(coords):
-        list.append(ox.nearest_nodes(G,X=coords[i][1],Y=coords[i][0]))
-    routes = []
-    for i,a in enumerate(list):
-        routes.append(nx.shortest_path(G,list[i],target,weight="length"))
-    lengths=[]
-    for i,b in enumerate(routes):
-        lengths.append(nx.shortest_path_length(G,source=list[i],target=target,weight='length'))
+            lengths.append(math.nan)
+            pass
+
     filtered_df['lengths'] = np.array(lengths)
     #Gx = ox.plot_graph_routes(G, routes, route_color='r', route_linewidth=6, bgcolor='k')
     #route_map = ox.plot_route_folium(G, routes[0], route_color = '#ff0000', opacity = 0.5)

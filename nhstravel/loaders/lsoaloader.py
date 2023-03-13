@@ -4,11 +4,13 @@ import geojson
 import copy
 from pandas.io.parsers.readers import TextFileReader
 from pandas import DataFrame
+import os
 
 # LSOA data set locations
-lsoa_definitions_data_path  = 'data/lower_layer_super_output_areas_december_2021.csv'
-lsoa_popupation_data_path   = 'data/lsoa_global_number_residents_2021.csv'
-lsoa_postcode_map_data_path = 'data/pcd_lsoa21cd_nov22_en.csv'
+data_path = os.path.dirname(__file__) + '/../../data'
+lsoa_definitions_data_path  = data_path+'/lower_layer_super_output_areas_december_2021.csv'
+lsoa_popupation_data_path   = data_path+'/lsoa_global_number_residents_2021.csv'
+lsoa_postcode_map_data_path = data_path+'/pcd_lsoa21cd_nov22_en.csv'
 
 # LSOA data column names
 lsoa_object_id_col  = 'OBJECTID'
