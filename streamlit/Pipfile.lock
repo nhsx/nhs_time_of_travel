@@ -531,10 +531,6 @@
             "index": "pypi",
             "version": "==2.8.8"
         },
-        "nhstravel": {
-            "editable": true,
-            "path": "./.."
-        },
         "numpy": {
             "hashes": [
                 "sha256:01dd17cbb340bf0fc23981e52e1d18a9d4050792e8fb8363cecbf066a84b827d",
@@ -1002,12 +998,9 @@
             "version": "==2.13.0"
         },
         "setuptools": {
-            "hashes": [
-                "sha256:95f00380ef2ffa41d9bba85d95b27689d923c93dfbafed4aecd7cf988a25e012",
-                "sha256:bb6d8e508de562768f2027902929f8523932fcd1fb784e6d573d2cafac995a48"
-            ],
+            "editable": true,
             "markers": "python_version >= '3.7'",
-            "version": "==67.3.2"
+            "path": "./.."
         },
         "shapely": {
             "hashes": [

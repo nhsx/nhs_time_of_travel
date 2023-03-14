@@ -37,8 +37,9 @@ def get_target_nodes(G, list_of_target_addresses):
 
 #function to call lsoa loaders library to import lsoa data for the given regin
 def load_lsoa(region):
-    cambridge_lsoa_with_population_pd = lsoaloader.build_lsoa_data_frame_for_area_england("Cambridge")
-    remapped_lsoa = lsoaloader.load_geo_json_shapefiles_for_lsoas(cambridge_lsoa_with_population_pd, "Cambridge")
+    print('building lsoa for ', region)
+    lsoa_with_population_pd = lsoaloader.build_lsoa_data_frame_for_area_england(region)
+    remapped_lsoa = lsoaloader.load_geo_json_shapefiles_for_lsoas(lsoa_with_population_pd, region)
     return remapped_lsoa
 
 #genearte the collection of lsoas for each target location

@@ -4,8 +4,10 @@ from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
 import base64
-from functions.uploader import uploader as up
+# from functions.uploader import uploader as up
 from scripts.msr import main as msr
+from functions.sidebar import sidebar as sidebar
+
 
 st.set_page_config(
     page_title="NHS - Multiple Shortest Route",
@@ -31,18 +33,10 @@ render_svg(svg)
 
 st.title("📍 Multiple Shortest Route")
 
-st.sidebar.title("About")
-st.sidebar.info(
-"""
-Developed by: NHS England
 
-GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
-"""
-)
+df2, fn = sidebar(True)
 
-with st.sidebar:
-    df, fn = up()
-
+df = df2.copy()
 
 st.write('Loaded:', fn, "- Preview of the data:")
 st.write(df.head())

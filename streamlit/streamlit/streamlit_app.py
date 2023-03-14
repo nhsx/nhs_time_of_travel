@@ -5,6 +5,7 @@ import pandas as pd
 import geojson
 import base64
 from scripts.py_walking_gp_practice_cambridge import dis_map
+from functions.sidebar import sidebar as sidebar
 
 st.set_page_config(
     page_title="NHS Time to travel",
@@ -48,12 +49,5 @@ st.markdown(
     Project board: https://github.com/orgs/nhs-pycom/projects/9/views/1
 """
 )
-st.sidebar.title("About")
-st.sidebar.info(
-"""
-Developed by: NHS England
 
-GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>
-"""
-)
-
+sidebar(False)
