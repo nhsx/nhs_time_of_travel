@@ -166,7 +166,7 @@ def generate_route_map(G,
                      zoom_start=13)
 
     for i, (site, target_address, target_coords) in enumerate(zip(site_names, list_of_target_addresses, list_of_target_coords)):
-        layer = routes_to_featuregroup(G, routes=target_to_node_routes[site], color=colors[i], name=f'Route {i}')
+        layer = routes_to_featuregroup(G, routes=target_to_node_routes[site], color=colors[i], name=site)
         iframe = folium.IFrame('<font face = "Arial"><b>{}:</b> {}. <br><br><b>{} Score:</b> {}</br></br></font>'.format(site, target_address, site, target_scores[site]))
         popup = folium.Popup(iframe, min_width=200, max_width=300)
         folium.Marker(location=target_coords,
