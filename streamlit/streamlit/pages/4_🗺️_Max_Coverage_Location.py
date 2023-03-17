@@ -61,17 +61,3 @@ if submitted:
     st.write(region_option, list_of_target_addresses_option)
     target_scores, route_map = mclp_main(region_option, list_of_target_addresses_option, search_radius)
     st_map = folium_static(route_map, width=500, height=450)
-
-    # col1, col2 = st.columns(2, gap='medium')
-
-    # with col1:
-    #     st.write('The score for', list_of_target_addresses_option[0] ,'is ' ,target_scores["Site 1"])
-
-    # # st_map = st_folium(route_maps[0], width=700, height=450)
-    #     st_map = folium_static(route_maps[0], width=500, height=450)
-
-    # if len(list_of_target_addresses_option) >1:
-    #     with col2:
-    #         st.write('The score for', list_of_target_addresses_option[1] ,'is ' ,target_scores["Site 2"])
-
-    #         st_map2 = folium_static(route_maps[1], width=500, height=450)
