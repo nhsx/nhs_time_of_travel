@@ -138,7 +138,7 @@ def generate_msr(G, site_names, list_of_target_nodes, list_of_nodes_samples):
     return target_to_node_routes
 
 
-def generate_route_map(G,
+def generate_route_layers(G,
                        target_to_node_routes,
                        site_names,
                        list_of_target_addresses,
@@ -160,22 +160,18 @@ def generate_route_map(G,
     Returns:
         Single folium map with all routes and markers with one layer per site
     '''
-    target_coords1 = list_of_target_coords[0]
-    map = folium.Map(location=target_coords1,
-                     tiles="cartodbpositron", 
-                     zoom_start=13)
-
+    result = []
     for i, (site, target_address, target_coords) in enumerate(zip(site_names, list_of_target_addresses, list_of_target_coords)):
         layer = routes_to_featuregroup(G, routes=target_to_node_routes[site], color=colors[i], name=site)
         iframe = folium.IFrame('<font face = "Arial"><b>{}:</b> {}. <br><br><b>{} Score:</b> {}</br></br></font>'.format(site, target_address, site, target_scores[site]))
         popup = folium.Popup(iframe, min_width=200, max_width=300)
         folium.Marker(location=target_coords,
                     popup = popup,
-                    icon=folium.Icon(color=colors[i], icon='info-sign')).add_to(layer)
-        layer.add_to(map)
-    # add a layer control to toggle the layers on and off
-    folium.LayerControl().add_to(map)
-    return map
+                    icon=folium.Icon(color=colors[i], 
+                    icon='info-sign')).add_to(layer)
+        result.append(layer)
+    return result
+
 
 def routes_to_featuregroup(G, routes, color, name):
     layer = folium.FeatureGroup(name=name)
@@ -189,10 +185,21 @@ def routes_to_featuregroup(G, routes, color, name):
     
     return layer
 
+
+def generate_lsoa_layer(remapped_lsoa, color='blue'):
+    layer = folium.FeatureGroup(name='LSOAs')
+    style = {'color': color}
+
+    shape = folium.GeoJson(data=remapped_lsoa, style_function=lambda x:style)
+    shape.add_to(layer)
+    return layer
+
+
 #save each of the folium maps as a folium object in the list route_maps to be displayed by streamlit
 def save_maps(site_names, route_maps):
     for site_name, map in zip(site_names, route_maps):
         map.save('route map for {}.html'.format(site_name))
+
 
 #main function to generate networkx map then generate the scores and folium map for each proposed target location
 def mclp_main(region, list_of_target_addresses, radius):
@@ -203,8 +210,23 @@ def mclp_main(region, list_of_target_addresses, radius):
     list_of_nodes_samples = generate_nodes_samples(list_of_neighboring_poly_dicts, list_of_target_nodes, nodes)
     site_names, target_scores = generate_target_scores(G, list_of_nodes_samples, list_of_target_nodes, list_of_target_addresses)
     target_to_node_routes = generate_msr(G, site_names, list_of_target_nodes, list_of_nodes_samples)
-    route_map = generate_route_map(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords, target_scores)
-    # save_maps(site_names, route_map)
 
-    return target_scores, route_map
+    first_target = list_of_target_coords[0]
+    map = folium.Map(location=first_target,
+                     tiles="cartodbpositron", 
+                     zoom_start=13)
+
+    generate_lsoa_layer(remapped_lsoa, color='blue').add_to(map)
+
+    layers = generate_route_layers(G, target_to_node_routes, site_names, list_of_target_addresses, list_of_target_coords, target_scores)
+    for layer in layers:
+        layer.add_to(map)
+
+    # TO DO: keep in front doesnt work to move lsoa's behind route layers on folium map
+
+    # add a layer control to toggle the layers on and off
+    folium.LayerControl().add_to(map)
+    # save_maps(site_names, route_map)
+    return target_scores, map
+
 
