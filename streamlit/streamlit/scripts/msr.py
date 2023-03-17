@@ -12,6 +12,7 @@ import osmnx as ox
 import geopandas as gpd
 import folium
 import math
+from scripts.mclp_functions2 import routes_to_featuregroup as routes_to_featuregroup
 
 def main(city_or_county,filtered_df,target_address,network_type):
     ox.config(log_console=True, use_cache=True)
@@ -25,7 +26,7 @@ def main(city_or_county,filtered_df,target_address,network_type):
 
     routes = []
     lengths=[]
-
+    names=[]
     for _,row in filtered_df.iterrows():
         try:
             if use_long_lat:
@@ -36,7 +37,7 @@ def main(city_or_county,filtered_df,target_address,network_type):
             nodes = ox.nearest_nodes(G,X=coords[1],Y=coords[0])
             routes.append(nx.shortest_path(G,nodes,target,weight="length"))
             lengths.append(nx.shortest_path_length(G,source=nodes,target=target,weight='length'))
-
+            names.append(row['Name'])
         except Exception as e:
             lengths.append(math.nan)
             pass
@@ -45,12 +46,20 @@ def main(city_or_county,filtered_df,target_address,network_type):
     #Gx = ox.plot_graph_routes(G, routes, route_color='r', route_linewidth=6, bgcolor='k')
     #route_map = ox.plot_route_folium(G, routes[0], route_color = '#ff0000', opacity = 0.5)
     route_map = ox.plot_route_folium(G,routes[0])
-    for route in routes:
-            route_map = ox.plot_route_folium(G, route, route_map = route_map)
+    colors=['green', 'red', 'yellow', 'blue', 'pink', 'purple']
+    for i, route in enumerate(routes):
+            # route_map = ox.plot_route_folium(G, route, route_map = route_map)
+
+        layer = routes_to_featuregroup(G, routes=[route], color=colors[i], name=names[i])
+        layer.add_to(route_map)
+
     iframe = folium.IFrame('<font face = "Arial"><b>{}</b> {}.</font>'.format(target_address,target_location))
     popup = folium.Popup(iframe, min_width=200, max_width=200)
     folium.Marker(location=target_location,popup = popup).add_to(route_map)
 
     filtered_df['lengths'] = np.array(lengths)
+
+    folium.LayerControl().add_to(route_map)
+
 
     return route_map, filtered_df

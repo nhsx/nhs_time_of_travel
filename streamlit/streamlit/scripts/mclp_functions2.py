@@ -174,6 +174,18 @@ def generate_route_layers(G,
 
 
 def routes_to_featuregroup(G, routes, color, name):
+    '''
+    Convert a networkx route into a folium FeatureGroup
+    
+    Args:
+        G: Networkx graph of area 
+        routes: list of routes, each of which is a list of node indices
+        color: color for lines in folium 
+        name: name for resulting feature group
+
+    Returns:
+        a feature group with all routes as lines
+    '''
     layer = folium.FeatureGroup(name=name)
     lines = [] 
     for route in routes:
