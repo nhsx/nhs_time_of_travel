@@ -9,6 +9,7 @@ altair = "==4.2.0"
 attrs = "==22.1.0"
 blinker = "==1.5"
 branca = "==0.6.0"
+Cartopy == "0.21.0
 cachetools = "==5.2.0"
 certifi = "==2022.9.24"
 charset-normalizer = "==2.1.1"
@@ -77,9 +78,8 @@ urllib3 = "==1.26.13"
 validators = "==0.20.0"
 zipp = "==3.11.0"
 nhstravel = { editable = true, path = "./.." }
-cartopy = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.10"
+python_version >= "3.10"
