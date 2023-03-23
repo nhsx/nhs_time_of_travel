@@ -38,8 +38,11 @@ df2, fn = sidebar(True)
 
 df = df2.copy()
 
-st.write('Loaded:', fn, "- Preview of the data:")
-st.write(df.head())
+title = f'Loaded: {fn} data- Expand to preview data:'
+
+# st.write('Loaded:', fn, "- Preview of the data:")
+with st.expander(title, expanded=False):
+    st.write(df.head())
 
 city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
 filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
