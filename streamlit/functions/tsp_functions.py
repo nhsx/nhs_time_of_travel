@@ -26,7 +26,11 @@ def tsp(cities, addresses):
    # Calculates the shortest possible route that visits all cities and returns to the starting city
    shortest_distance = float('inf')
    shortest_route = None
-   city_to_address = dict(zip(cities, addresses))
+   address = addresses['Address']
+   address_list = address.tolist()
+
+   city_to_address = dict(zip(cities, address_list))
+   print('city_to_address = ' , city_to_address)
    for route in itertools.permutations(cities):
        route_distance = 0
        for i in range(len(route)):
@@ -38,4 +42,5 @@ def tsp(cities, addresses):
            shortest_distance = route_distance
            shortest_route = route
    shortest_route_addresses = [city_to_address[city] for city in shortest_route]
+   print('tsp file shortest_route_addresses = ', shortest_route_addresses)
    return shortest_route_addresses, shortest_distance

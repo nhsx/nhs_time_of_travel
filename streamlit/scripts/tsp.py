@@ -32,54 +32,55 @@ def main(city_or_county,filtered_df,start_address,network_type):
         try:
             if use_long_lat:
                 coords = (row['Latitude'], row['Longitude'])
+                locations.append(coords)
             else:
                 coords = ox.geocoder.geocode(row['Address'])
-        
+                locations.append(coords)
+
         except Exception as e:
             pass
 
-
     shortest_route_addresses, shortest_distance = tsp(locations, filtered_df)
-
-
-    
-
 
     # Create a map centered on the first address in the shortest route
     #map_centre = locations[0]
     m = folium.Map(location=ox.geocode(city_or_county), zoom_start=13)
 
-
-    for i, address in enumerate(shortest_route_addresses):
-        location = geolocator.geocode(address)
-        if location is not None:
-               lat, lon = location.latitude, location.longitude
-               tooltip = f"{i+1}. {address}"
-               folium.Marker(location=[lat, lon], tooltip=tooltip).add_to(m)
-        else:
-            print(f"Could not find location for address: {address}")
     locations_ordered = []
-    for address in shortest_route_addresses:
-        location = geolocator.geocode(address)
+    # for i,address in enumerate(shortest_route_addresses):
+    for i,address in enumerate(locations):
+        sra = shortest_route_addresses[i]
+        location = address
         if location is not None:
-            lat, lon = location.latitude, location.longitude
+            # lat, lon = location.latitude, location.longitude
+            lat, lon = location[0], location[1]
+
             locations_ordered.append((lat, lon))
+            tooltip = f"{i+1}. {sra}"
+            folium.Marker(location=[lat, lon], tooltip=tooltip).add_to(m)
         else:
             print(f"Could not find location for address: {address}")
     nodes = [ox.distance.nearest_nodes(G, X=[coord[1]], Y=[coord[0]])[0] for coord in locations_ordered]
     shortest_paths = [nx.shortest_path(G, nodes[i], nodes[i + 1], weight='length') for i in range(len(nodes) - 1)]
     path_lengths = [nx.shortest_path_length(G, nodes[i], nodes[i + 1], weight='length')/1609.34 for i in range(len(nodes) - 1)]
+    
+    layer = folium.FeatureGroup(name='routes')
+    route = []
     for path in shortest_paths:
         route_nodes_coords = [G.nodes[node] for node in path]
         route_coords = [(node['y'], node['x']) for node in route_nodes_coords]
-        folium.PolyLine(route_coords, color='blue', weight=2.5).add_to(m)
+        route.append(route_coords)
+    print(f'route = {route}')
+    folium.PolyLine(route, color='blue', weight=2.5).add_to(layer)
+
+    layer.add_to(m)
+
     distance_data = {
     'From': shortest_route_addresses[:-1],
     'To': shortest_route_addresses[1:],
     'Distance (miles)': [round(dist,2) for dist in path_lengths],
     'Cumulative Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))]
 }  
-    df = pd.DataFrame(distance_data)
-
+    df = pd.DataFrame.from_dict(distance_data, orient='index').T
     return m, df
 
