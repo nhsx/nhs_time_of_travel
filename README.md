@@ -1,5 +1,7 @@
 ## MedicalMap
 
+[![status: experimental](https://github.com/GIScience/badges/raw/master/status/experimental.svg)](https://github.com/GIScience/badges#experimental)
+
 This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, with a team comprising of [Oliver Jones], [Muhammed-Faaiz Shawanas], [Mary Amanuel], from NHS England, [Max Morisov] & [Nick Fortescue], engineers at GoogleHealth.
 
 The following page and accompanying [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
