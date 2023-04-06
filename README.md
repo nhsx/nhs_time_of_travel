@@ -38,7 +38,7 @@ To clone the repo:
 `git clone https://github.com/nhs-pycom/nhs_time_of_travel.git`
 
 
-cd streamlit, into the  Once there please follow these instructions:
+cd streamlit, into the streamlit folder. Once there please follow these instructions:
 
 Unix/macOS
 ```bash
