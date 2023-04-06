@@ -8,7 +8,6 @@ import base64
 #from uploader import data_uploader
 from functions.sidebar import sidebar as sidebar
 from scripts.tsp import main as tsp
-
 import osmnx as ox
 import networkx as nx
 import folium
@@ -51,16 +50,32 @@ with st.expander(title, expanded=False):
 city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
 filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
 st.write(filtered_df)
+county= filtered_df['County'].iloc[0]
 
 with st.form('MSR_inputs'):
+    start_address_options = list(filtered_df['Address'].unique())
 
-    start_address = st.text_input("Enter start address in following format; 2 Hill Road, Cambridge")
-    network_type = st.selectbox("select network type", ["all","drive","walk","bike"])
+    new_start_address = st.text_input("Enter a new start address (if not in the list above):")
+    if new_start_address:
+        geolocator = Nominatim(user_agent="myGeocoder")
+        location = geolocator.geocode(new_start_address)
+        new_coord = (location.latitude, location.longitude)
+        
+        new_entry = {'City': city_or_county, 'County': county, 'Address': new_start_address, 'Latitude': new_coord[0], 'Longitude': new_coord[1]}
+        filtered_df = filtered_df.append(new_entry, ignore_index=True)
+        start_address_options.append(new_start_address)
 
+        # Set the default value of the dropdown to the user-entered address
+        start_address = st.selectbox("Select start address from the dataframe above", options=start_address_options, index=len(start_address_options) - 1)
+    else:
+        start_address = st.selectbox("Select start address from the dataframe above", options=start_address_options)
+
+
+    network_type = st.selectbox("select network type", ["drive","walk","bike"])
     submitted = st.form_submit_button("Submit")
 
 if submitted:
-    st.write('Generating Best Route......please wait.....')
+    st.write('Generating Best Route...........')
 
     map, dataframe = tsp(city_or_county, filtered_df, start_address, network_type)
     msr_map = folium_static(map, width=700, height=450)
