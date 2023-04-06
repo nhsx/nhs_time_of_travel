@@ -63,6 +63,7 @@ nest-asyncio==1.5.6
 networkx==2.8.8
 -e git+https://github.com/nhs-pycom/nhs_time_of_travel.git@c73ed01db70dfaa819ec51bfa1e8ff1365e668b9#egg=nhstravel
 numpy==1.23.5
+openpyxl==3.1.2
 osmnx==1.2.2
 packaging==23.0
 pandas==1.5.2
