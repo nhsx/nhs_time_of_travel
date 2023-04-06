@@ -42,6 +42,7 @@ cd into the streamlit folder. Once there please follow these instructions:
 
 Unix/macOS
 ```bash
+pip install pipenv (if you don't have pipenv installed)
 pipenv install --python 3.10
 pipenv install -r requirements.txt
 pipenv shell
