@@ -52,6 +52,6 @@ def uploader(file):
         # We return also Latitude and Longitude as it's already available. From the msr algorithm, it will be used 
         # if it's available, but if not, it will obtain it via address search.
         df = df[['Name', 'Address','City','County','Latitude','Longitude']]
-        filename = 'Hosptial'
+        filename = 'Hospital'
     
     return df, filename
