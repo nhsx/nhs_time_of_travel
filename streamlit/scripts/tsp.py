@@ -5,20 +5,21 @@ from geopy.geocoders import Nominatim
 from geopy.distance import great_circle
 import itertools
 import math
-from scripts.mclp_functions2 import routes_to_featuregroup as routes_to_featuregroup
 from functions.tsp_functions import manhattan_distance, tsp
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-
+from itertools import combinations
 
 
 
 def main(city_or_county,filtered_df,start_address,network_type):
+    county= filtered_df['County'].iloc[0]
     ox.config(log_console=True, use_cache=True)
     start_location = ox.geocode(start_address)
-    G = ox.graph_from_place(city_or_county, network_type=network_type)
-    target = ox.nearest_nodes(G, start_location[1],Y=start_location[0])
+    #G = ox.graph_from_place(city_or_county, network_type=network_type)
+    G = ox.graph_from_place(county, network_type=network_type)
+    #target = ox.nearest_nodes(G, start_location[1],Y=start_location[0])
     geolocator = Nominatim(user_agent="myGeocoder")
 
 
@@ -27,60 +28,99 @@ def main(city_or_county,filtered_df,start_address,network_type):
         use_long_lat = True
 
     
-    locations = []
-    for _,row in filtered_df.iterrows():
+    coords = []
+
+    for _, row in filtered_df.iterrows():
         try:
             if use_long_lat:
-                coords = (row['Latitude'], row['Longitude'])
-                locations.append(coords)
+                coord = (row['Latitude'], row['Longitude'])
             else:
-                coords = ox.geocoder.geocode(row['Address'])
-                locations.append(coords)
-
+                location = geolocator.geocode(row['Address'])
+                coord = (location.latitude, location.longitude)
+            coords.append(coord)
         except Exception as e:
+            print(f"Error: {e}")
             pass
 
-    shortest_route_addresses, shortest_distance = tsp(locations, filtered_df)
+    addresses=list(filtered_df['Address'])
+
+    distance_dict = {}
+    for coord_pair in combinations(coords, 2):
+        coord1, coord2 = coord_pair
+        node1 = ox.distance.nearest_nodes(G, X=[coord1[1]], Y=[coord1[0]])[0]
+        node2 = ox.distance.nearest_nodes(G, X=[coord2[1]], Y=[coord2[0]])[0]
+        distance = nx.shortest_path_length(G, node1, node2, weight='length')
+        distance_dict[(coord1, coord2)] = distance
+        distance_dict[(coord2, coord1)] = distance 
+
+
+
+
+    shortest_route_addresses, shortest_route_coords,shortest_distance = tsp(coords, addresses, distance_dict,first_address=start_address)
 
     # Create a map centered on the first address in the shortest route
-    #map_centre = locations[0]
-    m = folium.Map(location=ox.geocode(city_or_county), zoom_start=13)
+    map_centre = shortest_route_coords[0]
+    m = folium.Map(location=map_centre, max_bounds=True)
 
-    locations_ordered = []
-    # for i,address in enumerate(shortest_route_addresses):
-    for i,address in enumerate(locations):
-        sra = shortest_route_addresses[i]
-        location = address
-        if location is not None:
-            # lat, lon = location.latitude, location.longitude
-            lat, lon = location[0], location[1]
 
-            locations_ordered.append((lat, lon))
-            tooltip = f"{i+1}. {sra}"
-            folium.Marker(location=[lat, lon], tooltip=tooltip).add_to(m)
-        else:
-            print(f"Could not find location for address: {address}")
-    nodes = [ox.distance.nearest_nodes(G, X=[coord[1]], Y=[coord[0]])[0] for coord in locations_ordered]
+    # Add markers for each address in the shortest route
+    for i, (address, coord) in enumerate(zip(shortest_route_addresses, shortest_route_coords)):
+        tooltip = f"{i+1}. {address}"
+        folium.Marker(location=coord, tooltip=tooltip).add_to(m)
+
+
+    # Find the nearest nodes for each coordinate in the shortest route
+    nodes = [ox.distance.nearest_nodes(G, X=[coord[1]], Y=[coord[0]])[0] for coord in shortest_route_coords]
+
+
+    # Calculate the shortest paths between each pair of consecutive nodes
     shortest_paths = [nx.shortest_path(G, nodes[i], nodes[i + 1], weight='length') for i in range(len(nodes) - 1)]
     path_lengths = [nx.shortest_path_length(G, nodes[i], nodes[i + 1], weight='length')/1609.34 for i in range(len(nodes) - 1)]
-    
-    layer = folium.FeatureGroup(name='routes')
-    route = []
+
+
+    # Draw the shortest paths on the map
     for path in shortest_paths:
         route_nodes_coords = [G.nodes[node] for node in path]
         route_coords = [(node['y'], node['x']) for node in route_nodes_coords]
-        route.append(route_coords)
-    print(f'route = {route}')
-    folium.PolyLine(route, color='blue', weight=2.5).add_to(layer)
+        folium.PolyLine(route_coords, color='blue', weight=2.5).add_to(m)
 
-    layer.add_to(m)
-
+    
     distance_data = {
-    'From': shortest_route_addresses[:-1],
-    'To': shortest_route_addresses[1:],
-    'Distance (miles)': [round(dist,2) for dist in path_lengths],
-    'Cumulative Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))]
-}  
-    df = pd.DataFrame.from_dict(distance_data, orient='index').T
+        'From': shortest_route_addresses[:-1],
+        'To': shortest_route_addresses[1:],
+        'Distance (miles)': [round(dist,2) for dist in path_lengths],
+        'Cumulative Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))]
+    }
+    df = pd.DataFrame(distance_data)
     return m, df
 
+
+def tsp(coords, addresses, distance_dict, first_address=None):
+    shortest_distance = float('inf')
+    shortest_route = None
+    coord_to_address = dict(zip(coords, addresses))
+
+    if first_address:
+        if first_address not in addresses:
+            raise ValueError("The specified first_address is not in the list of addresses.")
+        first_coord = list(coord_to_address.keys())[list(coord_to_address.values()).index(first_address)]
+        coords.remove(first_coord)
+        permutations = (tuple([first_coord] + list(route)) for route in itertools.permutations(coords))
+    else:
+        permutations = itertools.permutations(coords)
+
+    for route in permutations:
+        route_distance = 0
+        for i in range(len(route)):
+            if i == len(route) - 1:
+                route_distance += distance_dict[(route[i], route[0])]
+            else:
+                route_distance += distance_dict[(route[i], route[i + 1])]
+        if route_distance < shortest_distance:
+            shortest_distance = route_distance
+            shortest_route = route
+
+    shortest_route_addresses = [coord_to_address[coord] for coord in shortest_route]
+    shortest_route_coords = [coord for coord in shortest_route]
+
+    return shortest_route_addresses, shortest_route_coords, shortest_distance
