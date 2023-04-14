@@ -1,28 +1,30 @@
-## Travel time to NHS organisations
+## MedicalMap
 
-[![pages-build-deployment](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment)
+[![status: experimental](https://github.com/GIScience/badges/raw/master/status/experimental.svg)](https://github.com/GIScience/badges#experimental)
 
-<b>Work in progress</b>
+This is a prototype, and a concept piece of work for the NHS.
 
-This work was led by [Mattia Ficarelli](https://github.com/mattia-ficarelli), Data Engineer, and [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, as part of their roles with the Analytics Unit of the NHS Transformation Directorate.
+This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, with a team comprising of [Oliver Jones](https://github.com/oliverjonesnhsx), [Muhammed-Faaiz Shawanas], [Mary Amanuel], from NHS England, [Max Morisov] & [Nick Fortescue], engineers at GoogleHealth.
 
-### Project Structure
-
-This GitHub repository and accompanying [webpage](https://nhsx.github.io/nhs_time_of_travel/) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
+The following page and accompanying [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
 
 A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
-Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London, Cambridge and Lincolnshire. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
+Using open-source software and publicly accessible datasets we're able to show three pages here so far; The first, Multiple Shortest Routes, this can be used for staff routes to work. The second, Max Coverage Location, this can be used to score a site, e.g. a covid site or a new GP practice. Third, the Travelling Salesman Problem; in a health context this could be used to plan district nurse visits, or for ambulance drop-offs.
 
-<figure>
-  <img src="images/png/cambridge_osmnx_nodes.png" width="400" height="400">
-  <figcaption><b>OSMnx walkable urban network of central Cambridge</b></figcaption>
-</figure>
+Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), [Uber Movement](https://movement.uber.com/)
+
+<hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
+
+### Project Aims
+
+The project was set up following feedback from several areas of the NHS, who responded to the original time_to_travel work that was presented at the NHS Pycom conference in 2022, [here](https://github.com/nhsx/nhs_time_of_travel/) and [here]( https://nhsx.github.io/nhs_time_of_travel/).
+Following this a collaboration took place with Googlehealth and Pycom combining to work on a week by week project looking to solve some of the Geospatial problems that the NHS faces on a daily basis. 
+As the work developed, different areas of the NHS who use geospatial tools became more aware of the work, and a decision was made to build a piece of software that could be taken to NHS trusts and to the data herewithin. The aim being to keep the tool flexible, open, open-source, and adaptable. By keeping all the coding in python, we hope this opens up this tool to be adapted to different use cases by many different users, across the varying parts of the NHS. 
 
 ### Built With
 
-[![Python v3.8](https://img.shields.io/badge/python-v3.8-blue.svg)](https://www.python.org/downloads/release/python-380/)
-[![Python v3.9](https://img.shields.io/badge/python-v3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![Python v3.10](https://img.shields.io/badge/python-v3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
 - [Folium](https://python-visualization.github.io/folium/)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org/)
@@ -31,14 +33,28 @@ Using open-source software and publicly accessible datasets we calculate the tra
 
 ### Installation
 
-Install the above software packages as per the following example:
-conda install -c conda-forge osmnx
-
-To get a local copy up and running follow these simple steps.
-
 To clone the repo:
 
-`git clone https://github.com/nhsx/nhs_time_of_travel.git`
+`git clone https://github.com/nhs-pycom/nhs_time_of_travel.git`
+
+
+cd streamlit, into the streamlit folder. Once there please follow these instructions:
+
+Unix/macOS
+```bash
+pip install pipenv (if you don't have pipenv installed)
+pipenv install --python 3.10
+pipenv install -r requirements.txt
+pipenv shell
+```
+
+This was launch your pip environment with the necessary installations and dependencies. 
+Once this is open run "conda install cartopy". 
+
+Finally to launch the streamlit app:
+```bash
+streamlit run streamlit_app.py
+```
 
 ### Datasets
 

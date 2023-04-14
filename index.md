@@ -1,20 +1,44 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
 
-## Travel time to NHS organisations
+## Medical Map
 
-This work was led by [Mattia Ficarelli](https://github.com/mattia-ficarelli), Data Engineer, and [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, as part of their roles with the Analytics Unit of the NHS Transformation Directorate.
+This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, with a team comprising of [Oliver Jones], [Mohammed Faaiz],[Max Morisov][Nick Fortescue] and [Mary Amanuel], Max and Nick engineers at GoogleHealth, and Ollie, Faaiz, and Mary NHS England colleagues.
 
 The following page and accompanying [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
 
 A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
-Using open-source software and publicly accessible datasets we calculate the travel time, with different modes of transport, to varying NHS healthcare services in London, Lincolnshire, and Cambridge. We highlight the challenges of estimating accurate travel times and possible approaches to overcome these. 
+Using open-source software and publicly accessible datasets we're able to show three pages here so far; The first, Multiple Shortest Routes, this can be used for staff routes to work. The second, Max Coverage Location, this can be used to score a site, e.g. a covid site or a new GP practice. Third, the Travelling Salesman Problem; in a health context this could be used to plan district nurse visits, or for ambulance drop-offs.
 
 Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), [Uber Movement](https://movement.uber.com/)
 
 <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
 
-### Walking time to GP practices in Cambridge
+### Project Aims
+
+The project was set up following feedback from several areas of the NHS, who responded to the original time_to_travel work that was presented at the NHS Pycom conference in 2022, [here](https://github.com/nhsx/nhs_time_of_travel/) and [here]( https://nhsx.github.io/nhs_time_of_travel/).
+Following this a collaboration took place with Googlehealth and Pycom combining to work on a week by week project looking to solve some of the Geospatial problems that the NHS faces on a daily basis. 
+As the work developed, different areas of the NHS who use geospatial tools became more aware of the work, and a decision was made to build a piece of software that could be taken to NHS trusts and to the data herewithin. The aim being to keep the tool flexible, open, open-source, and adaptable. By keeping all the coding in python, we hope this opens up this tool to be adapted to different use cases by many different users, across the varying parts of the NHS. 
+
+
+### Installation
+
+cd into the streamlit folder. Once there please follow these instructions:
+
+Unix/macOS
+```bash
+pipenv install --python 3.10
+pipenv install -r requirements.txt
+pipenv shell
+```
+
+This was launch your pip environment with the necessary installations and dependencies. 
+Once this is open run "conda install cartopy". 
+
+Finally to launch the streamlit app:
+```bash
+streamlit run streamlit_app.py
+```
 
 The code for this section of the project can be found [here](https://github.com/nhsx/nhs_time_of_travel/blob/main/walking_gp_practice_cambridge.ipynb).
 

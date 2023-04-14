@@ -6,6 +6,11 @@ from pandas.io.parsers.readers import TextFileReader
 from pandas import DataFrame
 import os
 
+# LSOA data set locations
+data_path = os.path.dirname(__file__) + '/../../data'
+lsoa_definitions_data_path  = data_path+'/lower_layer_super_output_areas_december_2021.csv'
+lsoa_population_data_path   = data_path+'/lsoa_global_number_residents_2021.csv'
+lsoa_postcode_map_data_path = data_path+'/pcd_lsoa21cd_nov22_en.csv'
 
 class LsoaLoader:
     def __init__(self,
@@ -327,8 +332,67 @@ def load_lsoa_objects_for_area_england(area: str,
     return LsoaLoader().load_lsoa_objects_for_area_england(area=area, global_lsoa=global_lsoa)
 
 
-def load_lsoa_population_estimates_england(area: str,
-                                           global_lsoa_population_estimates: TextFileReader = None) -> DataFrame:
+postcode_col = 'POSTCODE'
+lsoa_name_col = 2
+lsoa_code_col = 1
+def load_lsoa_objects_for_postcode_england(postcode:str,
+                                           global_lsoa:TextFileReader = None,
+                                           lsoa_postcode_map_file_path:str = lsoa_postcode_map_data_path,
+                                           postcode_col_number:int = 0,
+                                           lsoa_code_col_number:int = 1) -> DataFrame:
+    """
+    Loads lsoa based on specified postcode. Provided postcode is used as indicator for LSOAs
+    names to be loaded. For example, if postcode belongs to Cambridge LSOAs, this function 
+    will load all Cambridge LSOAs. The usage is to provide postcode of medical facility and 
+    all surrounding LSOAs for this medical facility will be loaded.
+    Parameters
+    postcode:
+        The postcode in England to map to LSOA name
+    global_lsoa:
+        Text file with all LSOAs for England
+    lsoa_postcode_map_file_path:
+        The file path with postcode to LSOA mapping
+    postcode_col_number:
+        The column number in the postcode to LSOA mapping file containing postcode
+    lsoa_code_col_number:
+        The column number in the postcode to LSOA mapping file containing LSOA code
+    returns:
+        Pandas dataframe with loaded LSOAs
+    """
+    if global_lsoa is None:
+        global_lsoa = read_lsoa_objects_england()
+
+    postcodes_map_df = pd.read_csv(
+        lsoa_postcode_map_file_path,
+        header=0, 
+        usecols=[
+            postcode_col_number,
+            lsoa_code_col_number
+        ], 
+        names=[
+            postcode_col,
+            lsoa_code_col
+            ], 
+    dtype='string')
+    postcodes_map_df = postcodes_map_df[postcodes_map_df[postcode_col].str.contains(postcode)]
+    postcodes_map_df.reset_index(drop=True, inplace=True)
+    if postcodes_map_df.shape[0] == 0:
+        raise ValueError(f'No postcode {postcode} found in the mapping file')
+
+    lsoa_code = postcodes_map_df.at[0, lsoa_code_col]
+    lsoa_name_df = global_lsoa[global_lsoa[lsoa_code_col].str.contains(lsoa_code)]
+    lsoa_name_df.reset_index(drop=True, inplace=True)
+
+    if lsoa_name_df.shape[0] == 0:
+        raise ValueError(f'No lsoa with code {lsoa_code} found in global lsoas file')
+    
+    lsoa_name = lsoa_name_df.at[0, lsoa_name_col]
+    lsoa_area = ''.join(lsoa_name.split()[:-1])
+    return load_lsoa_objects_for_area_england(lsoa_area, global_lsoa)
+    
+
+def load_lsoa_population_estimates_england(area:str, 
+                                           global_lsoa_population_estimates:TextFileReader = None) -> DataFrame:
     """
     Loads the LSOA population estimates for area in England.
 
