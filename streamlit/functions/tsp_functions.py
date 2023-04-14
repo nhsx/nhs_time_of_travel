@@ -29,8 +29,9 @@ def tsp(coords, addresses, distance_dict, first_address=None):
         if first_address not in addresses:
             raise ValueError("The specified first_address is not in the list of addresses.")
         first_coord = list(coord_to_address.keys())[list(coord_to_address.values()).index(first_address)]
-        coords.remove(first_coord)
-        permutations = (tuple([first_coord] + list(route)) for route in itertools.permutations(coords))
+        coords_copy=coords.copy()
+        coords_copy.remove(first_coord)
+        permutations = (tuple([first_coord] + list(route)) for route in itertools.permutations(coords_copy))
     else:
         permutations = itertools.permutations(coords)
 
