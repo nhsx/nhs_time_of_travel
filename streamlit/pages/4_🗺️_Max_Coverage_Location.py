@@ -3,13 +3,14 @@ import folium
 from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
-from scripts.mclp_functions2 import *
+from scripts.mclp_functions import *
 import base64
 from functions.sidebar import sidebar as sidebar
 
 st.set_page_config(
     page_title="Hello",
     page_icon="👋",
+    layout="wide"
 )
 
 # NHS Logo
@@ -58,8 +59,15 @@ with st.form('MCLP_inputs'):
 
     submitted = st.form_submit_button("Submit")
     
+
 if submitted:
 # if list_of_target_addresses_option is not None:
-    st.write(region_option, list_of_target_addresses_option)
-    target_scores, route_map = mclp_main(region_option, list_of_target_addresses_option, search_radius)
-    st_map = folium_static(route_map, width=500, height=450)
+
+    pc = []
+    for add in list_of_target_addresses_option:
+        pc1 = filtered_df['Postcode'].loc[(filtered_df['Address'] == add)].values[0]
+        pc.append(pc1)
+
+    # st.write(region_option, list_of_target_addresses_option, pc)
+    target_scores, route_map = mclp_main(list_of_target_addresses_option, search_radius)
+    st_map = folium_static(route_map, width=1200, height=1000)

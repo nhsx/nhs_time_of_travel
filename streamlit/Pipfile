@@ -133,6 +133,7 @@ webencodings = "==0.5.1"
 werkzeug = "==2.2.3"
 xlrd = "==2.0.1"
 nhstravel = {editable = true, ref = "c73ed01db70dfaa819ec51bfa1e8ff1365e668b9", git = "https://github.com/nhs-pycom/nhs_time_of_travel.git"}
+openpyxl = "*"
 
 [dev-packages]
 
