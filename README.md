@@ -4,7 +4,7 @@
 
 This is a prototype, and a concept piece of work for the NHS.
 
-This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, with a team comprising of [Oliver Jones](https://github.com/oliverjonesnhsx), [Muhammed-Faaiz Shawanas], [Mary Amanuel], from NHS England, [Max Morisov] & [Nick Fortescue], engineers at GoogleHealth.
+This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, with a team comprising of [Oliver Jones](https://github.com/oliverjonesnhsx), [Muhammed-Faaiz Shawanas](https://github.com/faaiz-25), [Mary Amanuel](https://github.com/maryamanuel1), from NHS England, [Max Morisov](https://github.com/maxim-morosov) & [Nick Fortescue](https://github.com/nickfortescuegoogle), engineers at GoogleHealth.
 
 The following page and accompanying [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
 
@@ -19,12 +19,12 @@ Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-se
 ### Project Aims
 
 The project was set up following feedback from several areas of the NHS, who responded to the original time_to_travel work that was presented at the NHS Pycom conference in 2022, [here](https://github.com/nhsx/nhs_time_of_travel/) and [here]( https://nhsx.github.io/nhs_time_of_travel/).
-Following this a collaboration took place with Googlehealth and Pycom combining to work on a week by week project looking to solve some of the Geospatial problems that the NHS faces on a daily basis. 
-As the work developed, different areas of the NHS who use geospatial tools became more aware of the work, and a decision was made to build a piece of software that could be taken to NHS trusts and to the data herewithin. The aim being to keep the tool flexible, open, open-source, and adaptable. By keeping all the coding in python, we hope this opens up this tool to be adapted to different use cases by many different users, across the varying parts of the NHS. 
+Following this a collaboration took place with Googlehealth and Pycom combining to work one day a week on a project looking to solve some of the Geospatial problems that the NHS faces on a daily basis. 
+As the work developed, different areas of the NHS who use geospatial tools became more aware of the work, and a decision was made to try to build a piece of software that could be taken to NHS trusts and to the data herewithin. The aim being to keep the tool flexible, open, open-source, and adaptable. By keeping all the coding in python, we hope this opens up this tool to be adapted to different use cases by many different users, across the varying parts of the NHS. 
 
 ### Built With
 
-[![Python v3.10](https://img.shields.io/badge/python-v3.9-blue.svg)](https://www.python.org/downloads/release/python-390/)
+[![Python v3.10](https://img.shields.io/badge/python-v3.10-blue.svg)](https://www.python.org/downloads/release/python-310/)
 - [Folium](https://python-visualization.github.io/folium/)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org/)
