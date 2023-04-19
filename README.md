@@ -78,6 +78,16 @@ For example if you select 'Route Optimzer', this page will load, and likewise th
 - Lastly the solution presented here uses two algorithms, a permutations travelling salesman (tsp) algorithm, and a greedy tsp algorithm, both results are plotted onto a networkx nodes and edges map, and the shorter total distance is taken as the metric for the best route. This is by no means an exhaustive practice, and I'm sure there are better solutions out there, but in the interests of running this on standard computer, laptop, or interface to a TRE, this was the current best solution we could find. If you can suggest something better, please drop us a line and let us know. 
 
 
+### Multiple Shortest Route page
+
+- The start functionality is the same as the previous as regards data uploading. The Hospital dataset comes as pre-loaded, so I'll run through the rest of the instructions using this dataset.
+- Select town/ city/ county (or both) from the 'Enter Town/ City or County (or both)' selector. This will filter the dataframe to that location.
+- Enter your target address in the titled box, in the following format, '2 Hill Road, Cambridge'.
+- Select the network type. 
+- Hit Submit.
+- Your map with shortest routes and a dataframe should be displayed.
+
+
 ### Datasets
 
 Accessible in the 'data' folder, all of these are publicly available, either from NHS Digital or ONS.
