@@ -29,9 +29,9 @@ As the work developed, different areas of the NHS who use geospatial tools becam
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org/)
 
-### Getting Started
+## Getting Started
 
-### Installation
+## Installation
 
 To clone the repo:
 
@@ -79,7 +79,7 @@ For example if you select 'Route Optimzer', this page will load, and likewise th
 
 ### Datasets
 
-The data sources are saved for your use in the data folder in the repo, or are widely available with links to the data within the workbooks. 
+Accessible in the 'data' folder, all of these are publicly available, either from NHS Digital or ONS.
 
 ### Contributing
 
