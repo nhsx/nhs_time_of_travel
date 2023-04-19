@@ -12,12 +12,15 @@ import osmnx as ox
 import geopandas as gpd
 import folium
 import math
-from scripts.mclp_functions2 import routes_to_featuregroup as routes_to_featuregroup
+from scripts.msr_functions import routes_to_featuregroup as routes_to_featuregroup
+from scripts.msr_functions import source_markers
 
 def main(city_or_county,filtered_df,target_address,network_type):
+    county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
+
     ox.config(log_console=True, use_cache=True)
     target_location = ox.geocode(target_address)
-    G = ox.graph_from_place(city_or_county, network_type=network_type)
+    G = ox.graph_from_place(county, network_type=network_type)
     target = ox.nearest_nodes(G, target_location[1],Y=target_location[0])
 
     use_long_lat = False
@@ -36,7 +39,7 @@ def main(city_or_county,filtered_df,target_address,network_type):
 
             nodes = ox.nearest_nodes(G,X=coords[1],Y=coords[0])
             routes.append(nx.shortest_path(G,nodes,target,weight="length"))
-            lengths.append(nx.shortest_path_length(G,source=nodes,target=target,weight='length'))
+            lengths.append(nx.shortest_path_length(G,source=nodes,target=target,weight='length')/1609.34)
             names.append(row['Name'])
 
         except Exception as e:
@@ -48,10 +51,11 @@ def main(city_or_county,filtered_df,target_address,network_type):
     #route_map = ox.plot_route_folium(G, routes[0], route_color = '#ff0000', opacity = 0.5)
 
     route_map = ox.plot_route_folium(G,routes[0])
-    colors=['green', 'red', 'yellow', 'blue', 'pink', 'purple']
+    colors=['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige', 'darkblue', 'darkgreen', 'cadetblue', 'darkpurple', 'white', 'pink', 'lightblue', 'lightgreen', 'gray', 'black', 'lightgray']
+    num_colors = len(colors)
     for i, route in enumerate(routes):
-
-        layer = routes_to_featuregroup(G, routes=[route], color=colors[i], name=names[i])
+        color = colors[i % num_colors]
+        layer = routes_to_featuregroup(G, routes=[route], color=color, name=names[i])
         layer.add_to(route_map)
 
     print('target', target_address,target_location)
@@ -60,19 +64,28 @@ def main(city_or_county,filtered_df,target_address,network_type):
     folium.Marker(location=target_location,popup = popup).add_to(route_map)
 
 
-    filtered_df['lengths'] = np.array(lengths)
-    for i, (_,row) in enumerate(filtered_df.iterrows()):
+    filtered_df['Distance in Miles'] = np.array(lengths)
+    new_df = filtered_df[['Name', 'Address', 'Distance in Miles']].copy()
+    new_df['Distance in Miles'] = new_df['Distance in Miles'].round(2)
+    walking_speed = 3  # mph    
+    new_df['Walking time (min)'] = (new_df['Distance in miles'] / walking_speed) * 60
 
-        source_markers(row, route_map, color=colors[i])
+
+    peak_driving_speed = 15  # mph
+    new_df['Peak driving time (min)'] = (new_df['Distance in miles'] / peak_driving_speed) * 60
+
+
+    off_peak_driving_speed = 25  # mph
+    new_df['Off-peak driving time (min)'] = (new_df['Distance in miles'] / off_peak_driving_speed) * 60
+
+    
+    for i, (_,row) in enumerate(filtered_df.iterrows()):
+        color = colors[i % num_colors]
+        source_markers(row, route_map, color=color)
         # print('color ' , _, i, row)
 
     folium.LayerControl().add_to(route_map)
 
 
-    return route_map, filtered_df
+    return route_map, new_df
 
-def source_markers(row, route_map, color):
-    target_loc = (row['Latitude'], row['Longitude'])
-    iframe2 = folium.IFrame('<font face = "Arial"><b>{}</b> {}.</font>'.format(row['Name'],row['Address'],))
-    popup2 = folium.Popup(iframe2, min_width=200, max_width=200, )
-    folium.Marker(location=target_loc,popup = popup2, icon=folium.Icon(color=color)).add_to(route_map)
