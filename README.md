@@ -56,7 +56,7 @@ Finally to launch the streamlit app:
 streamlit run streamlit_app.py
 ```
 
-### Instructions to use the Streamlit app once this has been spun up
+## Instructions to use the Streamlit app once this has been spun up
 
 When the Streamlit app is working, you should see the NHS logo, a train, and 'MedMap - NHS Geospatial Tool', followed by a description of the tool.
 On the left is an index, with the 'streamlit app' highlighted. This index allows you to access the pages within the tool. 
