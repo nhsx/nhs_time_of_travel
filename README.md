@@ -73,6 +73,8 @@ For example if you select 'Route Optimzer', this page will load, and likewise th
 - If you've entered a start address, select the network type from the dropdown, and hit the 'Submit' button. Your start address will now appear as the start address in two fields.
 - If you haven't entered a start address, select one from the dropdown. 
 - Once you hit 'Submit', the algorithm will run, and will load the map, the route, ordered markers for each location, and a dataframe underneath the map. This dataframe shows each stage of the route, from and to, the distance for that stage, and the total distance. 
+- You can select a different start address, hit submit, and redo the order and map.
+- Please note two caveats. More than 10 addresses, and the program will be slow. At 10, the numbers of permutations is approximately 3.6 million. At 12, this is 479 million. Additionally the first time you run this map for a large or densely roaded area, such as London, Cornwall, North Yorkshire, Manchester, the map may take a few minutes to run. This is the due the complexity of nodes and edges needed in the required area. The program stores this map as a json file the first time you run it, and the second time and ongoing, the load time will be a lot faster as this json file is used. Please note this does not apply to your data, only the background map, which is called from an api request.
 
 
 ### Datasets
