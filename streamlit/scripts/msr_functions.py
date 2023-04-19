@@ -38,5 +38,5 @@ def routes_to_featuregroup(G, routes, color, name):
 def source_markers(row, route_map, color):
     target_loc = (row['Latitude'], row['Longitude'])
     iframe2 = folium.IFrame('<font face = "Arial"><b>{}</b> {}.</font>'.format(row['Name'],row['Address'],))
-    popup2 = folium.Popup(iframe2, min_width=200, max_width=200, )
+    popup2 = folium.Popup(iframe2, min_width=200, max_width=200)
     folium.Marker(location=target_loc,popup = popup2, icon=folium.Icon(color=color)).add_to(route_map)
