@@ -56,6 +56,25 @@ Finally to launch the streamlit app:
 streamlit run streamlit_app.py
 ```
 
+### Instructions to use the Streamlit app once this has been spun up
+
+When the Streamlit app is working, you should see the NHS logo, a train, and 'MedMap - NHS Geospatial Tool', followed by a description of the tool.
+On the left is an index, with the 'streamlit app' highlighted. This index allows you to access the pages within the tool. 
+For example if you select 'Route Optimzer', this page will load, and likewise the following two other pages. I'll walk you through how to use each of these now. 
+
+## Route Optimizer page (aka the Travelling Salesman Problem)
+
+- Select the Route Optimizer page from the left index. 
+- Here to use the page you will need data. The NHS Digital Hospital Dataset for England and Wales comes loaded as a default. Within the data folder in the repo, you'll also have access to the epraccur dataset, this is NHS England's GP Practice dataset. 
+- If you wish to use your own data, there is a templates folder, and within that Address_template.xlsx. Please enter the addresses you wish to use, in the format specified in this worksheet. If you change the format, the code will likely break, so please follow the format of this workbook. 
+- To access other files apart from Hospital.csv, on the left of the page below the page selector, if a 'browse files' button. If you click here, this will access your computer, where you can load the Address_template, or the epraccur dataset, or any other dataset you've prepared in the same format as the Address_template.
+- Next, in the box titled 'Enter Town/ City or County (or both), either select a location from the dropdown, or delete what's in the box and type the town/city/ county you want the data for, for this page. This box filters the Hospital dataset to just the town/ city/ county you wish to inspect. The filtered dataframe will be visible once you've done this.
+- If you have start address that isn't the uploaded data, please enter it now in the 'Enter a new start address' field, please follow the format like this, '65 Goldsworth Road, Woking'.
+- If you've entered a start address, select the network type from the dropdown, and hit the 'Submit' button. Your start address will now appear as the start address in two fields.
+- If you haven't entered a start address, select one from the dropdown. 
+- Once you hit 'Submit', the algorithm will run, and will load the map, the route, ordered markers for each location, and a dataframe underneath the map. This dataframe shows each stage of the route, from and to, the distance for that stage, and the total distance. 
+
+
 ### Datasets
 
 The data sources are saved for your use in the data folder in the repo, or are widely available with links to the data within the workbooks. 
