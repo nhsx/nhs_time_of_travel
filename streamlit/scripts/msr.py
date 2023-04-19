@@ -68,15 +68,15 @@ def main(city_or_county,filtered_df,target_address,network_type):
     new_df = filtered_df[['Name', 'Address', 'Distance in Miles']].copy()
     new_df['Distance in Miles'] = new_df['Distance in Miles'].round(2)
     walking_speed = 3  # mph    
-    new_df['Walking time (min)'] = (new_df['Distance in miles'] / walking_speed) * 60
+    new_df['Walking time (min)'] = (new_df['Distance in Miles'] / walking_speed) * 60
 
 
     peak_driving_speed = 15  # mph
-    new_df['Peak driving time (min)'] = (new_df['Distance in miles'] / peak_driving_speed) * 60
+    new_df['Peak driving time (min)'] = (new_df['Distance in Miles'] / peak_driving_speed) * 60
 
 
     off_peak_driving_speed = 25  # mph
-    new_df['Off-peak driving time (min)'] = (new_df['Distance in miles'] / off_peak_driving_speed) * 60
+    new_df['Off-peak driving time (min)'] = (new_df['Distance in Miles'] / off_peak_driving_speed) * 60
 
     
     for i, (_,row) in enumerate(filtered_df.iterrows()):
