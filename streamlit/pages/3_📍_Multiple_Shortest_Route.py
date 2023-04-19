@@ -48,6 +48,9 @@ city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['
 filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
 st.write(filtered_df)
 
+county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
+
+
 with st.form('MSR_inputs'):
 
     target_address = st.text_input("Enter target address in following format; 2 Hill Road, Cambridge")

@@ -50,7 +50,9 @@ with st.expander(title, expanded=False):
 city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
 filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
 st.write(filtered_df)
-county= filtered_df['County'].iloc[0]
+county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
+
+#county= filtered_df['County'].iloc[0]
 
 with st.form('MSR_inputs'):
     start_address_options = list(filtered_df['Address'].unique())
