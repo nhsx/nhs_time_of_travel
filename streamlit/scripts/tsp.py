@@ -14,7 +14,7 @@ from itertools import combinations
 
 
 def main(city_or_county,filtered_df,start_address,network_type):
-    county= filtered_df['County'].iloc[0]
+    county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
     ox.config(log_console=True, use_cache=True)
     start_location = ox.geocode(start_address)
     #G = ox.graph_from_place(city_or_county, network_type=network_type)
@@ -97,7 +97,7 @@ def main(city_or_county,filtered_df,start_address,network_type):
         'From': shortest_route_addresse[:-1],
         'To': shortest_route_addresse[1:],
         'Distance (miles)': [round(dist,2) for dist in path_lengths],
-        'Cumulative Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))]
+        'Total Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))]
     }
     df = pd.DataFrame(distance_data)
     return m, df
