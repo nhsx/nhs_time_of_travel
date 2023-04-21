@@ -91,14 +91,37 @@ def main(city_or_county,filtered_df,start_address,network_type):
         route_coords = [(node['y'], node['x']) for node in route_nodes_coords]
         folium.PolyLine(route_coords, color='blue', weight=2.5).add_to(m)
 
-
+    walking_speed = 3  # mph
+    peak_driving_speed = 15  # mph
+    off_peak_driving_speed = 25  # mph
+    cycle_speed = 16 # mph
     
     distance_data = {
         'From': shortest_route_addresse[:-1],
         'To': shortest_route_addresse[1:],
         'Distance (miles)': [round(dist,2) for dist in path_lengths],
-        'Total Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))]
+        'Total Distance (miles)': [round(sum(path_lengths[:i+1]),2) for i in range(len(path_lengths))],
+        'Walking time (min)': [round(dist / walking_speed * 60, 0) for dist in path_lengths],
+        'Peak driving time (min)': [round(dist / peak_driving_speed * 60, 0) for dist in path_lengths],
+        'Off-peak driving time (min)': [round(dist / off_peak_driving_speed * 60, 0) for dist in path_lengths],
+        'Cycle time (min)': [round(dist / cycle_speed * 60, 0) for dist in path_lengths]
     }
     df = pd.DataFrame(distance_data)
     return m, df
 
+
+    new_df = filtered_df[['Name', 'Address', 'Distance in Miles']].copy()
+    new_df['Distance in Miles'] = new_df['Distance in Miles'].round(2)
+    walking_speed = 3  # mph    
+    new_df['Walking time (min)'] = (new_df['Distance in Miles'] / walking_speed) * 60
+
+
+    peak_driving_speed = 15  # mph
+    new_df['Peak driving time (min)'] = (new_df['Distance in Miles'] / peak_driving_speed) * 60
+
+
+    off_peak_driving_speed = 25  # mph
+    new_df['Off-peak driving time (min)'] = (new_df['Distance in Miles'] / off_peak_driving_speed) * 60
+
+    cycle_speed = 16 #mph
+    new_df['Cycle time (min)'] = (new_df['Distance in Miles'] / cycle_speed)* 60
