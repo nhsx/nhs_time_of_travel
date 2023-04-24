@@ -49,7 +49,6 @@ pipenv shell
 ```
 
 This was launch your pip environment with the necessary installations and dependencies. 
-Once this is open run "conda install cartopy". 
 
 Finally to launch the streamlit app:
 ```bash
