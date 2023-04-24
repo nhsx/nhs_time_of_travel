@@ -23,9 +23,8 @@ svg = """
           </svg>
 """
 
-'''This is a site scoring page.
-The aim of this page is to show population and average travel times to a site of your choosing.
-For example coverage when locating a new covid site, or a blood van.
+'''This page can show population and average travel times to a site of your choosing, within a certain radius, e.g 5 miles.
+For example how much population coverage will a covid site or blood van site have, and what average travel time?
 
 User - Please enter an address and a radius, and select the speed from the dropdown.
 
