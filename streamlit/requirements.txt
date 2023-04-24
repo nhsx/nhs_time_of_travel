@@ -41,6 +41,7 @@ geos==0.2.3
 geoviews==1.9.6
 gitdb==4.0.10
 gitpython==3.1.29
+haversine==2.8.0
 holoviews==1.15.4
 idna==3.4
 importlib-metadata==5.1.0
