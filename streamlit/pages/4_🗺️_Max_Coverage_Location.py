@@ -3,14 +3,16 @@ import folium
 from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
-from scripts.mclp_functions import *
 import base64
+# from functions.uploader import uploader as up
+from scripts.max_coverage_location import main as mclp
 from functions.sidebar import sidebar as sidebar
+from scripts.max_coverage_location import GeocodingError
+
 
 st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-    layout="wide"
+    page_title="NHS - Max Coverage Location aka Site scoring",
+    page_icon="📍",
 )
 
 # NHS Logo
@@ -21,6 +23,14 @@ svg = """
           </svg>
 """
 
+'''This is a site scoring page.
+The aim of this page is to show population and average travel times to a site of your choosing.
+For example coverage when locating a new covid site, or a blood van.
+
+User - Please enter an address and a radius, and select the speed from the dropdown.
+
+
+'''
 # render svg image
 def render_svg(svg):
     """Renders the given svg string."""
@@ -30,44 +40,40 @@ def render_svg(svg):
 
 render_svg(svg)
 
-st.title("🗺️ Max Coverage Location")
-
-df2, fn = sidebar(True)
-
-df = df2.copy()
+st.title("📍 Max Coverage Location")
 
 
-title = f'Loaded: {fn} data- Expand to preview data:'
-
-with st.expander(title, expanded=False):
-    st.write(df.head())
-
-region_option = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
-filtered_df = df[(df['City'] == region_option) | (df['County'] == region_option)]
-st.write(filtered_df)
-
+travelspeeds= {'walking 3mph':3, 'driving peak city 10mph':10, 'driving offpeak city 20mph':20}
 
 with st.form('MCLP_inputs'):
 
-    list_of_target_addresses_option = st.multiselect(
-        'Select addresses'
-        ,filtered_df['Address']
-        # , default=None
-    )
+    address = st.text_input("Enter address in following format;  2 Hill Road, Cambridge, Cambridgeshire......Please make sure to enter the county!!!")
 
-    search_radius = st.slider('Select search radius (m)', min_value=100, max_value=1000, step=50, value=500)
+    radius_miles = st.number_input("Enter radius in miles", min_value=1, max_value=5,value=1)
 
+    selected_speed = st.selectbox("Select travel speed mph", travelspeeds.keys())
+                                  
     submitted = st.form_submit_button("Submit")
-    
+
+
+
+
+
 
 if submitted:
-# if list_of_target_addresses_option is not None:
+    st.write('Generating Max Coverage Location Solution')
+    try:
+        speed = travelspeeds[selected_speed]
+        map,avg_travel_time, population_covered= mclp(address, radius_miles,speed)
 
-    pc = []
-    for add in list_of_target_addresses_option:
-        pc1 = filtered_df['Postcode'].loc[(filtered_df['Address'] == add)].values[0]
-        pc.append(pc1)
+        folium_static(map, width=700)
+        st.write(f'Average Travel Time: {avg_travel_time} minutes')
+        st.write((f'Population Covered: {population_covered}'))
+        st.write(selected_speed)
 
-    # st.write(region_option, list_of_target_addresses_option, pc)
-    target_scores, route_map = mclp_main(list_of_target_addresses_option, search_radius)
-    st_map = folium_static(route_map, width=1200, height=1000)
+
+    except GeocodingError as e:
+        st.write(str(e))
+
+
+
