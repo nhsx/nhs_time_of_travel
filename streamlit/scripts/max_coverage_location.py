@@ -33,7 +33,13 @@ def main(address,radius_miles,speed):
     
     geolocator = Nominatim(user_agent='my_application')
     location = Nominatim(user_agent='my_app').geocode(address, addressdetails=True)
-    city=location.raw['address']['city']
+    if 'city' in location.raw['address']:
+        town_city = location.raw['address']['city']
+    elif 'town' in location.raw['address']:
+        town_city = location.raw['address']['town']
+    else:
+        town_city = None
+
 
 
     radius_metres = radius_miles*1609
@@ -51,7 +57,7 @@ def main(address,radius_miles,speed):
     lsoa_postcode = pd.read_csv('../data/pcd_lsoa21cd_nov22_en.csv')
     lsoa_pop = pd.read_csv('../data/lsoa_global_number_residents_2021.csv')
     gdf = gpd.read_file('../data/LSOA_Dec_2021_Boundaries_Generalised_Clipped_EW_BGC_2022_5000101660793162025/LSOA_2021_EW_BGC.shp')
-    gdf_c= gdf.query("LSOA21NM.str.contains('{}')".format(city))
+    gdf_c= gdf.query("LSOA21NM.str.contains('{}')".format(town_city))
     # set the CRS of the GeoDataFrame to British National Grid (EPSG:27700)
     gdf_c = gdf_c.set_crs(epsg=27700)
 
@@ -98,7 +104,7 @@ def main(address,radius_miles,speed):
     folium.Marker(location=origin, tooltip=address).add_to(m)
     folium.Circle(location=origin, radius=radius_metres, color='red', fill=False, tooltip='Search Radius').add_to(m)
 
-    add_lsoas_to_map(lsoas_in_radius,m,gdf_c)
+    add_lsoas_to_map(lsoas_in_radius,m,gdf_c,lsoa_population)
 
     avg_travel_time, population_covered=get_average_travel_times(origin,radius_metres,lsoa_population,G,lsoas_in_radius,speed)
 
@@ -140,21 +146,26 @@ def get_average_travel_times(origin, radius_metres, lsoa_population, G,lsoas_in_
 
 
 
-def add_lsoas_to_map(lsoas,m,gdf_c):
+def add_lsoas_to_map(lsoas,m,gdf_c,lsoa_population):
     for lsoa_code in lsoas:
         row = gdf_c.loc[gdf_c['LSOA21CD'] == lsoa_code].iloc[0]
+        population=lsoa_population[lsoa_code]['Population']
+
         if row['geometry'].geom_type == 'Polygon':
             lsoa_boundary = [tuple(reversed(coord)) for coord in list(row['geometry'].exterior.coords)]
         elif row['geometry'].geom_type == 'MultiPolygon':
             largest_polygon = max(row['geometry'], key=lambda x: x.area) 
             lsoa_boundary = [tuple(reversed(coord)) for coord in list(largest_polygon.exterior.coords)]
+
+    
+
         lsoa_polygon = folium.Polygon(
             locations=lsoa_boundary,
             color='blue',
             fill=True,
             fill_color='blue',
             fill_opacity=0.2,
-            tooltip=lsoa_code,
+            tooltip=str(population),
         )
 
    
