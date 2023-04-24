@@ -23,9 +23,8 @@ svg = """
           </svg>
 """
 
-'''This is a site scoring page.
-The aim of this page is to show population and average travel times to a site of your choosing.
-For example coverage when locating a new covid site, or a blood van.
+'''This page can show population and average travel times to a site of your choosing, within a certain radius, e.g 5 miles.
+For example how much population coverage will a covid site or blood van site have, and what average travel time?
 
 User - Please enter an address and a radius, and select the speed from the dropdown.
 
@@ -43,11 +42,11 @@ render_svg(svg)
 st.title("📍 Max Coverage Location")
 
 
-travelspeeds= {'walking 3mph':3, 'driving peak city 10mph':10, 'driving offpeak city 20mph':20}
+travelspeeds= {'walking 3mph':3, 'driving peak urban 10mph':10, 'driving off-peak urban 20mph':20, 'driving rural 34mph: 34}
 
 with st.form('MCLP_inputs'):
 
-    address = st.text_input("Enter address in following format;  2 Hill Road, Cambridge, Cambridgeshire......Please make sure to enter the county!!!")
+    address = st.text_input("Enter address in following format;  2 Hills Road, Cambridge, Cambridgeshire......Please make sure to enter the county!!!")
 
     radius_miles = st.number_input("Enter radius in miles", min_value=1, max_value=5,value=1)
 
