@@ -56,7 +56,7 @@ def main(address,radius_miles,speed):
     lsoa_data = pd.read_csv('../data/lsoa_global_number_residents_2021.csv')
     lsoa_postcode = pd.read_csv('../data/pcd_lsoa21cd_nov22_en.csv')
     lsoa_pop = pd.read_csv('../data/lsoa_global_number_residents_2021.csv')
-    gdf = gpd.read_file('../data/LSOA_Dec_2021_Boundaries_Generalised_Clipped_EW_BGC_2022_5000101660793162025/LSOA_2021_EW_BGC.shp')
+    gdf = gpd.read_file('../data/LSOA_2021_EW_BGC.shp')
     gdf_c= gdf.query("LSOA21NM.str.contains('{}')".format(town_city))
     # set the CRS of the GeoDataFrame to British National Grid (EPSG:27700)
     gdf_c = gdf_c.set_crs(epsg=27700)

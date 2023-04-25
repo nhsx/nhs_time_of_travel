@@ -24,6 +24,7 @@ geopandas==0.12.2
 geopy==2.3.0
 gitdb==4.0.10 ; python_version >= '3.7'
 gitpython==3.1.31 ; python_version >= '3.7'
+haversine==2.8.0
 idna==3.4 ; python_version >= '3.5'
 importlib-metadata==6.6.0 ; python_version >= '3.7'
 jinja2==3.1.2 ; python_version >= '3.7'
