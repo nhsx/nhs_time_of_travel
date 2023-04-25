@@ -42,7 +42,7 @@ render_svg(svg)
 st.title("📍 Max Coverage Location")
 
 
-travelspeeds= {'walking 3mph':3, 'driving peak urban 10mph':10, 'driving off-peak urban 20mph':20, 'driving rural 34mph: 34}
+travelspeeds= {'walking 3mph':3, 'driving peak urban 10mph':10, 'driving off-peak urban 20mph':20, 'driving rural 34mph': 34}
 
 with st.form('MCLP_inputs'):
 
