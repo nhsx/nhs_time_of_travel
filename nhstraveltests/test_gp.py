@@ -20,8 +20,11 @@ class MyTestCase(unittest.TestCase):
             'Name': ['TOP', 'LEFT', 'RIGHT', 'MIDDLE'],
             'latitude': [51.52, 51.50, 51.50, 51.51],
             'longitude': [-0.085, -0.095, -0.080, -0.085],
+            'Postcode': ['','','','',],
+            'National Grouping': ['','','','',],
+            'High Level Health Geography': ['','','','',],
         }
-        area = GpRegion(pd.DataFrame(data))
+        area = GpRegion._from_df(pd.DataFrame(data))
         middle_df = area.find_practices("middle")
         botley_area = area.get_practice_area(middle_df.index[0])
 

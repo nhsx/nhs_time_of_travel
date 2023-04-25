@@ -1,132 +1,35 @@
-altair==4.2.0
-appnope==0.1.3
-asttokens==2.2.1
-attrs==22.1.0
-autopep8==2.0.2
-backcall==0.2.0
-beautifulsoup4==4.11.1
-bleach==6.0.0
-blinker==1.5
-bokeh==2.4.3
-branca==0.6.0
-bs4==0.0.1
-cachetools==5.2.0
-Cartopy==0.21.1
-certifi==2022.9.24
-charset-normalizer==2.1.1
-click==8.1.3
+-i https://pypi.org/simple
+attrs==23.1.0 ; python_version >= '3.7'
+certifi==2022.12.7 ; python_version >= '3.6'
+charset-normalizer==3.1.0 ; python_full_version >= '3.7.0'
+click==8.1.3 ; python_version >= '3.7'
 click-plugins==1.1.1
-cligj==0.7.2
-colorcet==3.0.1
-comm==0.1.2
-commonmark==0.9.1
-contourpy==1.0.6
-cycler==0.11.0
-debugpy==1.6.6
-decorator==5.1.1
+cligj==0.7.2 ; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2' and python_version < '4'
+contourpy==1.0.7 ; python_version >= '3.8'
+cycler==0.11.0 ; python_version >= '3.6'
 descartes==1.1.0
-entrypoints==0.4
-executing==1.2.0
-Fiona==1.8.22
-Flask==2.2.3
-folium==0.13.0
-fonttools==4.38.0
-geographiclib==2.0
-geojson==2.5.0
-geopandas==0.12.1
-geopy==2.3.0
-geos==0.2.3
-geoviews==1.9.6
-gitdb==4.0.10
-GitPython==3.1.29
+fiona==1.9.3 ; python_version >= '3.7'
+fonttools==4.39.3 ; python_version >= '3.8'
+geojson==3.0.1
+geopandas==0.12.2
 haversine==2.8.0
-holoviews==1.15.4
-idna==3.4
-importlib-metadata==5.1.0
-install==1.3.5
-ipykernel==6.21.3
-ipython==8.11.0
-itsdangerous==2.1.2
-jedi==0.18.2
-Jinja2==3.1.2
-joblib==1.2.0
-jsonschema==4.17.3
-jupyter_client==8.0.3
-jupyter_core==5.3.0
-kiwisolver==1.4.4
-lxml==4.9.2
-Markdown==3.4.1
-MarkupSafe==2.1.1
-matplotlib==3.6.2
-matplotlib-inline==0.1.6
+idna==3.4 ; python_version >= '3.5'
+kiwisolver==1.4.4 ; python_version >= '3.7'
+matplotlib==3.7.1
 munch==2.5.0
-nest-asyncio==1.5.6
-networkx==2.8.8
+networkx==3.1
 -e git+https://github.com/nhs-pycom/nhs_time_of_travel.git@c73ed01db70dfaa819ec51bfa1e8ff1365e668b9#egg=nhstravel
-numpy==1.23.5
-openpyxl==3.1.2
-osmnx==1.2.2
-packaging==23.0
-pandas==1.5.2
-panel==0.14.3
-param==1.12.3
-parso==0.8.3
-pexpect==4.8.0
-pickleshare==0.7.5
-Pillow==9.3.0
-platformdirs==3.1.1
-prompt-toolkit==3.0.38
-protobuf==3.20.3
-psutil==5.9.4
-ptyprocess==0.7.0
-pure-eval==0.2.2
-pyarrow==10.0.1
-pycodestyle==2.10.0
-pyct==0.5.0
-pydeck==0.8.0
-pygeos==0.14
-Pygments==2.14.0
-Pympler==1.0.1
-pyparsing==3.0.9
-pyproj==3.4.0
-pyproject==1.3.1
-pyproject-toml==0.0.10
-pyrsistent==0.19.2
-pyshp==2.3.1
-python-dateutil==2.8.2
-pytz==2022.6
-pytz-deprecation-shim==0.1.0.post0
-pyviz-comms==2.2.1
-PyYAML==6.0
-pyzmq==25.0.1
-requests==2.28.1
-rich==12.6.0
-Rtree==1.0.1
-scikit-learn==1.1.3
-scipy==1.9.3
-semver==2.13.0
-Shapely==1.8.5.post1
-six==1.16.0
-smmap==5.0.0
-soupsieve==2.3.2.post1
-stack-data==0.6.2
-streamlit==1.15.1
-streamlit-folium==0.7.0
-threadpoolctl==3.1.0
-toml==0.10.2
-tomli==2.0.1
-toolz==0.12.0
-tornado==6.2
-tqdm==4.64.1
-traitlets==5.9.0
-typing_extensions==4.4.0
-tzdata==2022.7
-tzlocal==4.2
-urllib3==1.26.13
-validators==0.20.0
-wcwidth==0.2.6
-webencodings==0.5.1
-Werkzeug==2.2.3
-xlrd==2.0.1
-zipp==3.11.0
-
+numpy==1.24.3 ; python_version >= '3.8'
+osmnx==1.3.0
+packaging==23.1 ; python_version >= '3.7'
+pandas==2.0.1
+pillow==9.5.0 ; python_version >= '3.7'
+pyparsing==3.0.9 ; python_full_version >= '3.6.8'
+pyproj==3.5.0 ; python_version >= '3.8'
+python-dateutil==2.8.2 ; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'
+pytz==2023.3
+requests==2.28.2 ; python_version >= '3.7' and python_version < '4'
+shapely==2.0.1
+six==1.16.0 ; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2'
+tzdata==2023.3 ; python_version >= '2'
+urllib3==1.26.15 ; python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'
