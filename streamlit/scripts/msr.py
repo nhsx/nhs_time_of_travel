@@ -28,22 +28,19 @@ def main(city_or_county,filtered_df,target_address,network_type):
         use_long_lat = True
 
     routes = []
-    lengths=[]
+    distances_miles=[]
     names=[]
     for _,row in filtered_df.iterrows():
         try:
-            if use_long_lat:
-                coords = (row['Latitude'], row['Longitude'])
-            else:
-                coords = ox.geocoder.geocode(row['Address'])
+            coords = get_lat_long(use_long_lat, row)
 
             nodes = ox.nearest_nodes(G,X=coords[1],Y=coords[0])
             routes.append(nx.shortest_path(G,nodes,target,weight="length"))
-            lengths.append(nx.shortest_path_length(G,source=nodes,target=target,weight='length')/1609.34)
+            distances_miles.append(nx.shortest_path_length(G,source=nodes,target=target,weight='length')/1609.34)
             names.append(row['Name'])
 
         except Exception as e:
-            lengths.append(math.nan)
+            distances_miles.append(math.nan)
             pass
 
     # filtered_df['lengths'] = np.array(lengths)
@@ -64,7 +61,28 @@ def main(city_or_county,filtered_df,target_address,network_type):
     folium.Marker(location=target_location,popup = popup).add_to(route_map)
 
 
-    filtered_df['Distance in Miles'] = np.array(lengths)
+    new_df = travel_times(filtered_df, distances_miles)
+
+    
+    for i, (_,row) in enumerate(filtered_df.iterrows()):
+        color = colors[i % num_colors]
+        source_markers(row, route_map, color=color)
+        # print('color ' , _, i, row)
+
+    folium.LayerControl().add_to(route_map)
+
+
+    return route_map, new_df
+
+def travel_times(filtered_df, distances_miles):
+    ''' Calculates new dataframe with travel times by different nodes
+        Inputs:
+            filtered_df: a dataframe with columns Name, Address
+            distances_miles: a sequence of distances in miles
+        Returns:
+            a new df with columns Name, Address, Distance in Miles, Walking time (min), Peak driving time (min), Off-peak driving time (min)
+    '''
+    filtered_df['Distance in Miles'] = np.array(distances_miles)
     new_df = filtered_df[['Name', 'Address', 'Distance in Miles']].copy()
     new_df['Distance in Miles'] = new_df['Distance in Miles'].round(2)
     walking_speed = 3  # mph    
@@ -77,15 +95,12 @@ def main(city_or_county,filtered_df,target_address,network_type):
 
     off_peak_driving_speed = 25  # mph
     new_df['Off-peak driving time (min)'] = (new_df['Distance in Miles'] / off_peak_driving_speed) * 60
+    return new_df
 
-    
-    for i, (_,row) in enumerate(filtered_df.iterrows()):
-        color = colors[i % num_colors]
-        source_markers(row, route_map, color=color)
-        # print('color ' , _, i, row)
-
-    folium.LayerControl().add_to(route_map)
-
-
-    return route_map, new_df
+def get_lat_long(use_long_lat, row):
+    if use_long_lat:
+        coords = (row['Latitude'], row['Longitude'])
+    else:
+        coords = ox.geocoder.geocode(row['Address'])
+    return coords
 
