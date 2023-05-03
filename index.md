@@ -83,15 +83,15 @@ On the left of the screen just beneath the page index, is a browse files button.
 Please use the format in this, 'Name, Address, City, County, Postcode' so the code will pick up your data and geocode it correctly.
 
 <p align="centre">
-  <img src="images/png/tsp1.png" width="1100" height="660">
+  <img src="images/png/tsp1.png" width="1300" height="660">
   &nbsp; &nbsp;
 </p>
 
 In this example I've selected Leicester, and from the selected addresses, have picked the Nuffield Hospital on Scraptoft Lane. 
-Once you hit the submit button the algorithm goes to work, and maybe 20-30 seconds later (could be longer the first time you run this, and if on a larger area for example North Yorkshire or London, both nodes and edge heavy), then you should see the output similar to the following format. 
+Once you hit the submit button the algorithm goes to work, and maybe 20-30 seconds later (could be longer the first time you run this, and if on a larger area for example North Yorkshire or London, both nodes and edge heavy), then you should see the output similar to the following format. The folium map is rendered, and the route plotted. If you hover over a marker, you can see what number that marker is, in this number 1 I've highlighted. The dataframe below the map will show the from and to addresses in the suggested optimised order. If you scroll to the right in the dataframe, distance in miles between each address is there, Total distance, walking time, peak driving time, off peak driving time, and cycling time. These are hard coded and can be edited to your requirements within the code. 
 
 <p align="centre">
-  <img src="images/png/tsp2.png" width="860" height="660">
+  <img src="images/png/tsp2.png" width="1300" height="660">
   &nbsp; &nbsp;
 </p>
 
