@@ -4,7 +4,7 @@
 
 This was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, at the Digital Analytics & Research Team at NHS England, with a team comprising of 
 [Oliver Jones](https://github.com/oliverjonesnhsx), [Muhammed-Faaiz Shawanas](https://github.com/faaiz-25), [Mary Amanuel](https://github.com/maryamanuel1), from NHS England, & 
-[Nick Fortescue](https://github.com/nickfortescuegoogle), [Max Morisov](https://github.com/maxim-morosov) engineers at GoogleHealth, without who this work would not be where it is. 
+[Nick Fortescue](https://github.com/nickfortescuegoogle), [Max Morisov](https://github.com/maxim-morosov) engineers at GoogleHealth, without whom this work would not be where it is. 
  
 The following [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contains the initial proof of concept and exploratory analysis for the design of a holistic and interactive 
 mapping tool to support decision-making in health and social care. This work was carried out by carried out by [Mattia Ficarelli](https://github.com/mattia-ficarelli), Data Engineer, 
