@@ -36,7 +36,7 @@ operators for these services. Sometimes these were the only operators out there,
 But for other services the second need was the need for patient and staff data to remain confidential, and remain within the trust. Within the NHS data protection is paramount, so taking 
 this account, we wanted to build a tool that could be brought to the data. Using open-source software and publicly accessible datasets we calculate the travel time, we wanted to show 
 what is possible and bring to the different areas of the NHS for them to adapt to their specific needs. Two publicly available datasets we have used are from NHS Digital. The main software
-we used is Python 3.8+, and Streamlit, with a succession of Geospatial libraries within Python.
+we used is Python 3.8+, although the latest run of this code uses Python 3.10 and to avoid dependency issues, I would suggest following the README's pipenv and requirements.txt instructions. The app functionality is Streamlit, with several Geospatial libraries within Python.
 This app can be spun up on anyone's laptop, and the data would never need to leave that machine. 
 
 Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data).
