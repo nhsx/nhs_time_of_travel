@@ -6,13 +6,15 @@ This is a prototype, and a concept piece of work for the NHS.
 
 This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Data Scientist, with a team comprising of [Oliver Jones](https://github.com/oliverjonesnhsx), [Muhammed-Faaiz Shawanas](https://github.com/faaiz-25), [Mary Amanuel](https://github.com/maryamanuel1), from NHS England, [Max Morisov](https://github.com/maxim-morosov) & [Nick Fortescue](https://github.com/nickfortescuegoogle), engineers at GoogleHealth.
 
-The following page and accompanying [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care.
+The initial work that led to this project be seen here, [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care. 
 
-A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
+This repository [GitHub repository](https://github.com/nhs-pycom/nhs_time_of_travel) is the repository with the Streamlit Geospatial application that we hope you and the NHS will find useful.
+
+The tool is a mapping tool that could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
 Using open-source software and publicly accessible datasets we're able to show three pages here so far; The first, Route Optimisation, a.k.a. the Travelling Salesman Problem; in a health context this could be used to plan district nurse visits, for ambulance drop-offs, or for blood packages deliveries. It has a multitude of uses. The second, Multiple Shortest Routes, this can be used for staff routes to work, and to reduce emissions, a focus that is gaining importance for NHS travel planners. Third, Max Coverage Location, this can be used to score a site, e.g. a covid site or a new GP practice.
 
-Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), [Uber Movement](https://movement.uber.com/)
+Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data).
 
 <hr class="nhsuk-u-margin-top-0 nhsuk-u-margin-bottom-6">
 
