@@ -76,18 +76,28 @@ From testing, having the initial permutations distance calculation compare with 
 This also gave an update you could see visibly you would drive, or walk. 
 
 The functions are wrapped in the streamlit code, and when the code to run the app is called 'streamlit run streamlit_app.py', this is the page that you'll see when you click on the Route
-Optimizer 
+Optimizer. On the left of the page you have the index, with 'Route Optimizer' highlighted here. The 'hospital.csv' dataset from the data folder is pre-loaded. When you select a town/ City or County from the box, the dataframe will filter to show you all hospitals in the dataset within that area. If you wish to enter a different start address, for example your starting 
+address, or a train station, please enter that in the box titled 'Enter a new start address'. When you click on submit, this address will appear in the 'Select start address' field. 
+The 'select start address' field is a dropdown box of the filtered dataframe above. 
+On the left of the screen just beneath the page index, is a browse files button. This is where you can upload your own data. There is an address_templates.xls file in the templates folder. 
+Please use the format in this, 'Name, Address, City, County, Postcode' so the code will pick up your data and geocode it correctly.
 
 <p align="centre">
-  <img src="images/png/tsp1.png" width="860" height="660">
+  <img src="images/png/tsp1.png" width="1100" height="660">
   &nbsp; &nbsp;
 </p>
 
+In this example I've selected Leicester, and from the selected addresses, have picked the Nuffield Hospital on Scraptoft Lane. 
+Once you hit the submit button the algorithm goes to work, and maybe 20-30 seconds later (could be longer the first time you run this, and if on a larger area for example North Yorkshire or London, both nodes and edge heavy), then you should see the output similar to the following format. 
 
 <p align="centre">
   <img src="images/png/tsp2.png" width="860" height="660">
   &nbsp; &nbsp;
 </p>
+
+Please note with the way this algorithm works. This will work well with up to 10, maybe even 12 addresses. But that will depend on the computational power you have available, and it will be slower the higher the number of addresses. Streamlit is set up in our code to cache the Api calls that return a networkx map of a region. So the first you run this on Cornwall, it may
+take a while. But the second time and onward, the code will look at the cache first, and call the same json file that was produced for the area if it's there and hasn't been deleted. 
+Your data is not cached, only the Nominatim api region calls. 
 
 ## Citations
 
