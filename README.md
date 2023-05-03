@@ -10,7 +10,7 @@ The following page and accompanying [GitHub repository](https://github.com/nhsx/
 
 A mapping tool could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
-Using open-source software and publicly accessible datasets we're able to show three pages here so far; The first, Multiple Shortest Routes, this can be used for staff routes to work. The second, Max Coverage Location, this can be used to score a site, e.g. a covid site or a new GP practice. Third, the Travelling Salesman Problem; in a health context this could be used to plan district nurse visits, or for ambulance drop-offs.
+Using open-source software and publicly accessible datasets we're able to show three pages here so far; The first, Route Optimisation, a.k.a. the Travelling Salesman Problem; in a health context this could be used to plan district nurse visits, for ambulance drop-offs, or for blood packages deliveries. It has a multitude of uses. The second, Multiple Shortest Routes, this can be used for staff routes to work, and to reduce emissions, a focus that is gaining importance for NHS travel planners. Third, Max Coverage Location, this can be used to score a site, e.g. a covid site or a new GP practice.
 
 Data sources: [NHS Digital](https://digital.nhs.uk/services/organisation-data-service/file-downloads/gp-and-gp-practice-related-data), [Uber Movement](https://movement.uber.com/)
 
@@ -87,13 +87,28 @@ For example if you select 'Route Optimzer', this page will load, and likewise th
 - Your map with shortest routes and a dataframe should be displayed.
 
 
+### Max Coverage Location page
+
+- Here the first box is where you enter your location to score.
+- The next box is radius around this location, here select from 1 to 5 miles. Please use the + and - symbols to increase or decrease the radius. This is limited to 5 currently in the code. 
+- To find out time to travel, select the travel speed from the dropdown. This can be walking at 3mph, driving peak urban 10mph, driving off peak urban 20mph, or driving rural 34mph. Average driving times are taken from gov.uk, https://www.gov.uk/government/statistical-data-sets/average-speed-delay-and-reliability-of-travel-times-cgn.
+
+
 ### Datasets
 
-Accessible in the 'data' folder, all of these are publicly available, either from NHS Digital or ONS.
+Accessible in the 'data' folder, all of these are publicly available, either from NHS Digital or ONS. The two that we default to use in the examples are the NHS Digital 'Hospital' dataset, a csv of public and private NHS England & Wales hospitals. The second is the eppracur dataset, the NHS Digital of GP practices in England and Wales.
+
+
+### Templates
+
+This is a folder with a template for entering your own addresses. I've left a sample of five care homes here in York. The only necessity here is to enter the format in the columns provided, 'Name', 'Address', 'City', 'County', & 'Postcode'. You will need to follow this format and enter the details as per the examples in the template.
+The code is set up to read the format, and will geocode the addresses if you follow this format. 
+
 
 ### Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Please also reach out if you any have page suggestions, or comments. We've very interested to know if you fork the repo, and take the work further. There's also an issues tab, if there are any issues with the existing code, please raise an issue here.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
