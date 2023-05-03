@@ -79,9 +79,9 @@ The functions are wrapped in the streamlit code, and when the code to run the ap
 Optimizer 
 
 <p align="left">
-  <iframe width= "455" height="455"  src="images/png/tsp1.png" style="border:none;"></iframe>
+  <img src="images/png/tsp1.png" width="460" height="460">
   &nbsp; &nbsp;
-  <iframe width= "455" height="455"  src="images/png/tsp2.png" style="border:none;"></iframe>
+  <img src="images/png/tsp2.png" width="460" height="460">
 </p>
 
 ## Citations
