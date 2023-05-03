@@ -78,10 +78,15 @@ This also gave an update you could see visibly you would drive, or walk.
 The functions are wrapped in the streamlit code, and when the code to run the app is called 'streamlit run streamlit_app.py', this is the page that you'll see when you click on the Route
 Optimizer 
 
-<p align="left">
-  <img src="images/png/tsp1.png" width="460" height="460">
+<p align="centre">
+  <img src="images/png/tsp1.png" width="860" height="660">
   &nbsp; &nbsp;
-  <img src="images/png/tsp2.png" width="460" height="460">
+</p>
+
+
+<p align="centre">
+  <img src="images/png/tsp2.png" width="860" height="660">
+  &nbsp; &nbsp;
 </p>
 
 ## Citations
