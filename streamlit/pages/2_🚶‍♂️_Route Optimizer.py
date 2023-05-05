@@ -46,11 +46,25 @@ title = f'Loaded: {fn} data- Expand to preview data:'
 # st.write('Loaded:', fn, "- Preview of the data:")
 with st.expander(title, expanded=False):
     st.write(df.head())
+filter = st.checkbox('filter data to City or County', value=True)
 
-city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
-filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
+if filter:
+    options = []
+    if 'City' in df.columns:
+        options.extend(df['City'].unique())
+    if 'County' in df.columns:
+        options.extend(df['County'].unique())
+
+    if len(options)>0:
+
+        city_or_county = st.selectbox("Enter Town/City or County (or both)",options=options)    
+        filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
+    else:
+        filtered_df=df
+else:
+    filtered_df = df
 st.write(filtered_df)
-county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
+
 
 #county= filtered_df['County'].iloc[0]
 
@@ -60,10 +74,10 @@ with st.form('MSR_inputs'):
     new_start_address = st.text_input("Enter a new start address (if not in the list above):")
     if new_start_address:
         geolocator = Nominatim(user_agent="myGeocoder")
-        location = geolocator.geocode(new_start_address)
+        location = geolocator.geocode(new_start_address, addressdetails=True)
         new_coord = (location.latitude, location.longitude)
         
-        new_entry = {'City': city_or_county, 'County': county, 'Address': new_start_address, 'Latitude': new_coord[0], 'Longitude': new_coord[1]}
+        new_entry = {'City': location.raw['address']['city'], 'County': location.raw['address']['county'], 'Address': new_start_address, 'Latitude': new_coord[0], 'Longitude': new_coord[1]}
         filtered_df = filtered_df.append(new_entry, ignore_index=True)
         start_address_options.append(new_start_address)
 
@@ -74,11 +88,12 @@ with st.form('MSR_inputs'):
 
 
     network_type = st.selectbox("select network type", ["drive","walk","bike"])
+    radius_miles = st.number_input("Enter radius in miles", min_value=1, max_value=5,value=1)
     submitted = st.form_submit_button("Submit")
 
 if submitted:
     with st.spinner('Generating Best Route...........'):
 
-        map, dataframe = tsp(city_or_county, filtered_df, start_address, network_type)
+        map, dataframe = tsp(filtered_df, start_address, network_type, radius_miles)
         msr_map = folium_static(map, width=700, height=450)
         st.write(dataframe)

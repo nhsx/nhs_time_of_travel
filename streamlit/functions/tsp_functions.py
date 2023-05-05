@@ -25,15 +25,7 @@ def tsp(coords, addresses, distance_dict, first_address=None):
     shortest_route = None
     coord_to_address = dict(zip(coords, addresses))
     
-    if first_address:
-        if first_address not in addresses:
-            raise ValueError("The specified first_address is not in the list of addresses.")
-        first_coord = list(coord_to_address.keys())[list(coord_to_address.values()).index(first_address)]
-        coords_copy=coords.copy()
-        coords_copy.remove(first_coord)
-        permutations = (tuple([first_coord] + list(route)) for route in itertools.permutations(coords_copy))
-    else:
-        permutations = itertools.permutations(coords)
+    permutations = create_permutations(coords, addresses, first_address)
 
     for route in permutations:
         route_distance = 0
@@ -62,8 +54,10 @@ def tsp_greedy(coords, addresses, distance_dict, first_address=None):
         first_coord = coords[0]
         first_address = addresses[0]
 
-    remaining_coords = [coord for coord in coords if coord != first_coord]
-    remaining_addresses = [address for address in addresses if address != first_address]
+    first_address_index = addresses.index(first_address)
+
+    remaining_coords = [coord for i,coord in enumerate(coords) if i != first_address_index]
+    remaining_addresses = [address for i, address in enumerate(addresses) if i != first_address_index]
 
     shortest_route_coords_g = [first_coord]
     shortest_route_addresses_g = [first_address]
@@ -119,3 +113,20 @@ def perm_or_greedy(G,shortest_route_addresses, shortest_route_coords,shortest_di
 
     return shortest_route_addresse, shortest_route_coord
 
+
+
+def create_permutations(coords, addresses, first_address):
+
+
+    
+    if first_address:
+        if first_address not in addresses:
+            raise ValueError("The specified first_address is not in the list of addresses.")
+        first_coord = coords[addresses.index(first_address)]
+        coords_copy=coords.copy()
+        coords_copy.remove(first_coord)
+        permutations = (tuple([first_coord] + list(route)) for route in itertools.permutations(coords_copy))
+    else:
+        permutations = itertools.permutations(coords)
+
+    return permutations
