@@ -77,8 +77,8 @@ with st.form('MSR_inputs'):
     submitted = st.form_submit_button("Submit")
 
 if submitted:
-    st.write('Generating Best Route...........')
+    with st.spinner('Generating Best Route...........'):
 
-    map, dataframe = tsp(city_or_county, filtered_df, start_address, network_type)
-    msr_map = folium_static(map, width=700, height=450)
-    st.write(dataframe)
+        map, dataframe = tsp(city_or_county, filtered_df, start_address, network_type)
+        msr_map = folium_static(map, width=700, height=450)
+        st.write(dataframe)

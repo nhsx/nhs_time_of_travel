@@ -60,7 +60,7 @@ with st.form('MSR_inputs'):
     
 
 if submitted:
-    st.write('Generating shortest route')
-    map, dataframe = msr(city_or_county, filtered_df, target_address, network_type)
-    msr_map = folium_static(map, width=700, height=450)
-    st.write(dataframe)
+    with st.spinner('Please wait: Generating shortest route'):
+        map, dataframe = msr(city_or_county, filtered_df, target_address, network_type)
+        msr_map = folium_static(map, width=700, height=450)
+        st.write(dataframe)

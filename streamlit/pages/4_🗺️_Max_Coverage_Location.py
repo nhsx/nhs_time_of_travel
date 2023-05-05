@@ -60,19 +60,19 @@ with st.form('MCLP_inputs'):
 
 
 if submitted:
-    st.write('Generating Max Coverage Location Solution')
-    try:
-        speed = travelspeeds[selected_speed]
-        map,avg_travel_time, population_covered= mclp(address, radius_miles,speed)
+    with st.spinner('Generating Max Coverage Location Solution'):
+        try:
+            speed = travelspeeds[selected_speed]
+            map,avg_travel_time, population_covered= mclp(address, radius_miles,speed)
 
-        folium_static(map, width=700)
-        st.write(f'Average Travel Time: {avg_travel_time} minutes')
-        st.write((f'Population Covered: {population_covered}'))
-        st.write(selected_speed)
+            folium_static(map, width=700)
+            st.write(f'Average Travel Time: {avg_travel_time} minutes')
+            st.write((f'Population Covered: {population_covered}'))
+            st.write(selected_speed)
 
 
-    except GeocodingError as e:
-        st.write(str(e))
+        except GeocodingError as e:
+            st.write(str(e))
 
 
 
