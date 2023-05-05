@@ -15,24 +15,37 @@ import math
 from scripts.msr_functions import routes_to_featuregroup as routes_to_featuregroup
 from scripts.msr_functions import source_markers
 
-def main(city_or_county,filtered_df,target_address,network_type):
-    county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
+def main(filtered_df,target_address,network_type):
 
+    
     ox.config(log_console=True, use_cache=True)
     target_location = ox.geocode(target_address)
-    G = ox.graph_from_place(county, network_type=network_type)
-    target = ox.nearest_nodes(G, target_location[1],Y=target_location[0])
 
-    use_long_lat = False
+ 
     if 'Longitude' in filtered_df.columns and 'Latitude' in filtered_df.columns:
-        use_long_lat = True
+        pass
+
+    else:
+        filtered_df [['Latitude','Longitude']]= filtered_df.apply(lambda row: make_coords(row['Address']),axis=1,result_type='expand')
+    print(filtered_df)
+    coords = filtered_df.apply(lambda row: (row['Latitude'],row['Longitude']),axis=1).to_list()
+    coords.append(target_location)
+
+    north = max([lat for (lat,long) in coords])+(0.01) # about a km extra
+    south = min([lat for (lat,long) in coords])-(0.01) # about a km extra
+    east = max([long for (lat,long) in coords])+(0.02) # about a km extra
+    west = min([long for (lat,long) in coords])-(0.02) # about a km extra
+
+
+    G = ox.graph_from_bbox(north, south, east, west, network_type=network_type)
+    target = ox.nearest_nodes(G, target_location[1],Y=target_location[0])
 
     routes = []
     distances_miles=[]
     names=[]
     for _,row in filtered_df.iterrows():
         try:
-            coords = get_lat_long(use_long_lat, row)
+            coords = (row['Latitude'], row['Longitude'])
 
             nodes = ox.nearest_nodes(G,X=coords[1],Y=coords[0])
             routes.append(nx.shortest_path(G,nodes,target,weight="length"))
@@ -43,9 +56,6 @@ def main(city_or_county,filtered_df,target_address,network_type):
             distances_miles.append(math.nan)
             pass
 
-    # filtered_df['lengths'] = np.array(lengths)
-    #Gx = ox.plot_graph_routes(G, routes, route_color='r', route_linewidth=6, bgcolor='k')
-    #route_map = ox.plot_route_folium(G, routes[0], route_color = '#ff0000', opacity = 0.5)
 
     route_map = ox.plot_route_folium(G,routes[0])
     colors=['red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige', 'darkblue', 'darkgreen', 'cadetblue', 'darkpurple', 'white', 'pink', 'lightblue', 'lightgreen', 'gray', 'black', 'lightgray']
@@ -104,3 +114,12 @@ def get_lat_long(use_long_lat, row):
         coords = ox.geocoder.geocode(row['Address'])
     return coords
 
+
+def make_coords(address):
+    coords = ox.geocoder.geocode(address)
+    if coords is None:
+        return {'Latitude': None, 'Longitude': None}
+    else:
+        return {'Latitude': coords[0], 'Longitude': coords[1]}
+
+    
