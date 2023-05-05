@@ -44,11 +44,25 @@ title = f'Loaded: {fn} data- Expand to preview data:'
 with st.expander(title, expanded=False):
     st.write(df.head())
 
-city_or_county = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
-filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
+filter = st.checkbox('filter data to City or County', value=True)
+
+if filter:
+    options = []
+    if 'City' in df.columns:
+        options.extend(df['City'].unique())
+    if 'County' in df.columns:
+        options.extend(df['County'].unique())
+
+    if len(options)>0:
+
+        city_or_county = st.selectbox("Enter Town/City or County (or both)",options=options)    
+        filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
+    else:
+        filtered_df=df
+else:
+    filtered_df = df
 st.write(filtered_df)
 
-county = filtered_df['County'].iloc[0] if filtered_df['County'].iloc[0] != 'N/A' else filtered_df['County'].iloc[1]
 
 
 with st.form('MSR_inputs'):
@@ -61,6 +75,6 @@ with st.form('MSR_inputs'):
 
 if submitted:
     with st.spinner('Please wait: Generating shortest route'):
-        map, dataframe = msr(city_or_county, filtered_df, target_address, network_type)
+        map, dataframe = msr(filtered_df, target_address, network_type)
         msr_map = folium_static(map, width=700, height=450)
         st.write(dataframe)
