@@ -103,7 +103,7 @@ Accessible in the 'data' folder, all of these are publicly available, either fro
 
 ### Templates
 
-This is a folder with a template for entering your own addresses. I've left a sample of five care homes here in York. The only necessity here is to enter the format in the columns provided, 'Name', 'Address', 'City', 'County', & 'Postcode'. You will need to follow this format and enter the details as per the examples in the template.
+This is a folder with a template for entering your own addresses. I've left a sample of five care homes here in York. The only necessity here is to enter the format in the columns provided, 'Name' & 'Address'. You will need to follow this format and enter the details as per the examples in the template. 
 The code is set up to read the format, and will geocode the addresses if you follow this format. 
 
 
