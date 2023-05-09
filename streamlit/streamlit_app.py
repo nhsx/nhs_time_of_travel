@@ -1,4 +1,3 @@
-
 import streamlit as st
 import folium
 from streamlit_folium import st_folium
@@ -10,7 +9,8 @@ from functions.sidebar import sidebar as sidebar
 
 st.set_page_config(
     page_title="NHS Time to travel",
-  page_icon="https://www.england.nhs.uk/wp-content/themes/nhsengland/static/img/favicon.ico")
+    page_icon="https://www.england.nhs.uk/wp-content/themes/nhsengland/static/img/favicon.ico",
+)
 
 # NHS Logo
 svg = """
@@ -20,12 +20,14 @@ svg = """
           </svg>
 """
 
+
 # render svg image
 def render_svg(svg):
     """Renders the given svg string."""
     b64 = base64.b64encode(svg.encode("utf-8")).decode("utf-8")
     html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
     st.write(html, unsafe_allow_html=True)
+
 
 render_svg(svg)
 

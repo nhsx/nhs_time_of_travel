@@ -4,6 +4,7 @@ from streamlit_folium import st_folium, folium_static
 import pandas as pd
 import geojson
 import base64
+
 # from functions.uploader import uploader as up
 from scripts.msr import main as msr
 from functions.sidebar import sidebar as sidebar
@@ -22,12 +23,14 @@ svg = """
           </svg>
 """
 
+
 # render svg image
 def render_svg(svg):
     """Renders the given svg string."""
     b64 = base64.b64encode(svg.encode("utf-8")).decode("utf-8")
     html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
     st.write(html, unsafe_allow_html=True)
+
 
 render_svg(svg)
 
@@ -38,43 +41,46 @@ df2, fn = sidebar(True)
 
 df = df2.copy()
 
-title = f'Loaded: {fn} data- Expand to preview data:'
+title = f"Loaded: {fn} data- Expand to preview data:"
 
 # st.write('Loaded:', fn, "- Preview of the data:")
 with st.expander(title, expanded=False):
     st.write(df.head())
 
-filter = st.checkbox('filter data to City or County', value=True)
+filter = st.checkbox("filter data to City or County", value=True)
 
 if filter:
     options = []
-    if 'City' in df.columns:
-        options.extend(df['City'].unique())
-    if 'County' in df.columns:
-        options.extend(df['County'].unique())
+    if "City" in df.columns:
+        options.extend(df["City"].unique())
+    if "County" in df.columns:
+        options.extend(df["County"].unique())
 
-    if len(options)>0:
-
-        city_or_county = st.selectbox("Enter Town/City or County (or both)",options=options)    
-        filtered_df = df[(df['City'] == city_or_county) | (df['County'] == city_or_county)]
+    if len(options) > 0:
+        city_or_county = st.selectbox(
+            "Enter Town/City or County (or both)", options=options
+        )
+        filtered_df = df[
+            (df["City"] == city_or_county) | (df["County"] == city_or_county)
+        ]
     else:
-        filtered_df=df
+        filtered_df = df
 else:
     filtered_df = df
 st.write(filtered_df)
 
 
-
-with st.form('MSR_inputs'):
-
-    target_address = st.text_input("Enter target address in following format; 2 Hill Road, Cambridge")
-    network_type = st.selectbox("select network type", ["all","drive","walk","bike"])
+with st.form("MSR_inputs"):
+    target_address = st.text_input(
+        "Enter target address in following format; 2 Hill Road, Cambridge"
+    )
+    network_type = st.selectbox("select network type", ["all", "drive", "walk", "bike"])
 
     submitted = st.form_submit_button("Submit")
-    
+
 
 if submitted:
-    with st.spinner('Please wait: Generating shortest route'):
+    with st.spinner("Please wait: Generating shortest route"):
         map, dataframe = msr(filtered_df, target_address, network_type)
         msr_map = folium_static(map, width=700, height=450)
         st.write(dataframe)

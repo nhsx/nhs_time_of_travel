@@ -15,6 +15,7 @@ import pandas as pd
 
 from nhstravel.loaders import gploader
 
+
 class GpRegion:
     """Class GpRegion for loading a set of GP practice locations and handling their local geographical area.
 
@@ -53,7 +54,7 @@ class GpRegion:
 
     @classmethod
     def _from_df(cls, df):
-        """ Construct a region with multiple GP practices from a dataframe.
+        """Construct a region with multiple GP practices from a dataframe.
 
         :param df: the dataframe which must have the columns:
                    'Name': the name of the practice
@@ -61,17 +62,25 @@ class GpRegion:
                    'longitude': the longitude of the practice
         """
         # filter any practice without a location
-        mydf = df[['Name', 'Postcode', 'latitude', 'longitude', 'National Grouping', 'High Level Health Geography']]
-        mydf = mydf[pd.notnull(mydf['latitude'])].copy()
+        mydf = df[
+            [
+                "Name",
+                "Postcode",
+                "latitude",
+                "longitude",
+                "National Grouping",
+                "High Level Health Geography",
+            ]
+        ]
+        mydf = mydf[pd.notnull(mydf["latitude"])].copy()
         # fill in the location as a shapely point
-        mydf['point'] = mydf.apply(_row_to_point, axis=1)
+        mydf["point"] = mydf.apply(_row_to_point, axis=1)
         # Get a set of deduplicated point tuples (as tuples as Point doesn't hash)
-        points = {(p.x, p.y) for p in mydf.dropna()['point']}
+        points = {(p.x, p.y) for p in mydf.dropna()["point"]}
         return cls(mydf, shapely.ops.triangulate(MultiPoint(list(points))))
 
     def get_df(self) -> pd.DataFrame:
-        """Gets the internal GP practice dataframe.
-        """
+        """Gets the internal GP practice dataframe."""
         return self._df
 
     def find_practices(self, name_substring: str) -> pd.DataFrame:
@@ -81,17 +90,17 @@ class GpRegion:
 
         :return: a pandas dataframe with just the rows for matching GP practices
         """
-        return self._df[self._df['Name'].str.contains(name_substring.upper())]
+        return self._df[self._df["Name"].str.contains(name_substring.upper())]
 
     def find_practices_postcode_prefix(self, postcode_prefix: str) -> pd.DataFrame:
         """Finds all gp practices with a postcode that starts with a given prefix.
 
         :return: a pandas dataframe with just the rows for matching GP practices
         """
-        return self._df[self._df['Postcode'].str.startswith(postcode_prefix.upper())]
+        return self._df[self._df["Postcode"].str.startswith(postcode_prefix.upper())]
 
     def get_practice_area(self, index) -> GpArea:
-        """ Gets a local catchment area of a GP defined by a polygon out to all the surrounding GP practices.
+        """Gets a local catchment area of a GP defined by a polygon out to all the surrounding GP practices.
 
         Note that this means "catchment areas" overlap - any given location will be in the catchment area of all
         three surrounding GP practice areas in the Delaunay triangulation.
@@ -99,7 +108,7 @@ class GpRegion:
         :param index: the index label for the practice in the dataframe, used for lookup with .loc
         :return: a shapely Polygon for the catchment area
         """
-        location: Point = self._df.loc[index]['point']
+        location: Point = self._df.loc[index]["point"]
         area: Polygon = _find_loop(location, self._triangulation)
         return GpArea(area, self._df.loc[index])
 
@@ -114,7 +123,9 @@ class GpRegion:
                 subtriangulation.append(triangle)
                 for coord in list(triangle.exterior.coords)[0:3]:
                     locations.add((coord[0], coord[1]))
-        subdf = self._df.loc[self._df['point'].apply(lambda p: (p.x, p.y)).isin(locations)]
+        subdf = self._df.loc[
+            self._df["point"].apply(lambda p: (p.x, p.y)).isin(locations)
+        ]
         return GpRegion(subdf, subtriangulation)
 
     def get_subregion_by_filter(self, filter: pd.core.series.Series):
@@ -130,7 +141,7 @@ class GpRegion:
         :param filter a pandas Series that can be used to index _df
         """
         sub_df = self._df.loc[filter]
-        locations = set([(p.x, p.y) for p in sub_df['point'].tolist()])
+        locations = set([(p.x, p.y) for p in sub_df["point"].tolist()])
         sub_tr = []
         for triangle in self._triangulation:
             for coord in list(triangle.exterior.coords)[0:3]:
@@ -147,8 +158,13 @@ class GpRegion:
             gpd.GeoSeries([poly]).plot(ax=ax, ec="black", color="None")
         gpd.GeoDataFrame(self._df, geometry="point").plot(ax=ax, color="green")
 
-    def calculate_walking_distance_polys(self, triangle: Polygon, travel_speed_kmh=4.5, radius_minutes=5.0,
-                                         graph: networkx.MultiDiGraph = None):
+    def calculate_walking_distance_polys(
+        self,
+        triangle: Polygon,
+        travel_speed_kmh=4.5,
+        radius_minutes=5.0,
+        graph: networkx.MultiDiGraph = None,
+    ):
         """
         :param triangle: the triangle within this region to calculate the polys for
         :param travel_speed_kmh: the assumed walking speed in km/h
@@ -168,7 +184,11 @@ class GpRegion:
         bucket_distance_m: float = 1000 * travel_speed_kmh * radius_minutes / 60.0
         small: bool = True
         for i in range(3):
-            side_length = haversine(triangle.exterior.coords[i], triangle.exterior.coords[i + 1], unit=Unit.METERS)
+            side_length = haversine(
+                triangle.exterior.coords[i],
+                triangle.exterior.coords[i + 1],
+                unit=Unit.METERS,
+            )
             if side_length > bucket_distance_m:
                 small = False
                 break
@@ -178,9 +198,13 @@ class GpRegion:
         surrounding_poly = self._polygon_surrounding_triangle(triangle)
         # Load the osm_graph for the area surrounding the triangle
         if graph is not None:
-            osmgraph = osmnx.graph_from_polygon(polygon=surrounding_poly, simplify=True, network_type="walk")
+            osmgraph = osmnx.graph_from_polygon(
+                polygon=surrounding_poly, simplify=True, network_type="walk"
+            )
         else:
-            osmgraph = osmnx.truncate.truncate_graph_polygon(graph, surrounding_poly, retain_all=True)
+            osmgraph = osmnx.truncate.truncate_graph_polygon(
+                graph, surrounding_poly, retain_all=True
+            )
         corner_a, corner_b, corner_c, ignored = triangle.exterior.coords
         # This could be optimized by only looking at nodes within the triangle
         # networkx does not support this, but it wouldn't be hard to code - just a BFS
@@ -191,16 +215,29 @@ class GpRegion:
 
         # for each node, build a dataframe with the index, a Point, the distance to the GP surgery, and which
         # bucket it is in
-        node_data = pd.DataFrame([
-            {
-                'node_index': u,
-                'point': Point(node['x'], node['y']),
-                'dist': min([node_distances_a[u], node_distances_b[u], node_distances_c[u]]),
-                'bucket_dist': math.floor(
-                    min([node_distances_a[u], node_distances_b[u], node_distances_c[u]]) / bucket_distance_m),
-            }
-            for u, node in osmgraph.nodes(data=True) if triangle.contains(Point(node['x'], node['y']))
-        ])
+        node_data = pd.DataFrame(
+            [
+                {
+                    "node_index": u,
+                    "point": Point(node["x"], node["y"]),
+                    "dist": min(
+                        [node_distances_a[u], node_distances_b[u], node_distances_c[u]]
+                    ),
+                    "bucket_dist": math.floor(
+                        min(
+                            [
+                                node_distances_a[u],
+                                node_distances_b[u],
+                                node_distances_c[u],
+                            ]
+                        )
+                        / bucket_distance_m
+                    ),
+                }
+                for u, node in osmgraph.nodes(data=True)
+                if triangle.contains(Point(node["x"], node["y"]))
+            ]
+        )
         if len(node_data.index) == 0:
             # If we have no points, then assume a single triangle. Not perfect, maybe revisit
             return _single_bucket_polygon(triangle, 0)
@@ -218,8 +255,8 @@ class GpRegion:
 
 
 class GpArea:
-    """Class encapsulating the local area around a GP practice
-    """
+    """Class encapsulating the local area around a GP practice"""
+
     area: Polygon
     row: pd.DataFrame  # a dataframe with a single row representing this practice
 
@@ -228,14 +265,17 @@ class GpArea:
         self.row = row
 
     def location(self) -> Point:
-        return self.row['point']
+        return self.row["point"]
 
     def osm_graph(self) -> networkx.classes.multidigraph.MultiDiGraph:
-        """ Load the osmnx open streetmap graph for this area.
-        """
-        return osmnx.graph_from_polygon(polygon=self.area, simplify=True, network_type="walk")
+        """Load the osmnx open streetmap graph for this area."""
+        return osmnx.graph_from_polygon(
+            polygon=self.area, simplify=True, network_type="walk"
+        )
 
-    def calculate_walking_distance_polys(self, osmgraph, travel_speed_kmh=4.5, radius_minutes=5.0):
+    def calculate_walking_distance_polys(
+        self, osmgraph, travel_speed_kmh=4.5, radius_minutes=5.0
+    ):
         """
 
         :param travel_speed_kmh: the assumed walking speed in km/h
@@ -246,41 +286,53 @@ class GpArea:
            mp a MultiPolygon of areas that are the distance away for that bucket
            area as for mp, but could be a Polygon for areas which are only one polygon
         """
-        location = self.row['point']
+        location = self.row["point"]
         node_distances = _get_all_node_distances(osmgraph, (location.x, location.y))
         bucket_distance_m: float = 1000 * travel_speed_kmh * radius_minutes / 60.0
 
         # for each node, build a dataframe with the index, a Point, the distance to the GP surgery, and which
         # bucket it is in
-        node_data = pd.DataFrame([
-            {
-                'node_index': u,
-                'point': Point(node['x'], node['y']),
-                'dist': node_distances[u],
-                'bucket_dist': math.floor(node_distances[u] / bucket_distance_m),
-            }
-            for u, node in osmgraph.nodes(data=True) if self.area.contains(Point(node['x'], node['y']))
-        ])
+        node_data = pd.DataFrame(
+            [
+                {
+                    "node_index": u,
+                    "point": Point(node["x"], node["y"]),
+                    "dist": node_distances[u],
+                    "bucket_dist": math.floor(node_distances[u] / bucket_distance_m),
+                }
+                for u, node in osmgraph.nodes(data=True)
+                if self.area.contains(Point(node["x"], node["y"]))
+            ]
+        )
         return _join_distances_to_polygons(node_data, self.area)
 
     def pretty_plot(self):
-        blue = '#6699cc'
-        grey = '#999999'
-        green = '#339933'
+        blue = "#6699cc"
+        grey = "#999999"
+        green = "#339933"
         fig = pyplot.figure(1, dpi=90)
         ax = fig.add_subplot(121)
         polygon = self.area
         exterior_x, exterior_y = polygon.exterior.xy
         ax.plot(exterior_x, exterior_y, color=grey, zorder=1, alpha=1)
-        patch = PolygonPatch(polygon, facecolor=blue, edgecolor=blue, alpha=0.5, zorder=2)
+        patch = PolygonPatch(
+            polygon, facecolor=blue, edgecolor=blue, alpha=0.5, zorder=2
+        )
         ax.add_patch(patch)
         location = self.location()
-        ax.plot(location.x, location.y, 'o', color=green, zorder=1, alpha=1)
-        for (x, y) in polygon.exterior.coords:
-            ax.plot([location.x, x], [location.y, y], linestyle='dashed', zorder=1, color=grey)
+        ax.plot(location.x, location.y, "o", color=green, zorder=1, alpha=1)
+        for x, y in polygon.exterior.coords:
+            ax.plot(
+                [location.x, x],
+                [location.y, y],
+                linestyle="dashed",
+                zorder=1,
+                color=grey,
+            )
+
 
 def _to_triangles(point: Point, triangulation: list[Polygon]):
-    """ Get all the triangles with a corner of a particular point
+    """Get all the triangles with a corner of a particular point
 
     :param point: a point which should be a corner of some triangles
     :param triangulation: the list of all triangles
@@ -296,7 +348,13 @@ def _to_triangles(point: Point, triangulation: list[Polygon]):
         if p in coords:
             for j in range(len(coords)):
                 if coords[j] == p:
-                    result.append((p, coords[(j - 1) % len(coords)], coords[(j + 1) % len(coords)]))
+                    result.append(
+                        (
+                            p,
+                            coords[(j - 1) % len(coords)],
+                            coords[(j + 1) % len(coords)],
+                        )
+                    )
                     break
     return result
 
@@ -323,12 +381,14 @@ def _find_loop(point: Point, triangulation: list[Polygon]):
 
 
 def _row_to_point(row):
-    return Point(row['longitude'], row['latitude'])
+    return Point(row["longitude"], row["latitude"])
 
 
 def _get_all_node_distances(osmgraph, point) -> dict[int, float]:
     node: int = osmnx.distance.nearest_nodes(osmgraph, point[0], point[1])
-    node_distances: dict[int, float] = networkx.shortest_path_length(osmgraph, target=node, weight='length')
+    node_distances: dict[int, float] = networkx.shortest_path_length(
+        osmgraph, target=node, weight="length"
+    )
     return node_distances
 
 
@@ -339,22 +399,25 @@ def _join_distances_to_polygons(node_data, limit: Polygon):
         return _single_bucket_polygon(limit, unique_buckets[0])
 
     # Calculate the little voronoi area around each node
-    voronoi = shapely.ops.voronoi_diagram(MultiPoint(node_data['point'].values))
+    voronoi = shapely.ops.voronoi_diagram(MultiPoint(node_data["point"].values))
     # trim it so they add up to the original area
     trimmed = [poly.intersection(limit) for poly in voronoi.geoms]
     # Unfortunately voronoi does not keep the output ordering. So we have to (inefficiently)
     # iterate over the nodes to re-order
     diagram = STRtree(trimmed)
-    ordered = [diagram.nearest(point) for point in node_data['point']]
-    node_data['area'] = ordered
-    geovoronoi = gpd.GeoDataFrame(node_data, geometry='area')
+    ordered = [diagram.nearest(point) for point in node_data["point"]]
+    node_data["area"] = ordered
+    geovoronoi = gpd.GeoDataFrame(node_data, geometry="area")
     # dissolve them down to grouped polygons
-    result = geovoronoi[['bucket_dist', 'area']].dissolve(by='bucket_dist')
+    result = geovoronoi[["bucket_dist", "area"]].dissolve(by="bucket_dist")
     # Unfortunately geovoronoi isn't consistent about whether it returns MultiPolygons or Polygons,
     # so normalize to MultiPolygons
     result = result.assign(
-        mp=result['area'].apply(lambda p: p if isinstance(p, MultiPolygon) else MultiPolygon([p])))
-    result.set_geometry('mp')
+        mp=result["area"].apply(
+            lambda p: p if isinstance(p, MultiPolygon) else MultiPolygon([p])
+        )
+    )
+    result.set_geometry("mp")
     return result
 
 
@@ -362,7 +425,7 @@ def _single_bucket_polygon(poly, bucket_dist):
     # if you aren't careful, DataFrame is too clever, and unwraps a MultiPolygon to a Polygon
     # so construct with columns, then fill with loc
     mp = MultiPolygon([poly])
-    data = pd.DataFrame([{'area': poly, 'mp': mp}])
-    data.index.name = 'bucket_dist'
-    result = gpd.GeoDataFrame(data, geometry='mp')
+    data = pd.DataFrame([{"area": poly, "mp": mp}])
+    data.index.name = "bucket_dist"
+    result = gpd.GeoDataFrame(data, geometry="mp")
     return result

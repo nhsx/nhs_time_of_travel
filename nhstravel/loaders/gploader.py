@@ -1,11 +1,16 @@
 import pandas as pd
 
 
-def load(gp_data_path='data/gp_data.csv'):
+def load(gp_data_path="data/gp_data.csv"):
     return pd.read_csv(gp_data_path)
 
 
-def load_england(gp_data_path='data/gp_data.csv', only_england_grouping=True, only_gp=True, only_active=True):
+def load_england(
+    gp_data_path="data/gp_data.csv",
+    only_england_grouping=True,
+    only_gp=True,
+    only_active=True,
+):
     """
     Load data for all GP services in England. Some default filters are applied to remove
     likely unwanted data, but these can be configured
@@ -20,9 +25,13 @@ def load_england(gp_data_path='data/gp_data.csv', only_england_grouping=True, on
     """
     df = pd.read_csv(gp_data_path)
     if only_england_grouping:
-        df = df[df['National Grouping'].isin(['Y63', 'Y62', 'Y60', 'Y61', 'Y56', 'Y59', 'Y58'])]
+        df = df[
+            df["National Grouping"].isin(
+                ["Y63", "Y62", "Y60", "Y61", "Y56", "Y59", "Y58"]
+            )
+        ]
     if only_gp:
-        df = df[df['Prescribing Setting'].isin([1, 2, 3, 4])]
+        df = df[df["Prescribing Setting"].isin([1, 2, 3, 4])]
     if only_active:
-        df = df[df['Status Code'].isin(['A'])]
+        df = df[df["Status Code"].isin(["A"])]
     return df

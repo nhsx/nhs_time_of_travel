@@ -20,12 +20,14 @@ svg = """
           </svg>
 """
 
+
 # render svg image
 def render_svg(svg):
     """Renders the given svg string."""
     b64 = base64.b64encode(svg.encode("utf-8")).decode("utf-8")
     html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
     st.write(html, unsafe_allow_html=True)
+
 
 render_svg(svg)
 
@@ -38,7 +40,7 @@ st.markdown(
 )
 st.sidebar.title("About")
 st.sidebar.info(
-"""
+    """
 Developed by: NHS England
 
 GitHub repository: <https://github.com/nhs-pycom/nhs_time_of_travel>

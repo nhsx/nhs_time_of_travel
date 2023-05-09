@@ -7,23 +7,28 @@ from pandas import DataFrame
 import os
 
 # LSOA data set locations
-data_path = os.path.dirname(__file__) + '/../../data'
-lsoa_definitions_data_path  = data_path+'/lower_layer_super_output_areas_december_2021.csv'
-lsoa_population_data_path   = data_path+'/lsoa_global_number_residents_2021.csv'
-lsoa_postcode_map_data_path = data_path+'/pcd_lsoa21cd_nov22_en.csv'
+data_path = os.path.dirname(__file__) + "/../../data"
+lsoa_definitions_data_path = (
+    data_path + "/lower_layer_super_output_areas_december_2021.csv"
+)
+lsoa_population_data_path = data_path + "/lsoa_global_number_residents_2021.csv"
+lsoa_postcode_map_data_path = data_path + "/pcd_lsoa21cd_nov22_en.csv"
+
 
 class LsoaLoader:
-    def __init__(self,
-                 definitions_data_path: str = None,
-                 population_data_path: str = None,
-                 defs_object_id_col_number: int = 0,
-                 defs_code_col_number: int = 1,
-                 defs_name_col_number: int = 2,
-                 defs_global_id_col_number: int = 3,
-                 population_skip_rows: int = 9,
-                 population_code_col_number: int = 1,
-                 population_name_col_number: int = 0,
-                 population_population_col_number: int = 2):
+    def __init__(
+        self,
+        definitions_data_path: str = None,
+        population_data_path: str = None,
+        defs_object_id_col_number: int = 0,
+        defs_code_col_number: int = 1,
+        defs_name_col_number: int = 2,
+        defs_global_id_col_number: int = 3,
+        population_skip_rows: int = 9,
+        population_code_col_number: int = 1,
+        population_name_col_number: int = 0,
+        population_population_col_number: int = 2,
+    ):
         """
         Create a loader which will load data about LSOAs from commonly provided CSV formats.
         Args:
@@ -40,15 +45,19 @@ class LsoaLoader:
             population_name_col_number: Column number in the CSV containing LSOA name
             population_population_col_number: Column number in the CSV containing the population estimates
         """
-        data_path = os.path.dirname(__file__) + '/../../data'
+        data_path = os.path.dirname(__file__) + "/../../data"
         if definitions_data_path is not None:
             self.definitions_data_path = definitions_data_path
         else:
-            self.definitions_data_path = data_path + '/lower_layer_super_output_areas_december_2021.csv'
+            self.definitions_data_path = (
+                data_path + "/lower_layer_super_output_areas_december_2021.csv"
+            )
         if population_data_path is not None:
             self.population_data_path = population_data_path
         else:
-            self.population_data_path = data_path + '/lsoa_global_number_residents_2021.csv'
+            self.population_data_path = (
+                data_path + "/lsoa_global_number_residents_2021.csv"
+            )
         # LSO data column indices from the definition file
         self.defs_object_id_col_number = defs_object_id_col_number
         self.defs_code_col_number = defs_code_col_number
@@ -60,10 +69,10 @@ class LsoaLoader:
         self.population_name_col_number = population_name_col_number
         self.population_population_col_number = population_population_col_number
         # LSOA data column names in population file
-        self.lsoa_object_id_col = 'OBJECTID'
-        self.lsoa_code_col = 'LSOA21CD'
-        self.lsoa_name_col = 'LSOA21NM'
-        self.lsoa_population_col = 'all ages'
+        self.lsoa_object_id_col = "OBJECTID"
+        self.lsoa_code_col = "LSOA21CD"
+        self.lsoa_name_col = "LSOA21NM"
+        self.lsoa_population_col = "all ages"
 
     def read_lsoa_objects_england(self) -> TextFileReader:
         """
@@ -80,8 +89,10 @@ class LsoaLoader:
                 self.defs_object_id_col_number,
                 self.defs_code_col_number,
                 self.defs_name_col_number,
-                self.defs_global_id_col_number],
-            dtype='string')
+                self.defs_global_id_col_number,
+            ],
+            dtype="string",
+        )
         return global_lsoa_pd
 
     def read_lsoa_population_estimates_england(self) -> TextFileReader:
@@ -101,18 +112,15 @@ class LsoaLoader:
                 self.population_name_col_number,
                 self.population_population_col_number,
             ],
-            names=[
-                self.lsoa_name_col,
-                self.lsoa_code_col,
-                self.lsoa_population_col
-            ],
-            dtype='string')
+            names=[self.lsoa_name_col, self.lsoa_code_col, self.lsoa_population_col],
+            dtype="string",
+        )
 
         return global_lsoa_population_estimates_2021_pd
 
-    def load_lsoa_objects_for_area_england(self,
-                                           area: str,
-                                           global_lsoa: TextFileReader = None) -> DataFrame:
+    def load_lsoa_objects_for_area_england(
+        self, area: str, global_lsoa: TextFileReader = None
+    ) -> DataFrame:
         """
         Loads LSOA object for england and returning data frame containing only LSOAs
         for the passed area.
@@ -130,16 +138,19 @@ class LsoaLoader:
             global_lsoa = self.read_lsoa_objects_england()
 
         area_lsoa_pd = DataFrame(
-            global_lsoa[global_lsoa[self.lsoa_name_col].str.contains(area)])
+            global_lsoa[global_lsoa[self.lsoa_name_col].str.contains(area)]
+        )
         area_lsoa_pd.reset_index(drop=True, inplace=True)
-        area_lsoa_pd[self.lsoa_object_id_col] = area_lsoa_pd[self.lsoa_object_id_col].astype(int)
+        area_lsoa_pd[self.lsoa_object_id_col] = area_lsoa_pd[
+            self.lsoa_object_id_col
+        ].astype(int)
         area_lsoa_pd[self.lsoa_code_col] = area_lsoa_pd[self.lsoa_code_col].astype(str)
 
         return area_lsoa_pd
 
-    def load_lsoa_population_estimates_england(self,
-                                               area: str,
-                                               global_lsoa_population_estimates: TextFileReader = None) -> DataFrame:
+    def load_lsoa_population_estimates_england(
+        self, area: str, global_lsoa_population_estimates: TextFileReader = None
+    ) -> DataFrame:
         """
         Loads the LSOA population estimates for area in England.
 
@@ -154,13 +165,21 @@ class LsoaLoader:
             Pandas dataframe with loaded LSOAs and population
         """
         if global_lsoa_population_estimates is None:
-            global_lsoa_population_estimates = self.read_lsoa_population_estimates_england()
+            global_lsoa_population_estimates = (
+                self.read_lsoa_population_estimates_england()
+            )
 
         lsoa_population_estimates_pd = DataFrame(
-            global_lsoa_population_estimates[global_lsoa_population_estimates[self.lsoa_name_col].str.contains(area)])
+            global_lsoa_population_estimates[
+                global_lsoa_population_estimates[self.lsoa_name_col].str.contains(area)
+            ]
+        )
         lsoa_population_estimates_pd.reset_index(drop=True, inplace=True)
-        lsoa_population_estimates_pd[self.lsoa_population_col] = lsoa_population_estimates_pd[
-            self.lsoa_population_col].str.replace(',', '').astype(int)
+        lsoa_population_estimates_pd[self.lsoa_population_col] = (
+            lsoa_population_estimates_pd[self.lsoa_population_col]
+            .str.replace(",", "")
+            .astype(int)
+        )
 
         return lsoa_population_estimates_pd
 
@@ -187,14 +206,17 @@ class LsoaLoader:
             lsoa_df,
             lsoa_population_df,
             left_on=self.lsoa_code_col,
-            right_on=self.lsoa_code_col)
-        lsoa_with_population_pd[self.lsoa_object_id_col] = lsoa_with_population_pd[self.lsoa_object_id_col].astype(str)
+            right_on=self.lsoa_code_col,
+        )
+        lsoa_with_population_pd[self.lsoa_object_id_col] = lsoa_with_population_pd[
+            self.lsoa_object_id_col
+        ].astype(str)
 
         return lsoa_with_population_pd
 
-    def load_geo_json_shapefiles_for_lsoas(self,
-                                           lsoas: DataFrame,
-                                           area: str = None) -> dict:
+    def load_geo_json_shapefiles_for_lsoas(
+        self, lsoas: DataFrame, area: str = None
+    ) -> dict:
         """
         Loads geojson shape files for provided lsoas.
 
@@ -229,7 +251,9 @@ class LsoaLoader:
             lsoa_shapefile_r = urllib.request.urlopen(geo_json_url_link)
             lsoa_shapefile_all = geojson.loads(lsoa_shapefile_r.read())
             if lsoa_shapefile is not None:
-                lsoa_shapefile['features'] = lsoa_shapefile_all['features'] + lsoa_shapefile['features']
+                lsoa_shapefile["features"] = (
+                    lsoa_shapefile_all["features"] + lsoa_shapefile["features"]
+                )
             else:
                 lsoa_shapefile = lsoa_shapefile_all
 
@@ -240,22 +264,25 @@ class LsoaLoader:
 
         # Filter LSOAs from area only
         # Loading by OBJECTID could bring additional objects not in the area
-        remapped_lsoa['features'] = []
-        for feature in lsoa_shapefile['features']:
-            row_json = lsoas.loc[lsoas[self.lsoa_code_col] == feature['properties'][self.lsoa_code_col]].to_dict(
-                orient="records")
+        remapped_lsoa["features"] = []
+        for feature in lsoa_shapefile["features"]:
+            row_json = lsoas.loc[
+                lsoas[self.lsoa_code_col] == feature["properties"][self.lsoa_code_col]
+            ].to_dict(orient="records")
             if len(row_json):
-                feature['properties'] = {**feature['properties'], **row_json[0]}
-                remapped_lsoa['features'].append(copy.deepcopy(feature))
+                feature["properties"] = {**feature["properties"], **row_json[0]}
+                remapped_lsoa["features"].append(copy.deepcopy(feature))
 
         return remapped_lsoa
 
 
-def read_lsoa_objects_england(lsoa_data_path: str = None,
-                              object_id_col_number: int = 0,
-                              lsoa_code_col_number: int = 1,
-                              lsoa_name_col_number: int = 2,
-                              lsoa_global_id_col_number: int = 3) -> TextFileReader:
+def read_lsoa_objects_england(
+    lsoa_data_path: str = None,
+    object_id_col_number: int = 0,
+    lsoa_code_col_number: int = 1,
+    lsoa_name_col_number: int = 2,
+    lsoa_global_id_col_number: int = 3,
+) -> TextFileReader:
     """
     Reads the CSV file with lsoa data definitions.
 
@@ -275,18 +302,22 @@ def read_lsoa_objects_england(lsoa_data_path: str = None,
         Text file reader object which can be passed to pandas to create data frame
         or can be manipulated directly.
     """
-    return LsoaLoader(definitions_data_path=lsoa_data_path,
-                      defs_object_id_col_number=object_id_col_number,
-                      defs_code_col_number=lsoa_code_col_number,
-                      defs_name_col_number=lsoa_name_col_number,
-                      defs_global_id_col_number=lsoa_global_id_col_number).read_lsoa_objects_england()
+    return LsoaLoader(
+        definitions_data_path=lsoa_data_path,
+        defs_object_id_col_number=object_id_col_number,
+        defs_code_col_number=lsoa_code_col_number,
+        defs_name_col_number=lsoa_name_col_number,
+        defs_global_id_col_number=lsoa_global_id_col_number,
+    ).read_lsoa_objects_england()
 
 
-def read_lsoa_population_estimates_england(lsoa_data_path: str = None,
-                                           skip_rows: int = 9,
-                                           lsoa_code_col_number: int = 1,
-                                           lsoa_name_col_number: int = 0,
-                                           lsoa_population_col_number: int = 2) -> TextFileReader:
+def read_lsoa_population_estimates_england(
+    lsoa_data_path: str = None,
+    skip_rows: int = 9,
+    lsoa_code_col_number: int = 1,
+    lsoa_name_col_number: int = 0,
+    lsoa_population_col_number: int = 2,
+) -> TextFileReader:
     """
     Read the CSV file with population figures from each LSOA.
 
@@ -306,16 +337,19 @@ def read_lsoa_population_estimates_england(lsoa_data_path: str = None,
         Text file reader object with can be passed to pandas to create data frame
         or can be manipulated directly
     """
-    loader = LsoaLoader(population_data_path=lsoa_data_path,
-                        population_skip_rows=skip_rows,
-                        population_code_col_number=lsoa_code_col_number,
-                        population_name_col_number=lsoa_name_col_number,
-                        population_population_col_number=lsoa_population_col_number)
+    loader = LsoaLoader(
+        population_data_path=lsoa_data_path,
+        population_skip_rows=skip_rows,
+        population_code_col_number=lsoa_code_col_number,
+        population_name_col_number=lsoa_name_col_number,
+        population_population_col_number=lsoa_population_col_number,
+    )
     return loader.read_lsoa_population_estimates_england()
 
 
-def load_lsoa_objects_for_area_england(area: str,
-                                       global_lsoa: TextFileReader = None) -> DataFrame:
+def load_lsoa_objects_for_area_england(
+    area: str, global_lsoa: TextFileReader = None
+) -> DataFrame:
     """
     Loads lsoa object for england and returning data frame containing only LSOAs
     for the passed area.
@@ -329,21 +363,27 @@ def load_lsoa_objects_for_area_england(area: str,
     Returns:
         Pandas dataframe with loaded LSOAs
     """
-    return LsoaLoader().load_lsoa_objects_for_area_england(area=area, global_lsoa=global_lsoa)
+    return LsoaLoader().load_lsoa_objects_for_area_england(
+        area=area, global_lsoa=global_lsoa
+    )
 
 
-postcode_col = 'POSTCODE'
+postcode_col = "POSTCODE"
 lsoa_name_col = 2
 lsoa_code_col = 1
-def load_lsoa_objects_for_postcode_england(postcode:str,
-                                           global_lsoa:TextFileReader = None,
-                                           lsoa_postcode_map_file_path:str = lsoa_postcode_map_data_path,
-                                           postcode_col_number:int = 0,
-                                           lsoa_code_col_number:int = 1) -> DataFrame:
+
+
+def load_lsoa_objects_for_postcode_england(
+    postcode: str,
+    global_lsoa: TextFileReader = None,
+    lsoa_postcode_map_file_path: str = lsoa_postcode_map_data_path,
+    postcode_col_number: int = 0,
+    lsoa_code_col_number: int = 1,
+) -> DataFrame:
     """
     Loads lsoa based on specified postcode. Provided postcode is used as indicator for LSOAs
-    names to be loaded. For example, if postcode belongs to Cambridge LSOAs, this function 
-    will load all Cambridge LSOAs. The usage is to provide postcode of medical facility and 
+    names to be loaded. For example, if postcode belongs to Cambridge LSOAs, this function
+    will load all Cambridge LSOAs. The usage is to provide postcode of medical facility and
     all surrounding LSOAs for this medical facility will be loaded.
     Parameters
     postcode:
@@ -364,35 +404,33 @@ def load_lsoa_objects_for_postcode_england(postcode:str,
 
     postcodes_map_df = pd.read_csv(
         lsoa_postcode_map_file_path,
-        header=0, 
-        usecols=[
-            postcode_col_number,
-            lsoa_code_col_number
-        ], 
-        names=[
-            postcode_col,
-            lsoa_code_col
-            ], 
-    dtype='string')
-    postcodes_map_df = postcodes_map_df[postcodes_map_df[postcode_col].str.contains(postcode)]
+        header=0,
+        usecols=[postcode_col_number, lsoa_code_col_number],
+        names=[postcode_col, lsoa_code_col],
+        dtype="string",
+    )
+    postcodes_map_df = postcodes_map_df[
+        postcodes_map_df[postcode_col].str.contains(postcode)
+    ]
     postcodes_map_df.reset_index(drop=True, inplace=True)
     if postcodes_map_df.shape[0] == 0:
-        raise ValueError(f'No postcode {postcode} found in the mapping file')
+        raise ValueError(f"No postcode {postcode} found in the mapping file")
 
     lsoa_code = postcodes_map_df.at[0, lsoa_code_col]
     lsoa_name_df = global_lsoa[global_lsoa[lsoa_code_col].str.contains(lsoa_code)]
     lsoa_name_df.reset_index(drop=True, inplace=True)
 
     if lsoa_name_df.shape[0] == 0:
-        raise ValueError(f'No lsoa with code {lsoa_code} found in global lsoas file')
-    
-    lsoa_name = lsoa_name_df.at[0, lsoa_name_col]
-    lsoa_area = ''.join(lsoa_name.split()[:-1])
-    return load_lsoa_objects_for_area_england(lsoa_area, global_lsoa)
-    
+        raise ValueError(f"No lsoa with code {lsoa_code} found in global lsoas file")
 
-def load_lsoa_population_estimates_england(area:str, 
-                                           global_lsoa_population_estimates:TextFileReader = None) -> DataFrame:
+    lsoa_name = lsoa_name_df.at[0, lsoa_name_col]
+    lsoa_area = "".join(lsoa_name.split()[:-1])
+    return load_lsoa_objects_for_area_england(lsoa_area, global_lsoa)
+
+
+def load_lsoa_population_estimates_england(
+    area: str, global_lsoa_population_estimates: TextFileReader = None
+) -> DataFrame:
     """
     Loads the LSOA population estimates for area in England.
 
@@ -409,8 +447,9 @@ def load_lsoa_population_estimates_england(area:str,
         Pandas dataframe with loaded LSOAs and population
     """
     loader = LsoaLoader()
-    return loader.load_lsoa_population_estimates_england(area=area,
-                                                         global_lsoa_population_estimates=global_lsoa_population_estimates)
+    return loader.load_lsoa_population_estimates_england(
+        area=area, global_lsoa_population_estimates=global_lsoa_population_estimates
+    )
 
 
 def build_lsoa_data_frame_for_area_england(area: str) -> DataFrame:
@@ -430,8 +469,7 @@ def build_lsoa_data_frame_for_area_england(area: str) -> DataFrame:
     return LsoaLoader().build_lsoa_data_frame_for_area_england(area=area)
 
 
-def load_geo_json_shapefiles_for_lsoas(lsoas: DataFrame,
-                                       area: str = None) -> dict:
+def load_geo_json_shapefiles_for_lsoas(lsoas: DataFrame, area: str = None) -> dict:
     """
     Loads geojson shape files for provided LSOAs
 

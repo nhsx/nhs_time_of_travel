@@ -7,11 +7,7 @@ from scripts.mclp_functions import *
 import base64
 from functions.sidebar import sidebar as sidebar
 
-st.set_page_config(
-    page_title="Hello",
-    page_icon="👋",
-    layout="wide"
-)
+st.set_page_config(page_title="Hello", page_icon="👋", layout="wide")
 
 # NHS Logo
 svg = """
@@ -21,12 +17,14 @@ svg = """
           </svg>
 """
 
+
 # render svg image
 def render_svg(svg):
     """Renders the given svg string."""
     b64 = base64.b64encode(svg.encode("utf-8")).decode("utf-8")
     html = r'<img src="data:image/svg+xml;base64,%s"/>' % b64
     st.write(html, unsafe_allow_html=True)
+
 
 render_svg(svg)
 
@@ -37,35 +35,38 @@ df2, fn = sidebar(True)
 df = df2.copy()
 
 
-title = f'Loaded: {fn} data- Expand to preview data:'
+title = f"Loaded: {fn} data- Expand to preview data:"
 
 with st.expander(title, expanded=False):
     st.write(df.head())
 
-region_option = st.selectbox("Enter Town/City or County (or both)",options=df['City'].unique())
-filtered_df = df[(df['City'] == region_option) | (df['County'] == region_option)]
+region_option = st.selectbox(
+    "Enter Town/City or County (or both)", options=df["City"].unique()
+)
+filtered_df = df[(df["City"] == region_option) | (df["County"] == region_option)]
 st.write(filtered_df)
 
 
-with st.form('MCLP_inputs'):
-
+with st.form("MCLP_inputs"):
     list_of_target_addresses_option = st.multiselect(
-        'Select addresses'
-        ,filtered_df['Address']
+        "Select addresses",
+        filtered_df["Address"]
         # , default=None
     )
 
-    search_radius = st.slider('Select search radius (m)', min_value=100, max_value=1000, step=50, value=500)
+    search_radius = st.slider(
+        "Select search radius (m)", min_value=100, max_value=1000, step=50, value=500
+    )
 
     submitted = st.form_submit_button("Submit")
-    
+
 
 if submitted:
-# if list_of_target_addresses_option is not None:
+    # if list_of_target_addresses_option is not None:
 
     pc = []
     for add in list_of_target_addresses_option:
-        pc1 = filtered_df['Postcode'].loc[(filtered_df['Address'] == add)].values[0]
+        pc1 = filtered_df["Postcode"].loc[(filtered_df["Address"] == add)].values[0]
         pc.append(pc1)
 
     # st.write(region_option, list_of_target_addresses_option, pc)

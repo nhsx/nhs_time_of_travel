@@ -10,7 +10,9 @@ from nhstravel.info import NHS_TRAVEL_DESCRIPTION
 
 """
 
-NHS_TRAVEL_DESCRIPTION = "A library to help calculate geographical information for the NHS."
+NHS_TRAVEL_DESCRIPTION = (
+    "A library to help calculate geographical information for the NHS."
+)
 
 
 def description():
