@@ -26,7 +26,7 @@ As the work developed, different areas of the NHS who use geospatial tools becam
 
 ### Built With
 
-[![Python v3.10](https://img.shields.io/badge/python-v3.10-blue.svg)](https://www.python.org/downloads/release/python-310/)
+[![Python v3.10](https://img.shields.io/badge/python-v3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 - [Folium](https://python-visualization.github.io/folium/)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org/)
