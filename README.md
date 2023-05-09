@@ -26,7 +26,7 @@ As the work developed, different areas of the NHS who use geospatial tools becam
 
 ### Built With
 
-[![Python v3.10](https://img.shields.io/badge/python-v3.10-blue.svg)](https://www.python.org/downloads/release/python-310/)
+[![Python v3.10](https://img.shields.io/badge/python-v3.10-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 - [Folium](https://python-visualization.github.io/folium/)
 - [OSMnx](https://osmnx.readthedocs.io/en/stable/)
 - [NetworkX](https://networkx.org/)
@@ -59,7 +59,7 @@ streamlit run streamlit_app.py
 
 ## Instructions to use the Streamlit app once this has been spun up
 
-When the Streamlit app is working, you should see the NHS logo, a train, and 'MedMap - NHS Geospatial Tool', followed by a description of the tool.
+When the Streamlit app is working, you should see the NHS logo, and 'MedMap - NHS Geospatial Tool', followed by a description of the tool.
 On the left is an index, with the 'streamlit app' highlighted. This index allows you to access the pages within the tool. 
 For example if you select 'Route Optimzer', this page will load, and likewise the following two other pages. I'll walk you through how to use each of these now. 
 
@@ -75,8 +75,8 @@ For example if you select 'Route Optimzer', this page will load, and likewise th
 - If you haven't entered a start address, select one from the dropdown. 
 - Once you hit 'Submit', the algorithm will run, and will load the map, the route, ordered markers for each location, and a dataframe underneath the map. This dataframe shows each stage of the route, from and to, the distance for that stage, and the total distance. 
 - You can select a different start address, hit submit, and redo the order and map.
-- Please note two caveats. More than 10 addresses, and the program will be slow. At 10, the numbers of permutations is approximately 3.6 million. At 12, this is 479 million. Additionally the first time you run this map for a large or densely roaded area, such as London, Cornwall, North Yorkshire, Manchester, the map may take a few minutes to run. This is the due the complexity of nodes and edges needed in the required area. The program stores this map as a json file the first time you run it, and the second time and ongoing, the load time will be a lot faster as this json file is used. Please note this does not apply to your data, only the background map, which is called from an api request. Your data will never leave the computer you're using to run this app. 
-- Lastly the solution presented here uses two algorithms, a permutations travelling salesman (tsp) algorithm, and a greedy tsp algorithm, both results are plotted onto a networkx nodes and edges map, and the shorter total distance is taken as the metric for the best route. This is by no means an exhaustive practice, and I'm sure there are better solutions out there, but in the interests of running this on standard computer, laptop, or interface to a TRE, this was the current best solution we could find. If you can suggest something better, please drop us a line and let us know. 
+- Please note two caveats. More than 10 addresses, and the program will be slow. At 10, the numbers of permutations is approximately 3.6 million. At 12, this is 479 million. Additionally the first time you run this map for a large or densely roaded area, such as London, Cornwall, North Yorkshire, Manchester, the map may take a few minutes to run. This is the due the complexity of nodes and edges needed in the required area. The program stores this map as a json file the first time you run it, the map is cached, and the second time and ongoing, the load time will be a lot faster as this json file is used. Please note this does not apply to your data, only the background map, which is called from an api request. Your data will never leave the computer you're using to run this app. 
+- Lastly the solution presented here uses two algorithms, a permutations travelling salesman (tsp) algorithm, and a greedy tsp algorithm, both results are plotted onto a networkx nodes and edges map, and the shorter total distance is taken as the metric for the best route. This is by no means an exhaustive practice, and I'm sure there are better solutions out there, but in the interests of running this on standard computer, laptop, or interface to a TRE, this was the current best solution we could find. If you can suggest something better, please let us know. 
 
 
 ### Multiple Shortest Route page
@@ -103,7 +103,7 @@ Accessible in the 'data' folder, all of these are publicly available, either fro
 
 ### Templates
 
-This is a folder with a template for entering your own addresses. I've left a sample of five care homes here in York. The only necessity here is to enter the format in the columns provided, 'Name', 'Address', 'City', 'County', & 'Postcode'. You will need to follow this format and enter the details as per the examples in the template.
+This is a folder with a template for entering your own addresses. I've left a sample of five care homes here in York. The only necessity here is to enter the format in the columns provided, 'Name' & 'Address'. You will need to follow this format and enter the details as per the examples in the template. 
 The code is set up to read the format, and will geocode the addresses if you follow this format. 
 
 
