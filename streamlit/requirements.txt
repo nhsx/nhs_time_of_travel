@@ -12,7 +12,6 @@ bokeh==2.4.3
 branca==0.6.0
 bs4==0.0.1
 cachetools==5.2.0
-cartopy==0.21.1
 certifi==2022.9.24
 charset-normalizer==2.1.1
 click==8.1.3
