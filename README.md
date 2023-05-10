@@ -8,7 +8,7 @@ This work was led by [Paul Carroll](https://github.com/pauliecarroll), Senior Da
 
 The initial work that led to this project be seen here, [GitHub repository](https://github.com/nhsx/nhs_time_of_travel) contain the initial proof of concept and exploratory analysis for the design of a holistic and interactive mapping tool to support decision-making in health and social care. 
 
-This repository [GitHub repository](https://github.com/nhs-pycom/nhs_time_of_travel) is the repository with the Streamlit Geospatial application that we hope you and the NHS will find useful.
+This repository [GitHub repository](https://github.com/nhs-pycom/nhs_time_of_travel) is the repository with the Streamlit Geospatial application that we hope you will find useful.
 
 The tool is a mapping tool that could support national and regional commissioning strategies by facilitating the placement of new services and the reconfiguration of existing ones. It could also contribute to the NHS agenda for tackling health inequalities by enabling evidence-based decision-making by providing insight on how the availability of health and social care services is influenced by sociodemographic factors.
 
