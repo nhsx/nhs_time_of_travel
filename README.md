@@ -50,7 +50,7 @@ pipenv install -r requirements.txt
 pipenv shell
 ```
 
-This was launch your pip environment with the necessary installations and dependencies. 
+This will launch your pip environment with the necessary installations and dependencies. 
 
 Finally to launch the streamlit app:
 ```bash
