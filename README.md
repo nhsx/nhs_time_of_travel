@@ -1,3 +1,5 @@
+Please see [www.github.com/nhs-pycom/nhs_time_of_travel](https://github.com/nhs-pycom/nhs_time_of_travel) for the streamlit geospatial app. 
+
 ## Travel time to NHS organisations
 
 [![pages-build-deployment](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/nhsx/nhs_time_of_travel/actions/workflows/pages/pages-build-deployment)
